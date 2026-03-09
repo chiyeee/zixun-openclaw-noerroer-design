@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazon FBA Guide 2026: The Ultimate Profit Strategy | Nexscope Blog</title>
-    <meta name="description" content="Learn how to start and scale your Amazon FBA business in 2026. Updated fee structures, AI product research tools, and launch strategies.">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { brand: { 500: '#0066FF', 600: '#0052CC', 700: '#003D99' } }
+                    colors: {
+                        bg: { DEFAULT: '#0B0E14', card: '#151921', hover: '#1E2330' },
+                        brand: { 400: '#38BDF8', 500: '#0EA5E9', 600: '#0284C7', 900: '#0C4A6E' }
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.slate.400'),
+                                h2: { color: theme('colors.white'), fontWeight: '700' },
+                                strong: { color: theme('colors.white') },
+                                a: { color: theme('colors.brand.400') }
+                            }
+                        }
+                    })
                 }
             }
         }
@@ -23,33 +36,40 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "BlogPosting",
       "headline": "Amazon FBA Guide 2026: The Ultimate Profit Strategy",
       "datePublished": "2026-03-09",
-      "author": { "@type": "Person", "name": "A Wu" }
+      "author": {
+          "@type": "Person",
+          "name": "A Wu",
+          "url": "https://nexscope.com/author/a-wu"
+      }
     }
     </script>
 
     <style>
+        body { background-color: #0B0E14; }
         .sticky-toc { position: sticky; top: 100px; max-height: calc(100vh - 120px); overflow-y: auto; }
-        .prose p { margin-bottom: 1.5em; line-height: 1.8; }
-        .prose h2 { margin-top: 2em; margin-bottom: 0.8em; font-size: 1.8rem; font-weight: 800; color: #111827; }
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
+        .sticky-toc::-webkit-scrollbar { width: 4px; }
+        .sticky-toc::-webkit-scrollbar-thumb { background-color: #1e293b; border-radius: 4px; }
+        .prose p { margin-bottom: 1.5em; line-height: 1.8; color: #94a3b8; }
+        .prose h2 { margin-top: 2.5em; margin-bottom: 1em; font-size: 1.875rem; font-weight: 800; color: #ffffff; }
+        .prose ul { margin-bottom: 1.5em; list-style-type: disc; padding-left: 1.5em; color: #94a3b8; }
+        .prose strong { color: #ffffff; }
     </style>
 </head>
-<body class="bg-white text-slate-800 font-sans">
+<body class="bg-bg text-slate-300 font-sans antialiased">
 
     <!-- Nav -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav class="bg-bg/80 backdrop-blur-md border-b border-white/5 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-2">
-                    <span class="text-2xl font-bold text-brand-600">Nexscope</span>
+                    <span class="text-xl font-bold tracking-tight text-white">NexScope</span>
                 </div>
                 <div class="flex items-center space-x-8">
-                    <a href="/blog" class="text-sm font-medium text-brand-600">Blog</a>
-                    <a href="#" class="bg-brand-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-brand-700">Get Started</a>
+                    <a href="/blog" class="text-sm font-medium text-brand-400">Blog</a>
+                    <a href="#" class="text-sm font-bold bg-brand-500 text-white px-5 py-2 rounded-lg">Get Early Access</a>
                 </div>
             </div>
         </div>
@@ -58,102 +78,92 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="flex flex-col lg:flex-row gap-16">
 
-            <!-- LEFT SIDEBAR: TOC -->
+            <!-- LEFT SIDEBAR -->
             <aside class="hidden lg:block w-72 flex-shrink-0">
                 <div class="sticky-toc">
-                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 pl-3">Table of Contents</h4>
-                    <ul class="space-y-1 text-sm border-l border-gray-200">
-                        <li><a href="#intro" class="block py-2 pl-4 border-l-2 border-brand-600 text-brand-600 font-medium">Introduction</a></li>
-                        <li><a href="#profit-calc" class="block py-2 pl-4 border-l-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors">How to Calculate Profit</a></li>
-                        <li><a href="#tools" class="block py-2 pl-4 border-l-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors">Tools Comparison</a></li>
-                        <li><a href="#faq" class="block py-2 pl-4 border-l-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors">FAQ</a></li>
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 pl-3">Table of Contents</h4>
+                    <ul class="space-y-1 text-sm border-l border-white/10 mb-8">
+                        <li><a href="#what-is-fba" class="block py-2 pl-4 border-l-2 border-brand-500 text-brand-400 font-medium bg-brand-500/10">What is Amazon FBA?</a></li>
+                        <li><a href="#key-benefits" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-300">Key Benefits</a></li>
+                        <li><a href="#profit-calc" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-300">How to Calculate Profit</a></li>
+                        <li><a href="#faq" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-300">FAQ</a></li>
                     </ul>
+
+                    <!-- STICKY CTA (New Req) -->
+                    <div class="p-5 bg-bg-card border border-white/10 rounded-xl">
+                        <p class="text-xs font-bold text-brand-400 mb-2 uppercase">Research Tool</p>
+                        <p class="text-sm font-medium mb-4 text-slate-300">Find products in seconds.</p>
+                        <a href="#" class="block w-full text-center bg-brand-500 text-white text-xs font-bold py-3 rounded-lg hover:bg-brand-400 transition-colors">
+                            Try Free →
+                        </a>
+                    </div>
                 </div>
             </aside>
 
-            <!-- ARTICLE CONTENT -->
+            <!-- ARTICLE -->
             <article class="flex-1 max-w-3xl">
                 
-                <!-- Hero -->
-                <header class="mb-10">
-                    <div class="flex items-center gap-3 mb-4 text-sm">
-                        <span class="text-brand-600 font-bold uppercase">Strategy</span>
-                        <span class="text-gray-400">Updated on March 9, 2026</span>
+                <header class="mb-12">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-2.5 py-1 bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-bold rounded-md uppercase">Strategy</span>
+                        <span class="text-slate-500 text-sm">• 15 min read</span>
                     </div>
-                    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-8 leading-tight">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-8 leading-tight">
                         Amazon FBA Guide 2026: The Ultimate Profit Strategy
                     </h1>
-                    <div class="flex items-center gap-4">
-                        <div class="h-12 w-12 rounded-full bg-gray-200"></div> <!-- Author Avatar -->
+                    <div class="flex items-center gap-4 border-t border-b border-white/10 py-6">
+                        <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center font-bold text-white">A</div>
                         <div>
-                            <p class="text-sm font-bold text-gray-900">A Wu</p>
-                            <p class="text-xs text-gray-500">Growth Lead @ Nexscope</p>
+                            <!-- AUTHOR LINK (New Req) -->
+                            <a href="/author/a-wu" class="text-sm font-bold text-white hover:text-brand-400 transition-colors">A Wu</a>
+                            <p class="text-xs text-slate-500">Growth Lead @ Nexscope</p>
                         </div>
                     </div>
                 </header>
 
-                <div class="prose max-w-none text-gray-700 text-lg">
-                    <p id="intro">
-                        Starting an Amazon business has changed. It's no longer just about finding a cheap product. In 2026, it's about data velocity and AI automation.
+                <div class="prose max-w-none">
+                    <p class="lead text-xl text-slate-300 mb-8">
+                        Starting an Amazon business has changed drastically. Here is the data-driven strategy for 2026.
                     </p>
 
-                    <!-- COMPONENT: AD BLOCK (Optional) - Style from BigCommerce Image 2 -->
-                    <!-- This block interrupts the reading flow with a high-value offer -->
-                    <div class="my-12 p-8 bg-gradient-to-r from-blue-50 to-white border border-blue-100 rounded-2xl flex flex-col md:flex-row gap-8 items-center shadow-sm">
-                        <div class="w-full md:w-1/3 bg-blue-100 rounded-lg h-32 flex items-center justify-center text-blue-300">
-                            <!-- Placeholder for Ad Image -->
-                            <span>Ad Image</span>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="text-xl font-bold text-gray-900 mb-2">New: Nexscope connects with OpenClaw</h4>
-                            <p class="text-sm text-gray-600 mb-4">Deploy your own autonomous e-commerce agents in one click.</p>
-                            <a href="#" class="inline-block bg-brand-600 text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-brand-700 transition-colors">
-                                View Integration →
-                            </a>
-                        </div>
+                    <h2 id="what-is-fba">What is Amazon FBA?</h2>
+                    <div class="my-8 bg-brand-900/20 border border-brand-500/30 rounded-xl p-8 border-l-4 border-l-brand-500">
+                        <p class="text-xs font-bold text-brand-400 mb-3 uppercase">Definition</p>
+                        <p class="text-xl font-medium text-white">
+                            <strong>Fulfillment by Amazon (FBA)</strong> is a service where Amazon stores, picks, packs, and ships products for sellers.
+                        </p>
                     </div>
 
-                    <h2 id="profit-calc">How to Calculate Profit</h2>
-                    <p>
-                        Most sellers forget storage fees. Below is the updated 2026 fee structure.
-                    </p>
-
-                    <!-- Data Table -->
-                    <div class="my-8 overflow-hidden border border-gray-200 rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
+                    <h2 id="profit-calc">2026 FBA Fee Comparison</h2>
+                    <div class="my-8 overflow-hidden border border-white/10 rounded-xl">
+                        <table class="min-w-full divide-y divide-white/10">
+                            <thead class="bg-white/5">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase">Fee Type</th>
-                                    <th class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase">Cost</th>
+                                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase">Fee Type</th>
+                                    <th class="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase">Cost</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr><td class="px-6 py-4">Fulfillment</td><td class="px-6 py-4">$3.22</td></tr>
-                                <tr><td class="px-6 py-4">Storage</td><td class="px-6 py-4">$0.87 / ft³</td></tr>
+                            <tbody class="bg-bg-card divide-y divide-white/5">
+                                <tr><td class="px-6 py-4 text-white">Fulfillment</td><td class="px-6 py-4 text-slate-400">$3.22</td></tr>
+                                <tr><td class="px-6 py-4 text-white">Storage</td><td class="px-6 py-4 text-slate-400">$0.87 / ft³</td></tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <!-- COMPONENT: FAQ (Optional) -->
-                    <h2 id="faq">Frequently Asked Questions</h2>
+                    <!-- BOTTOM CTA (New Req) -->
+                    <div class="mt-16 bg-gradient-to-br from-brand-900 to-bg-card rounded-2xl p-10 text-center border border-brand-500/20">
+                        <h3 class="text-3xl font-bold text-white mb-4">Ready to automate?</h3>
+                        <p class="text-slate-300 mb-8">Stop guessing. Let Nexscope AI find your product.</p>
+                        <a href="#" class="inline-block bg-brand-500 text-white font-bold px-8 py-4 rounded-full hover:bg-brand-400 transition-all shadow-[0_0_20px_rgba(14,165,233,0.4)]">
+                            Try Free →
+                        </a>
+                    </div>
+
+                    <h2 id="faq">FAQ</h2>
                     <div class="space-y-4 not-prose">
-                        <details class="group bg-gray-50 rounded-lg p-4 cursor-pointer">
-                            <summary class="flex justify-between items-center font-bold text-gray-900">
-                                Is FBA still profitable in 2026?
-                                <span class="transition group-open:rotate-180">▼</span>
-                            </summary>
-                            <p class="mt-4 text-gray-600 text-sm">
-                                Yes, but margins are tighter. You need AI tools to find low-competition niches.
-                            </p>
-                        </details>
-                        <details class="group bg-gray-50 rounded-lg p-4 cursor-pointer">
-                            <summary class="flex justify-between items-center font-bold text-gray-900">
-                                Do I need a professional account?
-                                <span class="transition group-open:rotate-180">▼</span>
-                            </summary>
-                            <p class="mt-4 text-gray-600 text-sm">
-                                We recommend starting with an Individual account until you sell >40 units/month.
-                            </p>
+                        <details class="group bg-bg-card border border-white/5 rounded-lg p-4 cursor-pointer">
+                            <summary class="flex justify-between items-center font-bold text-white">Is FBA still profitable?</summary>
+                            <p class="mt-4 text-slate-400 text-sm">Yes, but margins are tighter.</p>
                         </details>
                     </div>
 
@@ -161,10 +171,6 @@
             </article>
         </div>
     </div>
-
-    <footer class="bg-white border-t border-gray-200 py-12 text-center text-gray-500 text-sm">
-        <p>© 2026 Nexscope Inc.</p>
-    </footer>
 
 </body>
 </html>
