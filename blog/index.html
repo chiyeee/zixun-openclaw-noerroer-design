@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexscope Blog | Ecommerce Intelligence</title>
-    <!-- Tailwind CSS -->
+    <meta name="description" content="AI-driven insights for Amazon sellers. Product research, market analysis, and profit strategies.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
@@ -15,7 +15,7 @@
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
                         bg: { DEFAULT: '#0B0E14', card: '#151921', hover: '#1E2330' },
-                        brand: { 400: '#38BDF8', 500: '#0EA5E9', 600: '#0284C7' }
+                        brand: { 400: '#38BDF8', 500: '#0EA5E9', 600: '#0284C7', glow: 'rgba(14, 165, 233, 0.15)' }
                     }
                 }
             }
@@ -29,119 +29,195 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-bold text-lg">N</div>
-                    <span class="text-xl font-bold tracking-tight text-white">NexScope</span>
+                    <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-[0_0_15px_rgba(14,165,233,0.5)]">N</div>
+                    <a href="/" class="text-xl font-bold tracking-tight text-white">NexScope</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="text-sm font-medium text-slate-400 hover:text-white">Product</a>
+                    <a href="/" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Product</a>
                     <a href="/blog" class="text-sm font-medium text-brand-400">Blog</a>
-                    <a href="#waitlist" class="text-sm font-bold bg-brand-500 text-white px-5 py-2 rounded-lg hover:bg-brand-400">Get Early Access</a>
+                    <a href="#waitlist" class="text-sm font-bold bg-brand-500 text-white px-5 py-2 rounded-lg hover:bg-brand-400 transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)]">Get Early Access</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="pt-24 pb-16 px-4 text-center relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-brand-500/10 rounded-full blur-[100px] -z-10"></div>
-        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">Latest Ecommerce Intelligence</h1>
-        <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-10">Data-driven strategies for Amazon sellers. No fluff, just results.</p>
+    <!-- Featured Hero (BigCommerce Style) -->
+    <header class="relative pt-12 pb-16 px-4 border-b border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <!-- Breadcrumbs -->
+            <nav class="text-xs text-slate-500 mb-8">
+                <a href="/" class="hover:text-white">Home</a> <span class="mx-2">/</span> <span class="text-brand-400">Blog</span>
+            </nav>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-bold mb-6 uppercase tracking-widest">
+                        Featured Story
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+                        The Ultimate Guide to Amazon Product Research in 2026
+                    </h1>
+                    <p class="text-lg text-slate-400 mb-8 leading-relaxed">
+                        Stop clicking through filters. Learn the conversational framework top sellers use to find high-margin niches before they go viral.
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <a href="/blog/article-template.html" class="inline-flex items-center justify-center bg-brand-500 text-white font-bold px-8 py-3 rounded-lg hover:bg-brand-400 transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)]">
+                            Read Guide
+                        </a>
+                        <div class="flex items-center gap-3">
+                            <div class="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white font-bold text-xs">AW</div>
+                            <div class="text-sm">
+                                <p class="font-semibold text-white">A Wu</p>
+                                <p class="text-xs text-slate-500">Mar 9, 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Featured Image -->
+                <div class="relative aspect-video bg-bg-card rounded-2xl border border-white/5 overflow-hidden shadow-2xl group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-900/20 to-transparent"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-slate-600 font-medium text-xl">Featured Image 16:9</div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        <!-- Tabs -->
-        <div class="flex flex-wrap justify-center gap-2 mb-12">
-            <a href="#" class="px-5 py-2.5 rounded-full text-sm font-bold bg-bg-card border border-white/10 text-slate-400 hover:text-white hover:border-white/20 transition-all">All Posts</a>
-            <a href="#" class="px-5 py-2.5 rounded-full text-sm font-bold bg-brand-500 text-white shadow-[0_0_15px_rgba(14,165,233,0.3)]">Product Research</a>
-            <a href="#" class="px-5 py-2.5 rounded-full text-sm font-bold bg-bg-card border border-white/10 text-slate-400 hover:text-white hover:border-white/20 transition-all">Launch Strategy</a>
-            <a href="#" class="px-5 py-2.5 rounded-full text-sm font-bold bg-bg-card border border-white/10 text-slate-400 hover:text-white hover:border-white/20 transition-all">AI Tools</a>
+        <!-- Controls: Tabs & Search -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
+            <!-- Tabs -->
+            <div class="flex gap-2 overflow-x-auto pb-2 w-full md:w-auto no-scrollbar">
+                <a href="/blog" class="px-5 py-2.5 bg-bg-card border border-brand-500 text-white rounded-full text-sm font-bold shadow-[0_0_10px_rgba(14,165,233,0.3)] whitespace-nowrap">All Posts</a>
+                <a href="/blog/category/strategy" class="px-5 py-2.5 bg-transparent border border-white/10 text-slate-400 rounded-full text-sm font-medium hover:border-brand-500 hover:text-brand-400 transition-all whitespace-nowrap">Strategy</a>
+                <a href="/blog/category/data" class="px-5 py-2.5 bg-transparent border border-white/10 text-slate-400 rounded-full text-sm font-medium hover:border-brand-500 hover:text-brand-400 transition-all whitespace-nowrap">Data Analysis</a>
+                <a href="/blog/category/ai" class="px-5 py-2.5 bg-transparent border border-white/10 text-slate-400 rounded-full text-sm font-medium hover:border-brand-500 hover:text-brand-400 transition-all whitespace-nowrap">AI Tools</a>
+            </div>
+            
+            <!-- Search Bar (Restored) -->
+            <div class="relative w-full md:w-80">
+                <input type="text" placeholder="Search articles..." class="w-full pl-10 pr-4 py-2.5 bg-bg-card border border-white/10 rounded-lg text-sm text-white placeholder-slate-600 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all">
+                <svg class="absolute left-3 top-2.5 w-5 h-5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
         </div>
 
-        <!-- Grid (3 Columns) -->
+        <!-- 12-Grid Layout -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             
-            <!-- Article 1 -->
-            <article class="bg-bg-card rounded-xl border border-white/5 overflow-hidden hover:border-brand-500/30 transition-all group">
-                <a href="/blog/article-template.html" class="block h-full flex flex-col">
-                    <div class="aspect-video bg-[#1F2937] relative">
-                        <!-- Img Placeholder -->
-                        <div class="absolute inset-0 flex items-center justify-center text-slate-600">1200x675</div>
+            <!-- Loop 12 items -->
+            <!-- Card 1 -->
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:bg-bg-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
+                <a href="/blog/article-template.html" class="block flex-1 flex flex-col">
+                    <div class="relative aspect-video bg-[#0F1219] overflow-hidden border-b border-white/5">
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-700 text-sm font-medium">Image</div>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex items-center gap-3 mb-3 text-xs font-bold uppercase tracking-wider">
-                            <span class="text-brand-400">Strategy</span>
-                            <span class="text-slate-600">•</span>
-                            <span class="text-slate-500">15 min read</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-auto group-hover:text-brand-400 transition-colors leading-tight">
-                            Amazon FBA Guide 2026: The Ultimate Profit Strategy
-                        </h3>
-                        <!-- No Excerpt as requested -->
-                        <div class="mt-6 pt-4 border-t border-white/5 text-xs text-slate-500">
-                            Updated on March 9, 2026
+                        <div class="mb-3"><span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Strategy</span></div>
+                        <h3 class="text-xl font-bold text-white mb-0 leading-tight group-hover:text-brand-400 transition-colors">Amazon FBA Guide 2026: The Ultimate Profit Strategy</h3>
+                        <div class="mt-auto flex items-center justify-between text-xs text-slate-500 border-t border-white/5 pt-4 mt-6">
+                            <span>15 min read</span>
+                            <span>Updated Mar 9, 2026</span>
                         </div>
                     </div>
                 </a>
             </article>
 
-            <!-- Article 2 -->
-            <article class="bg-bg-card rounded-xl border border-white/5 overflow-hidden hover:border-brand-500/30 transition-all group">
-                <a href="#" class="block h-full flex flex-col">
-                    <div class="aspect-video bg-[#1F2937] relative"></div>
+            <!-- Card 2 -->
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:bg-bg-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
+                <a href="#" class="block flex-1 flex flex-col">
+                    <div class="relative aspect-video bg-[#0F1219] overflow-hidden border-b border-white/5">
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-700 text-sm font-medium">Image</div>
+                    </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex items-center gap-3 mb-3 text-xs font-bold uppercase tracking-wider">
-                            <span class="text-green-400">Data</span>
-                            <span class="text-slate-600">•</span>
-                            <span class="text-slate-500">8 min read</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-auto group-hover:text-brand-400 transition-colors leading-tight">
-                            Real Profit Calculation: Hidden FBA Fees You Missed
-                        </h3>
-                        <div class="mt-6 pt-4 border-t border-white/5 text-xs text-slate-500">
-                            Published on March 5, 2026
+                        <div class="mb-3"><span class="text-green-400 text-xs font-bold uppercase tracking-wider">Data</span></div>
+                        <h3 class="text-xl font-bold text-white mb-0 leading-tight group-hover:text-brand-400 transition-colors">Real Profit Calculation: Hidden FBA Fees You Missed</h3>
+                        <div class="mt-auto flex items-center justify-between text-xs text-slate-500 border-t border-white/5 pt-4 mt-6">
+                            <span>8 min read</span>
+                            <span>Published Mar 5, 2026</span>
                         </div>
                     </div>
                 </a>
             </article>
 
-            <!-- Article 3 -->
-            <article class="bg-bg-card rounded-xl border border-white/5 overflow-hidden hover:border-brand-500/30 transition-all group">
-                <a href="#" class="block h-full flex flex-col">
-                    <div class="aspect-video bg-[#1F2937] relative"></div>
+            <!-- Card 3 -->
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:bg-bg-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
+                <a href="#" class="block flex-1 flex flex-col">
+                    <div class="relative aspect-video bg-[#0F1219] overflow-hidden border-b border-white/5">
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-700 text-sm font-medium">Image</div>
+                    </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex items-center gap-3 mb-3 text-xs font-bold uppercase tracking-wider">
-                            <span class="text-purple-400">AI Tools</span>
-                            <span class="text-slate-600">•</span>
-                            <span class="text-slate-500">10 min read</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-auto group-hover:text-brand-400 transition-colors leading-tight">
-                            Nexscope vs. Helium 10: Which Agent Wins in 2026?
-                        </h3>
-                        <div class="mt-6 pt-4 border-t border-white/5 text-xs text-slate-500">
-                            Published on March 1, 2026
+                        <div class="mb-3"><span class="text-purple-400 text-xs font-bold uppercase tracking-wider">AI Tools</span></div>
+                        <h3 class="text-xl font-bold text-white mb-0 leading-tight group-hover:text-brand-400 transition-colors">Nexscope vs. Helium 10: Which Agent Wins?</h3>
+                        <div class="mt-auto flex items-center justify-between text-xs text-slate-500 border-t border-white/5 pt-4 mt-6">
+                            <span>10 min read</span>
+                            <span>Published Mar 1, 2026</span>
                         </div>
                     </div>
                 </a>
+            </article>
+
+            <!-- Duplicate Cards to fill 12 slots -->
+            <!-- Card 4-12 (Simulated by repeating markup for visual check) -->
+            <!-- In production, this would be a loop -->
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-50 hover:opacity-100 transition-opacity">
+                <div class="relative aspect-video bg-[#0F1219]"></div>
+                <div class="p-6"><h3 class="text-xl font-bold text-white">4. Automating PPC Campaigns</h3></div>
+            </article>
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-50 hover:opacity-100 transition-opacity">
+                <div class="relative aspect-video bg-[#0F1219]"></div>
+                <div class="p-6"><h3 class="text-xl font-bold text-white">5. 2026 Product Trends</h3></div>
+            </article>
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-50 hover:opacity-100 transition-opacity">
+                <div class="relative aspect-video bg-[#0F1219]"></div>
+                <div class="p-6"><h3 class="text-xl font-bold text-white">6. Supplier Negotiation Scripts</h3></div>
+            </article>
+            
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-50 hover:opacity-100 transition-opacity">
+                <div class="relative aspect-video bg-[#0F1219]"></div>
+                <div class="p-6"><h3 class="text-xl font-bold text-white">7. TikTok Shop Integration</h3></div>
+            </article>
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-50 hover:opacity-100 transition-opacity">
+                <div class="relative aspect-video bg-[#0F1219]"></div>
+                <div class="p-6"><h3 class="text-xl font-bold text-white">8. Inventory Management 101</h3></div>
+            </article>
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-50 hover:opacity-100 transition-opacity">
+                <div class="relative aspect-video bg-[#0F1219]"></div>
+                <div class="p-6"><h3 class="text-xl font-bold text-white">9. Brand Registry Guide</h3></div>
+            </article>
+
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-50 hover:opacity-100 transition-opacity">
+                <div class="relative aspect-video bg-[#0F1219]"></div>
+                <div class="p-6"><h3 class="text-xl font-bold text-white">10. Listing Optimization SEO</h3></div>
+            </article>
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-50 hover:opacity-100 transition-opacity">
+                <div class="relative aspect-video bg-[#0F1219]"></div>
+                <div class="p-6"><h3 class="text-xl font-bold text-white">11. Competitor Spying Tactics</h3></div>
+            </article>
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-50 hover:opacity-100 transition-opacity">
+                <div class="relative aspect-video bg-[#0F1219]"></div>
+                <div class="p-6"><h3 class="text-xl font-bold text-white">12. Q4 Holiday Prep Checklist</h3></div>
             </article>
 
         </div>
 
         <!-- Pagination -->
-        <div class="flex justify-center items-center gap-4 border-t border-white/10 pt-12">
-            <button class="px-4 py-2 text-sm text-slate-500 hover:text-white disabled:opacity-50" disabled>Previous</button>
-            <button class="w-10 h-10 rounded-lg bg-brand-500 text-white font-bold text-sm">1</button>
-            <button class="w-10 h-10 rounded-lg border border-white/10 text-slate-400 hover:bg-white/5 hover:text-white transition-all text-sm">2</button>
-            <button class="w-10 h-10 rounded-lg border border-white/10 text-slate-400 hover:bg-white/5 hover:text-white transition-all text-sm">3</button>
-            <span class="text-slate-600">...</span>
-            <button class="w-10 h-10 rounded-lg border border-white/10 text-slate-400 hover:bg-white/5 hover:text-white transition-all text-sm">12</button>
-            <button class="px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors">Next</button>
+        <div class="flex justify-center items-center gap-2">
+            <a href="#" class="px-4 py-2 rounded-lg border border-white/10 text-slate-500 text-sm hover:border-white/30 hover:text-white transition-colors disabled cursor-not-allowed">Previous</a>
+            
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-brand-500 text-white font-bold text-sm shadow-[0_0_10px_rgba(14,165,233,0.3)]">1</a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-slate-400 hover:bg-white/5 hover:text-white transition-colors text-sm">2</a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-slate-400 hover:bg-white/5 hover:text-white transition-colors text-sm">3</a>
+            <span class="text-slate-600 px-2">...</span>
+            
+            <a href="#" class="px-4 py-2 rounded-lg border border-white/10 text-slate-400 text-sm hover:border-brand-500 hover:text-brand-400 transition-colors">Next</a>
         </div>
 
     </main>
 
-    <footer class="bg-bg border-t border-white/5 py-12 mt-12 text-center text-slate-600 text-sm">
+    <!-- Footer -->
+    <footer class="bg-bg border-t border-white/5 py-12 mt-12 text-center text-slate-500 text-sm">
         <p>© 2026 Nexscope Inc.</p>
     </footer>
 
