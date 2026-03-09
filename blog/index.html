@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Nexscope Blog | Ecommerce Intelligence</title>
+    <title>Ecommerce Intelligence | Nexscope</title>
     <meta name="description" content="AI-driven insights for Amazon sellers. Product research, market analysis, and profit strategies.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -41,132 +41,109 @@
         </div>
     </nav>
 
-    <!-- SECTION 1: Big Header (BigCommerce Style) -->
-    <header class="relative py-24 px-4 text-center border-b border-white/5 overflow-hidden">
+    <!-- SECTION 1: Professional Hero (H1 focused on Value) -->
+    <header class="relative py-20 px-4 text-center border-b border-white/5 overflow-hidden bg-[#0B0E14]">
         <!-- Background Glow -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-brand-500/5 -z-10 blur-3xl"></div>
         
         <div class="max-w-4xl mx-auto relative z-10">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-                The Nexscope Blog
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+                Ecommerce Intelligence
             </h1>
-            <p class="text-xl text-slate-400 font-light max-w-2xl mx-auto">
-                Actionable insights to help you stay on the cutting edge of ecommerce AI.
+            <p class="text-xl text-slate-400 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                Data-driven strategies for Amazon sellers. Master product research, PPC scaling, and profit calculation with AI.
             </p>
+            
+            <!-- Search Bar -->
+            <div class="max-w-xl mx-auto relative group">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-slate-500 group-hover:text-brand-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+                <input type="text" placeholder="Search guides (e.g. 'FBA fees', 'PPC')" class="block w-full pl-11 pr-4 py-4 bg-bg-card border border-white/10 rounded-xl text-white placeholder-slate-600 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all shadow-lg">
+            </div>
         </div>
     </header>
 
-    <!-- SECTION 2: Featured Categories (The "Choose your area" section) -->
-    <section class="py-16 border-b border-white/5 bg-[#0F1219]">
+    <!-- SECTION 2: Categories Carousel (BigCommerce Style) -->
+    <section class="py-16 bg-[#0F1219]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-white mb-10">Choose your area of interest</h2>
+            <h2 class="text-2xl font-bold text-white mb-10">Explore Topics</h2>
             
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Category 1 -->
-                <a href="/blog/category/strategy" class="group relative h-64 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/50 transition-all">
-                    <!-- Background Image Placeholder -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-slate-800 group-hover:scale-105 transition-transform duration-700">
-                        <!-- Simulated abstract tech background -->
-                        <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <path d="M0 100 L50 50 L100 100" fill="none" stroke="currentColor" stroke-width="0.5" class="text-brand-500"/>
-                        </svg>
-                    </div>
-                    
-                    <div class="absolute bottom-0 left-0 p-8 z-20">
-                        <span class="text-brand-400 text-xs font-bold uppercase tracking-wider mb-2 block">Strategy</span>
-                        <h3 class="text-2xl font-bold text-white group-hover:text-brand-400 transition-colors">
-                            Product Research &<br>Selection
-                        </h3>
-                    </div>
-                </a>
-
-                <!-- Category 2 -->
-                <a href="/blog/category/ai" class="group relative h-64 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/50 transition-all">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-slate-800 group-hover:scale-105 transition-transform duration-700">
-                        <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-purple-500"/>
-                        </svg>
-                    </div>
-                    
-                    <div class="absolute bottom-0 left-0 p-8 z-20">
-                        <span class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-2 block">Technology</span>
-                        <h3 class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">
-                            AI Agents &<br>Automation
-                        </h3>
-                    </div>
-                </a>
-
-                <!-- Category 3 -->
-                <a href="/blog/category/growth" class="group relative h-64 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/50 transition-all">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-slate-800 group-hover:scale-105 transition-transform duration-700">
-                        <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <rect x="20" y="20" width="60" height="60" fill="none" stroke="currentColor" stroke-width="0.5" class="text-green-500"/>
-                        </svg>
-                    </div>
-                    
-                    <div class="absolute bottom-0 left-0 p-8 z-20">
-                        <span class="text-green-400 text-xs font-bold uppercase tracking-wider mb-2 block">Growth</span>
-                        <h3 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors">
-                            Marketing &<br>PPC Scaling
-                        </h3>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- SECTION 3: Featured Story (Wide Card) -->
-        <section class="py-12 bg-bg">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="group relative bg-bg-card rounded-2xl border border-white/5 shadow-2xl overflow-hidden hover:border-brand-500/30 transition-all duration-300">
-                    <div class="grid md:grid-cols-2 gap-0">
-                        <div class="relative h-72 md:h-auto bg-[#0F1219] overflow-hidden border-r border-white/5">
-                            <div class="absolute inset-0 flex items-center justify-center text-slate-600 font-medium">Featured Image</div>
+            <!-- Carousel Container -->
+            <div class="relative">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Category 1 -->
+                    <a href="/blog/category/strategy" class="group relative h-64 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/50 transition-all">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10"></div>
+                        <div class="absolute inset-0 bg-slate-800 group-hover:scale-105 transition-transform duration-700">
+                            <!-- Abstract Bg -->
+                            <div class="w-full h-full opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-900 to-bg"></div>
                         </div>
-                        <div class="p-10 md:p-14 flex flex-col justify-center">
-                            <div class="flex items-center gap-3 mb-6">
-                                <span class="px-2.5 py-1 bg-brand-500/10 text-brand-400 border border-brand-500/20 text-xs font-bold rounded uppercase">Editor's Pick</span>
-                            </div>
-                            <h2 class="text-3xl font-bold text-white mb-6 leading-tight group-hover:text-brand-400 transition-colors">
-                                <a href="/blog/article-template.html">The Ultimate Guide to Amazon Product Research in 2026</a>
-                            </h2>
-                            <p class="text-slate-400 mb-8 text-lg leading-relaxed font-light">
-                                Stop clicking through filters. Learn the conversational framework top sellers use to find high-margin niches before they go viral.
-                            </p>
-                            <div class="flex items-center gap-3">
-                                <div class="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center text-white text-xs">AW</div>
-                                <span class="text-sm font-medium text-white">A Wu</span>
-                                <span class="text-slate-600 mx-2">|</span>
-                                <span class="text-sm text-slate-500">Mar 9, 2026</span>
-                            </div>
+                        <div class="absolute bottom-0 left-0 p-8 z-20">
+                            <span class="text-brand-400 text-xs font-bold uppercase tracking-wider mb-2 block">Strategy</span>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-brand-400 transition-colors">Product Research</h3>
                         </div>
+                    </a>
+
+                    <!-- Category 2 -->
+                    <a href="/blog/category/ai" class="group relative h-64 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/50 transition-all">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10"></div>
+                        <div class="absolute inset-0 bg-slate-800 group-hover:scale-105 transition-transform duration-700">
+                            <div class="w-full h-full opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900 to-bg"></div>
+                        </div>
+                        <div class="absolute bottom-0 left-0 p-8 z-20">
+                            <span class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-2 block">Technology</span>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">AI Automation</h3>
+                        </div>
+                    </a>
+
+                    <!-- Category 3 -->
+                    <a href="/blog/category/growth" class="group relative h-64 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/50 transition-all">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10"></div>
+                        <div class="absolute inset-0 bg-slate-800 group-hover:scale-105 transition-transform duration-700">
+                            <div class="w-full h-full opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-green-900 to-bg"></div>
+                        </div>
+                        <div class="absolute bottom-0 left-0 p-8 z-20">
+                            <span class="text-green-400 text-xs font-bold uppercase tracking-wider mb-2 block">Growth</span>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors">Marketing & PPC</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Carousel Controls (BigCommerce Style) -->
+                <div class="flex items-center justify-between mt-8 border-t border-white/5 pt-6">
+                    <div class="flex gap-4">
+                        <button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:bg-white/10 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:bg-white/10 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                    <!-- Progress Bar -->
+                    <div class="hidden md:block w-48 h-1 bg-white/10 rounded-full overflow-hidden">
+                        <div class="w-1/3 h-full bg-brand-500 rounded-full"></div>
                     </div>
                 </div>
             </div>
-        </section>
-
-    <!-- SECTION 4: Latest Posts Grid -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        
-        <div class="flex items-center justify-between mb-10">
-            <h2 class="text-2xl font-bold text-white">Latest Articles</h2>
-            <!-- Search Bar -->
-            <div class="relative w-64 md:w-80">
-                <input type="text" placeholder="Search articles..." class="w-full pl-10 pr-4 py-2 bg-bg-card border border-white/10 rounded-lg text-sm text-white focus:ring-1 focus:ring-brand-500 outline-none">
-                <svg class="absolute left-3 top-2.5 w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-            </div>
         </div>
+    </section>
+
+    <!-- SECTION 3: Latest Posts Grid (12 Items) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <h2 class="text-2xl font-bold text-white mb-10">Latest Articles</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             
             <!-- Loop 12 items -->
             <!-- Card 1 -->
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:bg-bg-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
                 <a href="/blog/article-template.html" class="block flex-1 flex flex-col">
-                    <div class="relative aspect-video bg-[#0F1219] border-b border-white/5">
-                        <div class="absolute inset-0 flex items-center justify-center text-slate-700 text-sm">Image</div>
+                    <div class="relative aspect-video bg-[#0F1219] overflow-hidden border-b border-white/5">
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-700 text-sm font-medium">Image</div>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="mb-3"><span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Strategy</span></div>
@@ -180,7 +157,7 @@
             </article>
 
             <!-- Card 2 -->
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:bg-bg-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
                 <a href="#" class="block flex-1 flex flex-col">
                     <div class="relative aspect-video bg-[#0F1219] border-b border-white/5"></div>
                     <div class="p-6 flex-1 flex flex-col">
@@ -195,7 +172,7 @@
             </article>
 
             <!-- Card 3 -->
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
+            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:bg-bg-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
                 <a href="#" class="block flex-1 flex flex-col">
                     <div class="relative aspect-video bg-[#0F1219] border-b border-white/5"></div>
                     <div class="p-6 flex-1 flex flex-col">
@@ -225,7 +202,7 @@
         <!-- Pagination -->
         <div class="flex justify-center items-center gap-2">
             <a href="#" class="px-4 py-2 rounded-lg border border-white/10 text-slate-500 text-sm hover:border-white/30 hover:text-white transition-colors disabled cursor-not-allowed">Previous</a>
-            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-brand-500 text-white font-bold text-sm">1</a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-brand-500 text-white font-bold text-sm shadow-[0_0_10px_rgba(14,165,233,0.3)]">1</a>
             <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-slate-400 hover:bg-white/5 hover:text-white transition-colors text-sm">2</a>
             <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-slate-400 hover:bg-white/5 hover:text-white transition-colors text-sm">3</a>
             <span class="text-slate-600 px-2">...</span>
