@@ -16,20 +16,7 @@
                     colors: {
                         bg: { DEFAULT: '#0B0E14', card: '#151921', hover: '#1E2330' },
                         brand: { 400: '#38BDF8', 500: '#0EA5E9', 600: '#0284C7', 900: '#0C4A6E' }
-                    },
-                    typography: (theme) => ({
-                        DEFAULT: {
-                            css: {
-                                color: theme('colors.slate.400'),
-                                h2: { color: theme('colors.white'), fontWeight: '700', fontSize: '1.875rem' },
-                                h3: { color: theme('colors.white'), fontWeight: '600', fontSize: '1.5rem', marginTop: '2em' },
-                                h4: { color: theme('colors.slate.200'), fontWeight: '600', fontSize: '1.25rem', marginTop: '1.5em' },
-                                strong: { color: theme('colors.white'), fontWeight: '600' },
-                                a: { color: theme('colors.brand.400') },
-                                'ul > li::marker': { color: theme('colors.brand.500') },
-                            }
-                        }
-                    })
+                    }
                 }
             }
         }
@@ -48,15 +35,13 @@
         .sticky-toc::-webkit-scrollbar { width: 4px; background: #1e293b; }
         .sticky-toc::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
         
-        /* Prose overrides */
-        .prose p { margin-bottom: 1.5em; line-height: 1.8; color: #94a3b8; }
-        .prose h2 { margin-top: 2.5em; margin-bottom: 1em; color: white; border-bottom: 1px solid #1e293b; padding-bottom: 0.5em; }
-        .prose h3 { margin-top: 2em; margin-bottom: 0.8em; color: white; }
-        .prose h4 { margin-top: 1.5em; margin-bottom: 0.5em; color: #cbd5e1; }
+        /* Base Prose Styles */
+        .prose p { margin-bottom: 1.5em; line-height: 1.8; color: #94a3b8; font-size: 1.125rem; }
         .prose ul { margin-bottom: 1.5em; list-style-type: disc; padding-left: 1.5em; color: #94a3b8; }
         .prose ol { margin-bottom: 1.5em; list-style-type: decimal; padding-left: 1.5em; color: #94a3b8; }
         .prose li { margin-bottom: 0.5em; }
         .prose blockquote { border-left: 4px solid #0EA5E9; padding-left: 1em; font-style: italic; color: #cbd5e1; background: rgba(14, 165, 233, 0.1); padding: 1rem; border-radius: 0.5rem; margin: 2rem 0; }
+        .prose strong { color: white; font-weight: 700; }
     </style>
 </head>
 <body class="bg-bg text-slate-300 font-sans antialiased">
@@ -80,7 +65,7 @@
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         
-        <!-- BREADCRUMBS (MOVED HERE - TOP OF CONTENT) -->
+        <!-- Breadcrumbs -->
         <nav class="text-xs text-slate-500 mb-8 flex gap-2 items-center">
             <a href="/" class="hover:text-white transition-colors">Home</a> 
             <span class="text-slate-700">/</span>
@@ -115,13 +100,13 @@
 
             <!-- Article -->
             <article class="flex-1 max-w-3xl">
-                <!-- Header -->
+                <!-- Header (H1) -->
                 <header class="mb-12">
                     <div class="flex items-center gap-2 mb-4">
                         <span class="px-2.5 py-1 bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-bold rounded-md uppercase">Strategy</span>
                         <span class="text-slate-500 text-sm">• 15 min read</span>
                     </div>
-                    <h1 class="text-4xl md:text-[3.5rem] font-extrabold text-white mb-8 leading-[1.1] tracking-tight">Amazon FBA Guide 2026: The Ultimate Profit Strategy</h1>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">Amazon FBA Guide 2026: The Ultimate Profit Strategy</h1>
                     <div class="flex items-center gap-4 border-t border-b border-white/10 py-6">
                         <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white font-bold text-xl">A</div>
                         <div>
@@ -140,29 +125,33 @@
                     </ul>
                 </div>
 
-                <div class="prose max-w-none text-lg text-slate-400">
+                <!-- Content with FORCED Classes for Typography -->
+                <div class="prose max-w-none">
                     <p class="lead text-xl text-slate-300 mb-8 font-light">Starting an Amazon business has changed drastically...</p>
 
-                    <!-- GEO: Definition Box -->
-                    <h2 id="what-is-fba">What is Amazon FBA?</h2>
+                    <!-- H2: Large, Bold, White, Underline -->
+                    <h2 id="what-is-fba" class="text-3xl font-extrabold text-white mt-12 mb-6 border-b border-white/10 pb-4">What is Amazon FBA?</h2>
+                    
                     <div class="my-8 bg-brand-900/20 border border-brand-500/30 rounded-xl p-8 relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-1 h-full bg-brand-500"></div>
                         <p class="text-xs font-bold text-brand-400 mb-3 uppercase tracking-wider">Definition</p>
                         <p class="text-xl font-medium text-white">Fulfillment by Amazon (FBA) is a service where Amazon stores, picks, packs, and ships products for sellers.</p>
                     </div>
 
-                    <h2 id="step-1">Step 1: Product Research in the AI Era</h2>
+                    <!-- H2 -->
+                    <h2 id="step-1" class="text-3xl font-extrabold text-white mt-12 mb-6 border-b border-white/10 pb-4">Step 1: Product Research in the AI Era</h2>
                     <p>The days of scrolling through best-seller lists are over. In 2026, you need to leverage AI agents to analyze market sentiment.</p>
                     
-                    <h3>Why Traditional Methods Fail</h3>
-                    <p>Manual research has three main flaws:</p>
+                    <!-- H3: Medium, Bold, White -->
+                    <h3 class="text-2xl font-bold text-white mt-8 mb-4">Why Traditional Methods Fail</h3>
                     <ul>
                         <li><strong>Saturation:</strong> Everyone uses the same filters on Helium 10.</li>
                         <li><strong>False Signals:</strong> Giveaways distort BSR (Best Seller Rank).</li>
                         <li><strong>Speed:</strong> Manual analysis takes weeks; trends last days.</li>
                     </ul>
 
-                    <h3>The New "Agent-First" Approach</h3>
+                    <!-- H3 -->
+                    <h3 class="text-2xl font-bold text-white mt-8 mb-4">The New "Agent-First" Approach</h3>
                     <p>Instead of searching for keywords, you should be searching for <strong>problems</strong>.</p>
                     <ol>
                         <li>Identify a sub-niche with high complaint rates (use AI to scan reviews).</li>
@@ -170,17 +159,20 @@
                         <li>Source a product that fixes exactly those 3 defects.</li>
                     </ol>
                     
-                    <h4>Case Study: Pet Supplies Category</h4>
+                    <!-- H4: Small, Semi-Bold, Light Gray -->
+                    <h4 class="text-xl font-semibold text-slate-200 mt-6 mb-3">Case Study: Pet Supplies Category</h4>
                     <p>We analyzed 5,000 reviews for "dog leashes" and found that "handle durability" was the #1 complaint.</p>
 
-                    <h2 id="step-2">Step 2: Sourcing & Logistics</h2>
+                    <!-- H2 -->
+                    <h2 id="step-2" class="text-3xl font-extrabold text-white mt-12 mb-6 border-b border-white/10 pb-4">Step 2: Sourcing & Logistics</h2>
                     <p>Once you've found a product, you need to get it made.</p>
                     
                     <blockquote>
                         "The profit is made in the buying, not the selling. Negotiate every cent."
                     </blockquote>
 
-                    <h2 id="fees">2026 FBA Fee Comparison</h2>
+                    <!-- H2 -->
+                    <h2 id="fees" class="text-3xl font-extrabold text-white mt-12 mb-6 border-b border-white/10 pb-4">2026 FBA Fee Comparison</h2>
                     <div class="my-8 overflow-hidden border border-white/10 rounded-xl">
                         <table class="min-w-full divide-y divide-white/10">
                             <thead class="bg-white/5">
