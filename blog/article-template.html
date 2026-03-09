@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,41 +12,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
+                        bg: {
+                            DEFAULT: '#0B0E14', 
+                            card: '#151921',    
+                            hover: '#1E2330'
+                        },
                         brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb', 
-                            900: '#1e3a8a',
+                            400: '#38BDF8', 
+                            500: '#0EA5E9', 
+                            600: '#0284C7',
+                            900: '#0C4A6E',
                         }
                     },
                     typography: (theme) => ({
                         DEFAULT: {
                             css: {
-                                color: theme('colors.slate.700'),
+                                color: theme('colors.slate.400'),
                                 h2: {
-                                    color: theme('colors.slate.900'),
+                                    color: theme('colors.white'),
                                     fontWeight: '700',
                                     letterSpacing: '-0.025em',
                                 },
                                 strong: {
-                                    color: theme('colors.slate.900'),
+                                    color: theme('colors.white'),
                                     fontWeight: '600',
+                                },
+                                a: {
+                                    color: theme('colors.brand.400'),
+                                    '&:hover': {
+                                        color: theme('colors.brand.500'),
+                                    },
                                 },
                             },
                         },
                     }),
                 }
-            },
-            plugins: [
-                // Minimal typography simulation since we can't load real plugins in CDN easily
-            ]
+            }
         }
     </script>
     
@@ -87,36 +95,38 @@
     </script>
 
     <style>
+        body { background-color: #0B0E14; }
         .sticky-toc {
             position: sticky;
             top: 100px;
             max-height: calc(100vh - 120px);
             overflow-y: auto;
         }
-        /* Custom scrollbar for TOC */
         .sticky-toc::-webkit-scrollbar { width: 4px; }
-        .sticky-toc::-webkit-scrollbar-thumb { background-color: #e2e8f0; border-radius: 4px; }
+        .sticky-toc::-webkit-scrollbar-thumb { background-color: #1e293b; border-radius: 4px; }
         
-        .prose p { margin-bottom: 1.5em; line-height: 1.8; }
-        .prose h2 { margin-top: 2.5em; margin-bottom: 1em; font-size: 1.875rem; line-height: 1.25; font-weight: 800; letter-spacing: -0.025em; color: #0f172a; }
-        .prose ul { margin-bottom: 1.5em; list-style-type: disc; padding-left: 1.5em; }
+        /* Typography overrides for Dark Mode */
+        .prose p { margin-bottom: 1.5em; line-height: 1.8; color: #94a3b8; }
+        .prose h2 { margin-top: 2.5em; margin-bottom: 1em; font-size: 1.875rem; line-height: 1.25; font-weight: 800; letter-spacing: -0.025em; color: #ffffff; }
+        .prose ul { margin-bottom: 1.5em; list-style-type: disc; padding-left: 1.5em; color: #94a3b8; }
         .prose li { margin-bottom: 0.5em; }
+        .prose strong { color: #ffffff; }
     </style>
 </head>
-<body class="bg-white text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+<body class="bg-bg text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
 
     <!-- Nav -->
-    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
+    <nav class="bg-bg/80 backdrop-blur-md border-b border-white/5 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">N</div>
-                    <a href="/" class="text-xl font-bold tracking-tight text-slate-900">Nexscope</a>
+                    <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-[0_0_15px_rgba(14,165,233,0.5)]">N</div>
+                    <a href="/" class="text-xl font-bold tracking-tight text-white">NexScope</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Product</a>
-                    <a href="/blog" class="text-sm font-medium text-brand-600">Blog</a>
-                    <a href="#waitlist" class="text-sm font-medium bg-slate-900 text-white px-4 py-2 rounded-full hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/20">Get Early Access</a>
+                    <a href="/" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Product</a>
+                    <a href="/blog" class="text-sm font-medium text-brand-400">Blog</a>
+                    <a href="#waitlist" class="text-sm font-bold bg-brand-500 text-white px-5 py-2 rounded-lg hover:bg-brand-400 transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)]">Get Early Access</a>
                 </div>
             </div>
         </div>
@@ -130,23 +140,25 @@
             <aside class="hidden lg:block w-72 flex-shrink-0">
                 <div class="sticky-toc">
                     <div class="mb-8">
-                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 pl-3">Table of Contents</h4>
-                        <ul class="space-y-1 text-sm border-l border-slate-200">
-                            <li><a href="#what-is-fba" class="block py-2 pl-4 border-l-2 border-brand-600 text-brand-600 font-semibold bg-brand-50/50 rounded-r-lg">What is Amazon FBA?</a></li>
-                            <li><a href="#key-benefits" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">Key Benefits</a></li>
-                            <li><a href="#profit-calc" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">How to Calculate Profit</a></li>
-                            <li><a href="#step-by-step" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">Step-by-Step Guide</a></li>
-                            <li><a href="#tools-compare" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">Top 5 Tools Compared</a></li>
-                            <li><a href="#faq" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-colors">FAQ</a></li>
+                        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 pl-3">On this page</h4>
+                        <ul class="space-y-1 text-sm border-l border-white/10">
+                            <li><a href="#what-is-fba" class="block py-2 pl-4 border-l-2 border-brand-500 text-brand-400 font-medium bg-brand-500/10 rounded-r-lg">What is Amazon FBA?</a></li>
+                            <li><a href="#key-benefits" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-300 hover:border-white/20 transition-colors">Key Benefits</a></li>
+                            <li><a href="#profit-calc" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-300 hover:border-white/20 transition-colors">How to Calculate Profit</a></li>
+                            <li><a href="#step-by-step" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-300 hover:border-white/20 transition-colors">Step-by-Step Guide</a></li>
+                            <li><a href="#tools-compare" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-300 hover:border-white/20 transition-colors">Top 5 Tools Compared</a></li>
+                            <li><a href="#faq" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-slate-300 hover:border-white/20 transition-colors">FAQ</a></li>
                         </ul>
                     </div>
 
-                    <!-- STICKY CTA (Refined Design) -->
-                    <div class="p-5 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-xl shadow-slate-900/10 text-white relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 -mr-4 -mt-4 w-20 h-20 bg-white/10 rounded-full blur-xl group-hover:bg-white/20 transition-all"></div>
-                        <p class="text-xs font-bold text-blue-200 mb-2 uppercase tracking-wide">AI Research Agent</p>
-                        <p class="text-sm font-medium mb-4 leading-relaxed text-slate-100">Stop calculating fees manually. Let AI analyze 10,000 products in seconds.</p>
-                        <a href="#" class="block w-full text-center bg-white text-slate-900 text-xs font-bold py-3 rounded-lg hover:bg-brand-50 transition-colors shadow-sm">
+                    <!-- STICKY CTA (Dark Card) -->
+                    <div class="p-5 bg-bg-card border border-white/10 rounded-2xl shadow-lg overflow-hidden group relative">
+                        <!-- Glow effect -->
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-brand-500/20 rounded-full blur-xl group-hover:bg-brand-500/30 transition-all"></div>
+                        
+                        <p class="text-xs font-bold text-brand-400 mb-2 uppercase tracking-wide relative z-10">AI Research Agent</p>
+                        <p class="text-sm font-medium mb-4 leading-relaxed text-slate-300 relative z-10">Stop calculating fees manually. Let AI analyze 10,000 products in seconds.</p>
+                        <a href="#" class="block w-full text-center bg-brand-500 text-white text-xs font-bold py-3 rounded-lg hover:bg-brand-400 transition-colors shadow-[0_0_15px_rgba(14,165,233,0.4)] relative z-10">
                             Try Beta Free →
                         </a>
                     </div>
@@ -159,44 +171,44 @@
                 <!-- Header -->
                 <header class="mb-12">
                     <div class="flex items-center gap-2 mb-4">
-                        <span class="px-2.5 py-1 bg-blue-50 text-brand-700 text-xs font-bold rounded-md uppercase tracking-wide">Growth Strategy</span>
-                        <span class="text-slate-400 text-sm">• 15 min read</span>
+                        <span class="px-2.5 py-1 bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-bold rounded-md uppercase tracking-wide">Growth Strategy</span>
+                        <span class="text-slate-500 text-sm">• 15 min read</span>
                     </div>
-                    <h1 class="text-4xl sm:text-5xl md:text-[3.5rem] font-extrabold text-slate-900 mb-8 leading-[1.1] tracking-tight">
+                    <h1 class="text-4xl sm:text-5xl md:text-[3.5rem] font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
                         Amazon FBA Guide 2026: The Ultimate Profit Strategy
                     </h1>
                     
                     <!-- Author & Meta -->
-                    <div class="flex items-center justify-between border-t border-b border-slate-100 py-6">
+                    <div class="flex items-center justify-between border-t border-b border-white/10 py-6">
                         <div class="flex items-center gap-4">
-                            <div class="h-12 w-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-700 font-bold text-xl">A</div>
+                            <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white font-bold text-xl">A</div>
                             <div>
-                                <p class="text-sm font-bold text-slate-900">Written by A Wu</p>
+                                <p class="text-sm font-bold text-white">Written by A Wu</p>
                                 <p class="text-xs text-slate-500">Growth Lead @ Nexscope</p>
                             </div>
                         </div>
                         <div class="text-right hidden sm:block">
-                            <p class="text-xs text-slate-400 font-medium uppercase tracking-wider mb-1">Last Updated</p>
-                            <p class="text-sm font-semibold text-slate-900">March 9, 2026</p>
+                            <p class="text-xs text-slate-500 font-medium uppercase tracking-wider mb-1">Last Updated</p>
+                            <p class="text-sm font-semibold text-white">March 9, 2026</p>
                         </div>
                     </div>
                 </header>
 
-                <!-- GEO ELEMENT: Key Takeaways (Refined) -->
-                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 mb-12">
-                    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center">
+                <!-- GEO ELEMENT: Key Takeaways (Dark) -->
+                <div class="bg-bg-card p-8 rounded-2xl border border-white/5 mb-12">
+                    <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center">
                         Key Takeaways
                     </h3>
                     <ul class="space-y-3">
-                        <li class="flex items-start text-slate-700">
+                        <li class="flex items-start text-slate-300">
                             <svg class="w-5 h-5 text-brand-500 mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Amazon FBA fees have updated for 2026 - see the new table below.
                         </li>
-                        <li class="flex items-start text-slate-700">
+                        <li class="flex items-start text-slate-300">
                             <svg class="w-5 h-5 text-brand-500 mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             AI tools can reduce product research time by 70%.
                         </li>
-                        <li class="flex items-start text-slate-700">
+                        <li class="flex items-start text-slate-300">
                             <svg class="w-5 h-5 text-brand-500 mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             Profit margin calculation must now include hidden storage costs.
                         </li>
@@ -204,18 +216,18 @@
                 </div>
 
                 <!-- Content Body -->
-                <div class="prose max-w-none text-lg text-slate-600">
+                <div class="prose max-w-none text-lg text-slate-400">
                     
-                    <p class="lead text-xl text-slate-500 mb-8 font-light leading-relaxed">
+                    <p class="lead text-xl text-slate-300 mb-8 font-light leading-relaxed">
                         Starting an Amazon business has changed drastically. With AI automation and new fee structures, the old "buy low, sell high" playbook is outdated. Here is the data-driven strategy for 2026.
                     </p>
 
-                    <!-- GEO ELEMENT: Definition Box (Refined) -->
+                    <!-- GEO ELEMENT: Definition Box (Dark) -->
                     <h2 id="what-is-fba">What is Amazon FBA?</h2>
-                    <div class="my-8 bg-blue-50/50 border border-blue-100 rounded-xl p-8 relative overflow-hidden">
+                    <div class="my-8 bg-brand-900/20 border border-brand-500/30 rounded-xl p-8 relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-1 h-full bg-brand-500"></div>
-                        <p class="text-xs font-bold text-brand-600 mb-3 uppercase tracking-wider">Definition</p>
-                        <p class="text-xl font-medium text-slate-900 leading-relaxed">
+                        <p class="text-xs font-bold text-brand-400 mb-3 uppercase tracking-wider">Definition</p>
+                        <p class="text-xl font-medium text-white leading-relaxed">
                             <strong>Fulfillment by Amazon (FBA)</strong> is a service where Amazon stores, picks, packs, and ships products for sellers, handling customer service and returns. Sellers send inventory to Amazon warehouses, and Amazon handles the logistics.
                         </p>
                     </div>
@@ -224,63 +236,62 @@
                         For most sellers, FBA is the default choice because it qualifies products for <strong>Amazon Prime</strong> shipping, which can increase conversion rates by up to 300%.
                     </p>
 
-                    <!-- GEO ELEMENT: Data Table (Refined) -->
+                    <!-- GEO ELEMENT: Data Table (Dark) -->
                     <h2 id="profit-calc">2026 FBA Fee Comparison</h2>
                     <p>Understanding the cost structure is vital. Below is the updated fee schedule for standard size items (under 1lb).</p>
                     
-                    <div class="my-8 overflow-hidden border border-slate-200 rounded-xl shadow-sm">
-                        <table class="min-w-full divide-y divide-slate-200">
-                            <thead class="bg-slate-50">
+                    <div class="my-8 overflow-hidden border border-white/10 rounded-xl shadow-sm">
+                        <table class="min-w-full divide-y divide-white/10">
+                            <thead class="bg-white/5">
                                 <tr>
-                                    <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Fee Type</th>
-                                    <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Standard Size</th>
-                                    <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Large Bulky</th>
+                                    <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">Fee Type</th>
+                                    <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">Standard Size</th>
+                                    <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-slate-400 uppercase tracking-wider">Large Bulky</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-slate-200">
-                                <tr class="hover:bg-slate-50/50 transition-colors">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Fulfillment Fee</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">$3.22</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">$9.58</td>
+                            <tbody class="bg-bg-card divide-y divide-white/5">
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Fulfillment Fee</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-400">$3.22</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-400">$9.58</td>
                                 </tr>
-                                <tr class="hover:bg-slate-50/50 transition-colors">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Storage Fee</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">$0.87 / cubic ft</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">$1.20 / cubic ft</td>
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Storage Fee</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-400">$0.87 / cubic ft</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-400">$1.20 / cubic ft</td>
                                 </tr>
-                                <tr class="hover:bg-slate-50/50 transition-colors">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Referral Fee</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">15%</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">15%</td>
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">Referral Fee</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-400">15%</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-400">15%</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <h2 id="step-by-step">Step-by-Step Launch Guide</h2>
-                    <ol class="space-y-4 marker:text-brand-600 marker:font-bold">
-                        <li class="pl-2"><strong>Market Research:</strong> Use AI tools to identify high-demand, low-competition niches. Don't rely on gut feeling.</li>
-                        <li class="pl-2"><strong>Sourcing:</strong> Find a supplier on Alibaba or 1688 and order samples. Verify quality before bulk ordering.</li>
-                        <li class="pl-2"><strong>Listing Creation:</strong> Write SEO-optimized titles and bullets (Nexscope can automate this).</li>
-                        <li class="pl-2"><strong>Launch:</strong> Use PPC ads to drive initial traffic and get your first reviews.</li>
+                    <ol class="space-y-4 marker:text-brand-500 marker:font-bold">
+                        <li class="pl-2"><strong class="text-white">Market Research:</strong> Use AI tools to identify high-demand, low-competition niches. Don't rely on gut feeling.</li>
+                        <li class="pl-2"><strong class="text-white">Sourcing:</strong> Find a supplier on Alibaba or 1688 and order samples. Verify quality before bulk ordering.</li>
+                        <li class="pl-2"><strong class="text-white">Listing Creation:</strong> Write SEO-optimized titles and bullets (Nexscope can automate this).</li>
+                        <li class="pl-2"><strong class="text-white">Launch:</strong> Use PPC ads to drive initial traffic and get your first reviews.</li>
                     </ol>
 
                 </div>
 
-                <!-- CONVERSION: Bottom CTA (Refined) -->
-                <div class="mt-20 bg-slate-900 rounded-3xl p-10 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-slate-800 to-slate-900 -z-10"></div>
+                <!-- CONVERSION: Bottom CTA (Dark Gradient) -->
+                <div class="mt-20 bg-gradient-to-br from-brand-900 to-bg-card rounded-3xl p-10 md:p-12 text-center border border-brand-500/20 shadow-2xl shadow-brand-900/50 relative overflow-hidden">
                     <div class="absolute -top-20 -right-20 w-64 h-64 bg-brand-500 rounded-full blur-[100px] opacity-20"></div>
                     
-                    <h3 class="text-3xl md:text-4xl font-extrabold mb-6 tracking-tight">Ready to automate your<br>Amazon business?</h3>
+                    <h3 class="text-3xl md:text-4xl font-extrabold mb-6 tracking-tight text-white">Ready to automate your<br>Amazon business?</h3>
                     <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
                         Stop calculating fees manually. Nexscope's AI agent handles product research, profit calculation, and competitor tracking for you.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="#" class="inline-flex items-center justify-center bg-brand-600 text-white font-bold px-8 py-4 rounded-full text-lg hover:bg-brand-500 transition-all shadow-lg hover:shadow-brand-500/25">
+                        <a href="#" class="inline-flex items-center justify-center bg-brand-500 text-white font-bold px-8 py-4 rounded-full text-lg hover:bg-brand-400 transition-all shadow-[0_0_20px_rgba(14,165,233,0.4)]">
                             Try Nexscope Free
                         </a>
-                        <a href="#" class="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm text-white font-bold px-8 py-4 rounded-full text-lg hover:bg-white/20 transition-all">
+                        <a href="#" class="inline-flex items-center justify-center bg-white/5 backdrop-blur-sm border border-white/10 text-white font-bold px-8 py-4 rounded-full text-lg hover:bg-white/10 transition-all">
                             View Demo
                         </a>
                     </div>
@@ -291,17 +302,17 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-100 py-12">
+    <!-- Footer (Dark) -->
+    <footer class="bg-bg border-t border-white/5 py-12">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
-                <div class="w-6 h-6 bg-slate-200 rounded flex items-center justify-center text-slate-600 text-xs font-bold">N</div>
-                <span class="text-slate-900 font-bold">Nexscope</span>
+                <div class="w-6 h-6 bg-brand-500 rounded flex items-center justify-center text-white text-xs font-bold">N</div>
+                <span class="text-white font-bold">NexScope</span>
             </div>
             <div class="flex gap-8 text-sm text-slate-500">
-                <a href="#" class="hover:text-brand-600 transition-colors">Privacy</a>
-                <a href="#" class="hover:text-brand-600 transition-colors">Terms</a>
-                <a href="#" class="hover:text-brand-600 transition-colors">Twitter</a>
+                <a href="#" class="hover:text-brand-400 transition-colors">Privacy</a>
+                <a href="#" class="hover:text-brand-400 transition-colors">Terms</a>
+                <a href="#" class="hover:text-brand-400 transition-colors">Twitter</a>
             </div>
             <p class="text-slate-400 text-sm">© 2026 Nexscope Inc.</p>
         </div>

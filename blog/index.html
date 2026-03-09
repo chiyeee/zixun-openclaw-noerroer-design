@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +11,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
+                        // Matching the dark theme from the image
+                        bg: {
+                            DEFAULT: '#0B0E14', // Deep dark background
+                            card: '#151921',    // Slightly lighter for cards
+                            hover: '#1E2330'
+                        },
                         brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb', // Matches "Get Early Access" button likely
-                            900: '#1e3a8a',
+                            400: '#38BDF8', // Cyan-400 (Text accent)
+                            500: '#0EA5E9', // Sky-500 (Button bg)
+                            600: '#0284C7', // Sky-600 (Button hover)
+                            glow: 'rgba(14, 165, 233, 0.15)'
                         }
                     }
                 }
@@ -30,53 +36,57 @@
         }
     </script>
     <style>
-        .hero-gradient { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); }
-        .text-gradient { background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* Custom Glow Effects */
+        .glow-text { text-shadow: 0 0 20px rgba(56, 189, 248, 0.5); }
+        .glow-bg { background: radial-gradient(circle at center, rgba(14, 165, 233, 0.15) 0%, transparent 70%); }
     </style>
 </head>
-<body class="bg-white text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+<body class="bg-bg text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- Nav (Matches V7 minimalist style) -->
-    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
+    <!-- Nav (Dark Glass) -->
+    <nav class="bg-bg/80 backdrop-blur-md border-b border-white/5 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-2">
-                    <!-- Simple Logo -->
-                    <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">N</div>
-                    <span class="text-xl font-bold tracking-tight text-slate-900">Nexscope</span>
+                    <!-- Logo (Cyan) -->
+                    <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-[0_0_15px_rgba(14,165,233,0.5)]">N</div>
+                    <span class="text-xl font-bold tracking-tight text-white">NexScope</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Product</a>
-                    <a href="/blog" class="text-sm font-medium text-brand-600">Blog</a>
-                    <a href="#waitlist" class="text-sm font-medium bg-slate-900 text-white px-4 py-2 rounded-full hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/20">Get Early Access</a>
+                    <a href="/" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Product</a>
+                    <a href="/blog" class="text-sm font-medium text-brand-400 glow-text">Blog</a>
+                    <!-- Button matching image -->
+                    <a href="#waitlist" class="text-sm font-bold bg-brand-500 text-white px-5 py-2 rounded-lg hover:bg-brand-400 transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)]">Get Early Access</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section (Clean, Centered, "No Dashboards" vibe) -->
-    <header class="relative pt-24 pb-20 px-4 overflow-hidden">
-        <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-50 via-white to-white"></div>
-        <div class="max-w-3xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold mb-6 uppercase tracking-wider">
-                Ecommerce Intelligence
+    <!-- Hero Section (Dark with Glow) -->
+    <header class="relative pt-32 pb-24 px-4 overflow-hidden">
+        <!-- Ambient Background Glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-glow rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-bold mb-8 uppercase tracking-widest">
+                Latest Insights
             </div>
-            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight text-slate-900 leading-[1.1]">
-                Data-driven insights.<br>
-                <span class="text-gradient">Zero guesswork.</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight text-white leading-tight">
+                AI Agents for <br>
+                <span class="text-brand-400">E-commerce Growth</span>
             </h1>
-            <p class="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Strategies for Amazon FBA, product research, and AI automation. Written for sellers who want answers, not spreadsheets.
+            <p class="text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+                Deep dives into Amazon FBA strategies, AI automation, and profit optimization. No fluff, just data.
             </p>
             
-            <!-- Search (Minimalist) -->
+            <!-- Search (Dark Input) -->
             <div class="max-w-lg mx-auto relative group">
                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                     </svg>
                 </div>
-                <input type="text" placeholder="Search guides (e.g. 'profit calc')" class="block w-full pl-11 pr-4 py-4 bg-white border border-gray-200 rounded-2xl text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none shadow-sm group-hover:shadow-md transition-shadow">
+                <input type="text" placeholder="Search guides (e.g. 'profit calc')" class="block w-full pl-11 pr-4 py-4 bg-bg-card border border-white/10 rounded-xl text-white placeholder-slate-600 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all">
             </div>
         </div>
     </header>
@@ -84,35 +94,39 @@
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        <!-- Featured Post (Card Style matching V7 'Analyze this product' vibe) -->
-        <section class="mb-20">
-            <div class="group relative bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50 overflow-hidden hover:shadow-2xl hover:shadow-brand-900/10 transition-all duration-300">
+        <!-- Featured Post (Dark Card) -->
+        <section class="mb-24">
+            <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6">Featured Story</h2>
+            <div class="group relative bg-bg-card rounded-2xl border border-white/5 shadow-2xl overflow-hidden hover:border-brand-500/30 transition-all duration-300">
                 <div class="grid md:grid-cols-2 gap-0">
-                    <div class="relative h-64 md:h-auto bg-slate-100 overflow-hidden">
-                        <!-- Abstract Geometric Pattern Placeholder -->
-                        <div class="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 opacity-50"></div>
-                        <div class="absolute inset-0 flex items-center justify-center text-slate-400 font-medium">Cover Image</div>
-                    </div>
-                    <div class="p-8 md:p-12 flex flex-col justify-center">
-                        <div class="flex items-center gap-2 mb-4">
-                            <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded uppercase">New Strategy</span>
-                            <span class="text-slate-400 text-sm">• 15 min read</span>
+                    <div class="relative h-72 md:h-auto bg-[#0F1219] overflow-hidden border-r border-white/5">
+                        <!-- Abstract Tech Pattern -->
+                        <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(56,189,248,0.05)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-brand-500/20 flex items-center justify-center blur-xl"></div>
+                            <span class="relative text-brand-400 font-mono text-sm tracking-widest">ANALYZING...</span>
                         </div>
-                        <h2 class="text-3xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-brand-600 transition-colors">
+                    </div>
+                    <div class="p-10 md:p-14 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="px-2.5 py-1 bg-brand-500/10 text-brand-400 border border-brand-500/20 text-xs font-bold rounded uppercase">Strategy</span>
+                            <span class="text-slate-500 text-sm">• 15 min read</span>
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-6 leading-tight group-hover:text-brand-400 transition-colors">
                             <a href="/blog/article-template.html">The Ultimate Guide to Amazon Product Research in 2026</a>
                         </h2>
-                        <p class="text-slate-600 mb-8 text-lg leading-relaxed">
+                        <p class="text-slate-400 mb-8 text-lg leading-relaxed font-light">
                             Stop clicking through filters. Learn the conversational framework top sellers use to find high-margin niches before they go viral.
                         </p>
                         <div class="flex items-center justify-between mt-auto">
                             <div class="flex items-center gap-3">
-                                <div class="h-10 w-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-700 font-bold">A</div>
+                                <div class="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white font-bold text-xs">AW</div>
                                 <div>
-                                    <p class="text-sm font-semibold text-slate-900">A Wu</p>
+                                    <p class="text-sm font-semibold text-white">A Wu</p>
                                     <p class="text-xs text-slate-500">Mar 9, 2026</p>
                                 </div>
                             </div>
-                            <a href="/blog/article-template.html" class="flex items-center gap-1 text-sm font-bold text-brand-600 group-hover:translate-x-1 transition-transform">
+                            <a href="/blog/article-template.html" class="flex items-center gap-2 text-sm font-bold text-brand-400 group-hover:translate-x-1 transition-transform">
                                 Read Guide <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                         </div>
@@ -126,77 +140,80 @@
             
             <!-- Category 1 -->
             <div class="space-y-6">
-                <div class="flex items-center gap-2 mb-2">
-                    <span class="text-xl">📊</span>
-                    <h3 class="text-lg font-bold text-slate-900">Data Analysis</h3>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-lg">📊</div>
+                    <h3 class="text-lg font-bold text-white">Data Analysis</h3>
                 </div>
-                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
-                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
-                        <a href="#">Real Profit Calculation: Hidden FBA Fees</a>
+                <article class="bg-bg-card p-6 rounded-xl border border-white/5 hover:border-brand-500/30 hover:bg-bg-hover transition-all group cursor-pointer">
+                    <h4 class="font-bold text-lg mb-3 text-slate-200 group-hover:text-brand-400 transition-colors">
+                        Real Profit Calculation: Hidden FBA Fees
                     </h4>
-                    <p class="text-slate-500 text-sm line-clamp-2">Don't let storage fees eat your margin. The complete formula including 2026 updates.</p>
+                    <p class="text-slate-500 text-sm line-clamp-2 leading-relaxed">Don't let storage fees eat your margin. The complete formula including 2026 updates.</p>
                 </article>
-                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
-                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
-                        <a href="#">Competitor Tracking Metrics</a>
+                <article class="bg-bg-card p-6 rounded-xl border border-white/5 hover:border-brand-500/30 hover:bg-bg-hover transition-all group cursor-pointer">
+                    <h4 class="font-bold text-lg mb-3 text-slate-200 group-hover:text-brand-400 transition-colors">
+                        Competitor Tracking Metrics
                     </h4>
-                    <p class="text-slate-500 text-sm line-clamp-2">How to spy on sales velocity without expensive tools.</p>
+                    <p class="text-slate-500 text-sm line-clamp-2 leading-relaxed">How to spy on sales velocity without expensive tools.</p>
                 </article>
             </div>
 
             <!-- Category 2 -->
             <div class="space-y-6">
-                <div class="flex items-center gap-2 mb-2">
-                    <span class="text-xl">🤖</span>
-                    <h3 class="text-lg font-bold text-slate-900">AI & Operations</h3>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-lg">🤖</div>
+                    <h3 class="text-lg font-bold text-white">AI & Operations</h3>
                 </div>
-                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
-                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
-                        <a href="#">Nexscope vs. Helium 10</a>
+                <article class="bg-bg-card p-6 rounded-xl border border-white/5 hover:border-brand-500/30 hover:bg-bg-hover transition-all group cursor-pointer">
+                    <h4 class="font-bold text-lg mb-3 text-slate-200 group-hover:text-brand-400 transition-colors">
+                        Nexscope vs. Helium 10
                     </h4>
-                    <p class="text-slate-500 text-sm line-clamp-2">Why chat-based AI agents are replacing traditional static databases.</p>
+                    <p class="text-slate-500 text-sm line-clamp-2 leading-relaxed">Why chat-based AI agents are replacing traditional static databases.</p>
                 </article>
-                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
-                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
-                        <a href="#">Automating PPC Campaigns</a>
+                <article class="bg-bg-card p-6 rounded-xl border border-white/5 hover:border-brand-500/30 hover:bg-bg-hover transition-all group cursor-pointer">
+                    <h4 class="font-bold text-lg mb-3 text-slate-200 group-hover:text-brand-400 transition-colors">
+                        Automating PPC Campaigns
                     </h4>
-                    <p class="text-slate-500 text-sm line-clamp-2">The hybrid strategy: when to trust AI and when to intervene.</p>
+                    <p class="text-slate-500 text-sm line-clamp-2 leading-relaxed">The hybrid strategy: when to trust AI and when to intervene manually.</p>
                 </article>
             </div>
 
             <!-- Category 3 -->
             <div class="space-y-6">
-                <div class="flex items-center gap-2 mb-2">
-                    <span class="text-xl">🚀</span>
-                    <h3 class="text-lg font-bold text-slate-900">Launch Strategy</h3>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-lg">🚀</div>
+                    <h3 class="text-lg font-bold text-white">Launch Strategy</h3>
                 </div>
-                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
-                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
-                        <a href="#">The 90-Day "Honeymoon" Plan</a>
+                <article class="bg-bg-card p-6 rounded-xl border border-white/5 hover:border-brand-500/30 hover:bg-bg-hover transition-all group cursor-pointer">
+                    <h4 class="font-bold text-lg mb-3 text-slate-200 group-hover:text-brand-400 transition-colors">
+                        The 90-Day "Honeymoon" Plan
                     </h4>
-                    <p class="text-slate-500 text-sm line-clamp-2">Maximize Amazon's new product boost period with this timeline.</p>
+                    <p class="text-slate-500 text-sm line-clamp-2 leading-relaxed">Maximize Amazon's new product boost period with this timeline.</p>
                 </article>
-                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
-                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
-                        <a href="#">Getting Your First 50 Reviews</a>
+                <article class="bg-bg-card p-6 rounded-xl border border-white/5 hover:border-brand-500/30 hover:bg-bg-hover transition-all group cursor-pointer">
+                    <h4 class="font-bold text-lg mb-3 text-slate-200 group-hover:text-brand-400 transition-colors">
+                        Getting Your First 50 Reviews
                     </h4>
-                    <p class="text-slate-500 text-sm line-clamp-2">Compliant ways to build social proof in 2026 without getting banned.</p>
+                    <p class="text-slate-500 text-sm line-clamp-2 leading-relaxed">Compliant ways to build social proof in 2026 without getting banned.</p>
                 </article>
             </div>
 
         </div>
     </main>
 
-    <!-- Footer (Minimal) -->
-    <footer class="bg-white border-t border-slate-100 py-12 mt-12">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <div class="w-6 h-6 bg-slate-200 rounded flex items-center justify-center text-slate-600 text-xs font-bold">N</div>
-                <span class="text-slate-900 font-bold">Nexscope</span>
+    <!-- Footer (Dark) -->
+    <footer class="bg-bg border-t border-white/5 py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-brand-500 rounded flex items-center justify-center text-white text-xs font-bold">N</div>
+                <span class="text-white font-bold">NexScope</span>
             </div>
-            <div class="text-slate-500 text-sm">
-                © 2026 Nexscope. All rights reserved.
+            <div class="flex gap-8 text-sm text-slate-500">
+                <a href="#" class="hover:text-brand-400 transition-colors">Privacy</a>
+                <a href="#" class="hover:text-brand-400 transition-colors">Terms</a>
+                <a href="#" class="hover:text-brand-400 transition-colors">Twitter</a>
             </div>
+            <p class="text-slate-500 text-sm">© 2026 Nexscope Inc.</p>
         </div>
     </footer>
 
