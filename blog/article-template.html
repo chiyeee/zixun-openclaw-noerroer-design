@@ -21,9 +21,12 @@
                         DEFAULT: {
                             css: {
                                 color: theme('colors.slate.400'),
-                                h2: { color: theme('colors.white'), fontWeight: '700' },
+                                h2: { color: theme('colors.white'), fontWeight: '700', fontSize: '1.875rem' },
+                                h3: { color: theme('colors.white'), fontWeight: '600', fontSize: '1.5rem', marginTop: '2em' },
+                                h4: { color: theme('colors.slate.200'), fontWeight: '600', fontSize: '1.25rem', marginTop: '1.5em' },
                                 strong: { color: theme('colors.white'), fontWeight: '600' },
-                                a: { color: theme('colors.brand.400') }
+                                a: { color: theme('colors.brand.400') },
+                                'ul > li::marker': { color: theme('colors.brand.500') },
                             }
                         }
                     })
@@ -31,7 +34,6 @@
             }
         }
     </script>
-    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -45,8 +47,14 @@
         .sticky-toc { position: sticky; top: 100px; max-height: calc(100vh - 120px); overflow-y: auto; }
         .sticky-toc::-webkit-scrollbar { width: 4px; background: #1e293b; }
         .sticky-toc::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+        
+        /* Prose overrides */
         .prose p { margin-bottom: 1.5em; line-height: 1.8; color: #94a3b8; }
-        .prose h2 { margin-top: 2.5em; margin-bottom: 1em; font-size: 1.8rem; font-weight: 800; color: white; }
+        .prose h2 { margin-top: 2.5em; margin-bottom: 1em; }
+        .prose ul { margin-bottom: 1.5em; list-style-type: disc; padding-left: 1.5em; color: #94a3b8; }
+        .prose ol { margin-bottom: 1.5em; list-style-type: decimal; padding-left: 1.5em; color: #94a3b8; }
+        .prose li { margin-bottom: 0.5em; }
+        .prose blockquote { border-left: 4px solid #0EA5E9; padding-left: 1em; font-style: italic; color: #cbd5e1; background: rgba(14, 165, 233, 0.1); padding: 1rem; border-radius: 0.5rem; }
     </style>
 </head>
 <body class="bg-bg text-slate-300 font-sans antialiased">
@@ -78,7 +86,8 @@
                     <ul class="space-y-1 text-sm border-l border-white/10 mb-8">
                         <li><a href="#intro" class="block py-2 pl-4 border-l-2 border-brand-500 text-brand-400 font-medium bg-brand-500/10 rounded-r-lg">Introduction</a></li>
                         <li><a href="#key-takeaways" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-white">Key Takeaways</a></li>
-                        <li><a href="#what-is-fba" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-white">What is FBA?</a></li>
+                        <li><a href="#step-1" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-white">Step 1: Product Research</a></li>
+                        <li><a href="#step-2" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-white">Step 2: Sourcing</a></li>
                         <li><a href="#fees" class="block py-2 pl-4 border-l-2 border-transparent text-slate-500 hover:text-white">Fee Structure</a></li>
                     </ul>
                     <!-- Sticky CTA -->
@@ -109,7 +118,7 @@
                     </div>
                 </header>
 
-                <!-- GEO: Key Takeaways (Restored!) -->
+                <!-- GEO: Key Takeaways -->
                 <div id="key-takeaways" class="bg-bg-card p-8 rounded-2xl border border-white/5 mb-12">
                     <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center">Key Takeaways</h3>
                     <ul class="space-y-3">
@@ -129,7 +138,39 @@
                         <p class="text-xl font-medium text-white">Fulfillment by Amazon (FBA) is a service where Amazon stores, picks, packs, and ships products.</p>
                     </div>
 
-                    <!-- GEO: Data Table -->
+                    <h2 id="step-1">Step 1: Product Research in the AI Era</h2>
+                    <p>The days of scrolling through best-seller lists are over. In 2026, you need to leverage AI agents to analyze market sentiment.</p>
+                    
+                    <h3>Why Traditional Methods Fail</h3>
+                    <ul>
+                        <li><strong>Saturation:</strong> Everyone uses the same filters on Helium 10.</li>
+                        <li><strong>False Signals:</strong> Giveaways distort BSR (Best Seller Rank).</li>
+                        <li><strong>Speed:</strong> Manual analysis takes weeks; trends last days.</li>
+                    </ul>
+
+                    <h3>The New "Agent-First" Approach</h3>
+                    <p>Instead of searching for keywords, you should be searching for <strong>problems</strong>.</p>
+                    <ol>
+                        <li>Identify a sub-niche with high complaint rates (use AI to scan reviews).</li>
+                        <li>Ask the Agent to summarize the top 3 recurring defects.</li>
+                        <li>Source a product that fixes exactly those 3 defects.</li>
+                    </ol>
+
+                    <h2 id="step-2">Step 2: Sourcing & Logistics</h2>
+                    <p>Once you've found a product, you need to get it made.</p>
+                    
+                    <h4>Finding a Manufacturer</h4>
+                    <p>Don't just use Alibaba. Try these sources:</p>
+                    <ul>
+                        <li>Global Sources (Better for electronics)</li>
+                        <li>ThomasNet (Verified suppliers)</li>
+                        <li>Direct factory outreach via Agent</li>
+                    </ul>
+
+                    <blockquote>
+                        "The profit is made in the buying, not the selling. Negotiate every cent."
+                    </blockquote>
+
                     <h2 id="fees">2026 FBA Fee Comparison</h2>
                     <div class="my-8 overflow-hidden border border-white/10 rounded-xl">
                         <table class="min-w-full divide-y divide-white/10">
