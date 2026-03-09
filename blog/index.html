@@ -3,46 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexscope Blog | Amazon FBA & Ecommerce Growth Strategies</title>
-    <meta name="description" content="Expert insights on Amazon FBA, product research, profit calculation, and AI ecommerce tools. Detailed guides for sellers.">
+    <title>Nexscope Blog | Ecommerce Intelligence</title>
+    <meta name="description" content="AI-driven insights for Amazon sellers. Product research, market analysis, and profit strategies.">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb', // Matches "Get Early Access" button likely
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        .geo-hero-text { background: linear-gradient(90deg, #0066FF 0%, #00C2FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-gradient { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); }
+        .text-gradient { background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="bg-gray-50 text-slate-800 font-sans">
+<body class="bg-white text-slate-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
 
-    <!-- Nav -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <!-- Nav (Matches V7 minimalist style) -->
+    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold text-blue-600">Nexscope</span>
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <!-- Simple Logo -->
+                    <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">N</div>
+                    <span class="text-xl font-bold tracking-tight text-slate-900">Nexscope</span>
                 </div>
-                <div class="flex items-center space-x-8">
-                    <a href="/" class="text-gray-600 hover:text-blue-600">Product</a>
-                    <a href="/blog" class="text-blue-600 font-medium">Blog</a>
-                    <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Get Started</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Product</a>
+                    <a href="/blog" class="text-sm font-medium text-brand-600">Blog</a>
+                    <a href="#waitlist" class="text-sm font-medium bg-slate-900 text-white px-4 py-2 rounded-full hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/20">Get Early Access</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section (GEO: Definitive Context) -->
-    <header class="bg-white py-20 border-b border-gray-200">
-        <div class="max-w-4xl mx-auto text-center px-4">
-            <h1 class="text-5xl font-extrabold mb-6 tracking-tight">
-                Ecommerce Intelligence <br>
-                <span class="geo-hero-text">Optimized for Growth</span>
+    <!-- Hero Section (Clean, Centered, "No Dashboards" vibe) -->
+    <header class="relative pt-24 pb-20 px-4 overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-50 via-white to-white"></div>
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold mb-6 uppercase tracking-wider">
+                Ecommerce Intelligence
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight text-slate-900 leading-[1.1]">
+                Data-driven insights.<br>
+                <span class="text-gradient">Zero guesswork.</span>
             </h1>
-            <p class="text-xl text-gray-500 mb-8 max-w-2xl mx-auto">
-                Deep-dive guides, data-driven analysis, and AI strategies for Amazon FBA sellers and multi-channel brands.
+            <p class="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Strategies for Amazon FBA, product research, and AI automation. Written for sellers who want answers, not spreadsheets.
             </p>
-            <!-- Search Bar (GEO: Helps users/AI find specific topics) -->
-            <div class="max-w-md mx-auto relative">
-                <input type="text" placeholder="Search for 'product research' or 'profit calc'..." class="w-full px-5 py-3 border border-gray-300 rounded-full shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
-                <button class="absolute right-2 top-2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm">Search</button>
+            
+            <!-- Search (Minimalist) -->
+            <div class="max-w-lg mx-auto relative group">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+                <input type="text" placeholder="Search guides (e.g. 'profit calc')" class="block w-full pl-11 pr-4 py-4 bg-white border border-gray-200 rounded-2xl text-sm focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none shadow-sm group-hover:shadow-md transition-shadow">
             </div>
         </div>
     </header>
@@ -50,117 +84,119 @@
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        <!-- Featured Post (GEO: High Priority Content) -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold mb-6 text-gray-900 border-l-4 border-blue-600 pl-4">Featured Guide</h2>
-            <article class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 flex flex-col md:flex-row hover:shadow-xl transition-shadow duration-300">
-                <div class="md:w-1/2 h-64 md:h-auto bg-gray-200 relative">
-                    <!-- Placeholder for image -->
-                    <div class="absolute inset-0 flex items-center justify-center text-gray-400">Featured Image 800x600</div>
-                </div>
-                <div class="p-8 md:w-1/2 flex flex-col justify-center">
-                    <span class="text-blue-600 font-semibold text-sm mb-2 uppercase tracking-wide">Product Research</span>
-                    <h3 class="text-3xl font-bold mb-4 text-gray-900 leading-tight">
-                        <a href="/blog/amazon-product-research-guide" class="hover:text-blue-600 transition-colors">
-                            The Ultimate Guide to Amazon Product Research in 2026
-                        </a>
-                    </h3>
-                    <p class="text-gray-600 mb-6 text-lg">
-                        Stop guessing. Learn the 7-step data validation framework top sellers use to find profitable niches without high competition.
-                    </p>
-                    <div class="flex items-center justify-between mt-auto">
-                        <div class="flex items-center">
-                            <div class="h-10 w-10 rounded-full bg-gray-300 mr-3"></div>
-                            <div>
-                                <p class="text-sm font-medium text-gray-900">A Wu</p>
-                                <p class="text-xs text-gray-500">Updated Mar 9, 2026</p>
-                            </div>
+        <!-- Featured Post (Card Style matching V7 'Analyze this product' vibe) -->
+        <section class="mb-20">
+            <div class="group relative bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50 overflow-hidden hover:shadow-2xl hover:shadow-brand-900/10 transition-all duration-300">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="relative h-64 md:h-auto bg-slate-100 overflow-hidden">
+                        <!-- Abstract Geometric Pattern Placeholder -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 opacity-50"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-slate-400 font-medium">Cover Image</div>
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded uppercase">New Strategy</span>
+                            <span class="text-slate-400 text-sm">• 15 min read</span>
                         </div>
-                        <span class="text-sm font-medium text-gray-500">15 min read</span>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-brand-600 transition-colors">
+                            <a href="/blog/article-template.html">The Ultimate Guide to Amazon Product Research in 2026</a>
+                        </h2>
+                        <p class="text-slate-600 mb-8 text-lg leading-relaxed">
+                            Stop clicking through filters. Learn the conversational framework top sellers use to find high-margin niches before they go viral.
+                        </p>
+                        <div class="flex items-center justify-between mt-auto">
+                            <div class="flex items-center gap-3">
+                                <div class="h-10 w-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-700 font-bold">A</div>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-900">A Wu</p>
+                                    <p class="text-xs text-slate-500">Mar 9, 2026</p>
+                                </div>
+                            </div>
+                            <a href="/blog/article-template.html" class="flex items-center gap-1 text-sm font-bold text-brand-600 group-hover:translate-x-1 transition-transform">
+                                Read Guide <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </article>
+            </div>
         </section>
 
-        <!-- Categories / Topic Clusters (GEO: Semantic Structure) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Categories / Topic Clusters -->
+        <div class="grid md:grid-cols-3 gap-8">
             
-            <!-- Column 1 -->
-            <section>
-                <h2 class="text-xl font-bold mb-6 text-gray-900 flex items-center">
-                    <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">📊</span> Data Analysis
-                </h2>
-                <div class="space-y-6">
-                    <article class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-blue-200 transition-colors">
-                        <a href="#" class="block">
-                            <h3 class="font-bold text-lg mb-2 hover:text-blue-600">Real Profit Calculation: Hidden FBA Fees</h3>
-                            <p class="text-gray-500 text-sm mb-3">Don't let storage fees eat your margin. The complete formula.</p>
-                            <span class="text-xs text-blue-600 font-medium">Read more →</span>
-                        </a>
-                    </article>
-                    <article class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-blue-200 transition-colors">
-                        <a href="#" class="block">
-                            <h3 class="font-bold text-lg mb-2 hover:text-blue-600">Competitor Tracking Metrics</h3>
-                            <p class="text-gray-500 text-sm mb-3">How to spy on sales velocity without expensive tools.</p>
-                            <span class="text-xs text-blue-600 font-medium">Read more →</span>
-                        </a>
-                    </article>
+            <!-- Category 1 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xl">📊</span>
+                    <h3 class="text-lg font-bold text-slate-900">Data Analysis</h3>
                 </div>
-            </section>
+                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
+                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
+                        <a href="#">Real Profit Calculation: Hidden FBA Fees</a>
+                    </h4>
+                    <p class="text-slate-500 text-sm line-clamp-2">Don't let storage fees eat your margin. The complete formula including 2026 updates.</p>
+                </article>
+                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
+                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
+                        <a href="#">Competitor Tracking Metrics</a>
+                    </h4>
+                    <p class="text-slate-500 text-sm line-clamp-2">How to spy on sales velocity without expensive tools.</p>
+                </article>
+            </div>
 
-            <!-- Column 2 -->
-            <section>
-                <h2 class="text-xl font-bold mb-6 text-gray-900 flex items-center">
-                    <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">🤖</span> AI & Automation
-                </h2>
-                <div class="space-y-6">
-                    <article class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-blue-200 transition-colors">
-                        <a href="#" class="block">
-                            <h3 class="font-bold text-lg mb-2 hover:text-blue-600">Nexscope vs. Helium 10: AI Comparison</h3>
-                            <p class="text-gray-500 text-sm mb-3">Why AI-agents are replacing traditional static databases.</p>
-                            <span class="text-xs text-blue-600 font-medium">Read more →</span>
-                        </a>
-                    </article>
-                    <article class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-blue-200 transition-colors">
-                        <a href="#" class="block">
-                            <h3 class="font-bold text-lg mb-2 hover:text-blue-600">Automating PPC Campaigns</h3>
-                            <p class="text-gray-500 text-sm mb-3">Set it and forget it? Not quite. Here is the hybrid strategy.</p>
-                            <span class="text-xs text-blue-600 font-medium">Read more →</span>
-                        </a>
-                    </article>
+            <!-- Category 2 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xl">🤖</span>
+                    <h3 class="text-lg font-bold text-slate-900">AI & Operations</h3>
                 </div>
-            </section>
+                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
+                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
+                        <a href="#">Nexscope vs. Helium 10</a>
+                    </h4>
+                    <p class="text-slate-500 text-sm line-clamp-2">Why chat-based AI agents are replacing traditional static databases.</p>
+                </article>
+                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
+                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
+                        <a href="#">Automating PPC Campaigns</a>
+                    </h4>
+                    <p class="text-slate-500 text-sm line-clamp-2">The hybrid strategy: when to trust AI and when to intervene.</p>
+                </article>
+            </div>
 
-            <!-- Column 3 -->
-            <section>
-                <h2 class="text-xl font-bold mb-6 text-gray-900 flex items-center">
-                    <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🚀</span> Launch Strategy
-                </h2>
-                <div class="space-y-6">
-                    <article class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-blue-200 transition-colors">
-                        <a href="#" class="block">
-                            <h3 class="font-bold text-lg mb-2 hover:text-blue-600">The 90-Day "Honeymoon" Plan</h3>
-                            <p class="text-gray-500 text-sm mb-3">Maximize Amazon's new product boost period.</p>
-                            <span class="text-xs text-blue-600 font-medium">Read more →</span>
-                        </a>
-                    </article>
-                    <article class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-blue-200 transition-colors">
-                        <a href="#" class="block">
-                            <h3 class="font-bold text-lg mb-2 hover:text-blue-600">Getting Your First 50 Reviews</h3>
-                            <p class="text-gray-500 text-sm mb-3">Compliant ways to build social proof in 2026.</p>
-                            <span class="text-xs text-blue-600 font-medium">Read more →</span>
-                        </a>
-                    </article>
+            <!-- Category 3 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xl">🚀</span>
+                    <h3 class="text-lg font-bold text-slate-900">Launch Strategy</h3>
                 </div>
-            </section>
+                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
+                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
+                        <a href="#">The 90-Day "Honeymoon" Plan</a>
+                    </h4>
+                    <p class="text-slate-500 text-sm line-clamp-2">Maximize Amazon's new product boost period with this timeline.</p>
+                </article>
+                <article class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all group">
+                    <h4 class="font-bold text-lg mb-2 text-slate-900 group-hover:text-brand-600 transition-colors">
+                        <a href="#">Getting Your First 50 Reviews</a>
+                    </h4>
+                    <p class="text-slate-500 text-sm line-clamp-2">Compliant ways to build social proof in 2026 without getting banned.</p>
+                </article>
+            </div>
 
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 py-12 mt-12">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-500">© 2026 Nexscope. The AI Advantage for Amazon Sellers.</p>
+    <!-- Footer (Minimal) -->
+    <footer class="bg-white border-t border-slate-100 py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-2 mb-4 md:mb-0">
+                <div class="w-6 h-6 bg-slate-200 rounded flex items-center justify-center text-slate-600 text-xs font-bold">N</div>
+                <span class="text-slate-900 font-bold">Nexscope</span>
+            </div>
+            <div class="text-slate-500 text-sm">
+                © 2026 Nexscope. All rights reserved.
+            </div>
         </div>
     </footer>
 
