@@ -16,20 +16,7 @@
                     colors: {
                         bg: { DEFAULT: '#0B0E14', card: '#151921', hover: '#1E2330' },
                         brand: { 400: '#38BDF8', 500: '#0EA5E9', 600: '#0284C7', 900: '#0C4A6E' }
-                    },
-                    typography: (theme) => ({
-                        DEFAULT: {
-                            css: {
-                                color: theme('colors.slate.400'),
-                                h2: { color: theme('colors.white'), fontWeight: '700', fontSize: '1.875rem' },
-                                h3: { color: theme('colors.white'), fontWeight: '600', fontSize: '1.5rem', marginTop: '2em' },
-                                h4: { color: theme('colors.slate.200'), fontWeight: '600', fontSize: '1.25rem', marginTop: '1.5em' },
-                                strong: { color: theme('colors.white'), fontWeight: '600' },
-                                a: { color: theme('colors.brand.400') },
-                                'ul > li::marker': { color: theme('colors.brand.500') },
-                            }
-                        }
-                    })
+                    }
                 }
             }
         }
@@ -48,14 +35,46 @@
         .sticky-toc::-webkit-scrollbar { width: 4px; background: #1e293b; }
         .sticky-toc::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
         
-        /* Prose overrides for Dark Mode readability */
-        .prose p { margin-bottom: 1.5em; line-height: 1.8; color: #94a3b8; }
-        .prose h2 { margin-top: 2.5em; margin-bottom: 1em; color: white; border-bottom: 1px solid #1e293b; padding-bottom: 0.5em; }
-        .prose h3 { margin-top: 2em; margin-bottom: 0.8em; color: white; }
-        .prose h4 { margin-top: 1.5em; margin-bottom: 0.5em; color: #cbd5e1; }
+        /* STRICT TYPOGRAPHY HIERARCHY */
+        .prose p { 
+            margin-bottom: 1.5em; 
+            line-height: 1.8; 
+            color: #94a3b8; /* Slate-400 */
+            font-size: 1.125rem; /* 18px */
+        }
+        
+        /* H1 is handled by Tailwind classes in the HTML, H2-H4 are here */
+        .prose h2 { 
+            margin-top: 2em; 
+            margin-bottom: 0.8em; 
+            color: white; 
+            font-weight: 800; /* Extra Bold */
+            font-size: 2.25rem; /* 36px */
+            letter-spacing: -0.025em;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5em;
+        }
+        
+        .prose h3 { 
+            margin-top: 1.5em; 
+            margin-bottom: 0.6em; 
+            color: white; 
+            font-weight: 700; /* Bold */
+            font-size: 1.75rem; /* 28px */
+        }
+        
+        .prose h4 { 
+            margin-top: 1.5em; 
+            margin-bottom: 0.5em; 
+            color: #e2e8f0; /* Slate-200 */
+            font-weight: 700; /* Bold */
+            font-size: 1.5rem; /* 24px */
+        }
+
         .prose ul { margin-bottom: 1.5em; list-style-type: disc; padding-left: 1.5em; color: #94a3b8; }
         .prose ol { margin-bottom: 1.5em; list-style-type: decimal; padding-left: 1.5em; color: #94a3b8; }
-        .prose li { margin-bottom: 0.5em; }
+        .prose li { margin-bottom: 0.5em; font-size: 1.125rem; }
+        .prose strong { color: white; font-weight: 700; }
         .prose blockquote { border-left: 4px solid #0EA5E9; padding-left: 1em; font-style: italic; color: #cbd5e1; background: rgba(14, 165, 233, 0.1); padding: 1rem; border-radius: 0.5rem; margin: 2rem 0; }
     </style>
 </head>
@@ -105,15 +124,13 @@
 
             <!-- Article -->
             <article class="flex-1 max-w-3xl">
-                <!-- Header -->
+                <!-- Header (H1 = 3.75rem / 60px) -->
                 <header class="mb-12">
-                    <!-- Breadcrumbs -->
-                    <nav class="text-xs text-slate-500 mb-6 flex gap-2">
-                        <a href="/" class="hover:text-white">Home</a> / <a href="/blog" class="hover:text-white">Blog</a> / <span class="text-brand-400">Strategy</span>
-                    </nav>
-                    
-                    <h1 class="text-4xl md:text-[3.5rem] font-extrabold text-white mb-8 leading-[1.1]">Amazon FBA Guide 2026: The Ultimate Profit Strategy</h1>
-                    
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-2.5 py-1 bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-bold rounded-md uppercase">Strategy</span>
+                        <span class="text-slate-500 text-sm">• 15 min read</span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">Amazon FBA Guide 2026: The Ultimate Profit Strategy</h1>
                     <div class="flex items-center gap-4 border-t border-b border-white/10 py-6">
                         <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white font-bold text-xl">A</div>
                         <div>
@@ -132,7 +149,7 @@
                     </ul>
                 </div>
 
-                <div class="prose max-w-none text-lg text-slate-400">
+                <div class="prose max-w-none">
                     <p class="lead text-xl text-slate-300 mb-8 font-light">Starting an Amazon business has changed drastically...</p>
 
                     <!-- GEO: Definition Box -->
@@ -146,7 +163,8 @@
                     <h2 id="step-1">Step 1: Product Research in the AI Era</h2>
                     <p>The days of scrolling through best-seller lists are over. In 2026, you need to leverage AI agents to analyze market sentiment.</p>
                     
-                    <h3>Why Traditional Methods Fail (H3 Example)</h3>
+                    <h3>Why Traditional Methods Fail</h3>
+                    <p>Manual research has three main flaws:</p>
                     <ul>
                         <li><strong>Saturation:</strong> Everyone uses the same filters on Helium 10.</li>
                         <li><strong>False Signals:</strong> Giveaways distort BSR (Best Seller Rank).</li>
@@ -161,7 +179,7 @@
                         <li>Source a product that fixes exactly those 3 defects.</li>
                     </ol>
                     
-                    <h4>Case Study: Pet Supplies (H4 Example)</h4>
+                    <h4>Case Study: Pet Supplies Category</h4>
                     <p>We analyzed 5,000 reviews for "dog leashes" and found that "handle durability" was the #1 complaint.</p>
 
                     <h2 id="step-2">Step 2: Sourcing & Logistics</h2>
