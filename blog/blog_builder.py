@@ -302,10 +302,12 @@ class BlogBuilder:
         html = re.sub(r'<h1 class="[^"]*">[^<]*</h1>', 
                       f'<h1 class="text-4xl md:text-6xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">{post.title}</h1>', html)
         
-        # 分类
+        # 分类（多处替换）
         html = re.sub(r'<span class="text-brand-400 font-medium">[^<]*</span>', 
                       f'<span class="text-brand-400 font-medium">{post.category}</span>', html)
         html = re.sub(r'>Strategy</span>', f'>{post.category}</span>', html)
+        html = re.sub(r'<span class="px-2\.5 py-1 bg-brand-500/10[^>]*>[^<]*</span>',
+                      f'<span class="px-2.5 py-1 bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-bold rounded-md uppercase">{post.category}</span>', html)
         
         # 作者
         html = re.sub(r'Written by\s*<a[^>]*>[^<]*</a>', 
@@ -313,6 +315,9 @@ class BlogBuilder:
         
         # 日期
         html = re.sub(r'Updated [A-Za-z]+ \d+, \d+', f'Updated {post.date}', html)
+        
+        # 阅读时间
+        html = re.sub(r'• 15 min read', f'• {post.reading_time} min read', html)
         
         # Schema JSON-LD
         schema = {
@@ -344,19 +349,173 @@ class BlogBuilder:
         html = re.sub(r'<ul class="space-y-1 text-sm border-l border-white/10 mb-8">.*?</ul>', 
                       toc_items, html, flags=re.DOTALL)
         
-        # 文章内容 - 找到 Key Takeaways 之后的区域插入内容
-        # 简化处理：在 </article> 前插入内容
-        content_section = f'''
-                <!-- Article Content -->
-                <div class="prose prose-lg max-w-none">
-                    {post.content_html}
+        # 处理文章内容 - 添加正确的 CSS 类
+        styled_content = self._style_content(post.content_html)
+        
+        # 完全替换文章内容区域
+        # 策略：找到 <div class="prose max-w-none"> 到 <!-- Bottom CTA --> 之间的内容并替换
+        
+        prose_start = '<div class="prose max-w-none">'
+        content_end = '<!-- Bottom CTA -->'
+        
+        start_pos = html.find(prose_start)
+        end_pos = html.find(content_end)
+        
+        if start_pos > 0 and end_pos > start_pos:
+            # 找到了内容区域，完全替换
+            before = html[:start_pos]
+            after = html[end_pos:]
+            
+            new_content = f'''<div class="prose prose-lg max-w-none text-slate-300">
+                    {styled_content}
                 </div>
-'''
-        # 在 Key Takeaways 后面插入
-        html = re.sub(r'(<!-- GEO: Key Takeaways -->.*?</div>\s*</div>)', 
-                      r'\1\n' + content_section, html, flags=re.DOTALL)
+
+                '''
+            html = before + new_content + after
+        else:
+            # 后备方案：尝试其他标记
+            article_end = '</article>'
+            if article_end in html:
+                html = html.replace(article_end, f'''
+                <!-- Article Content -->
+                <div class="prose prose-lg max-w-none text-slate-300">
+                    {styled_content}
+                </div>
+
+            {article_end}''')
         
         return html
+    
+    def _style_content(self, html: str) -> str:
+        """为 Markdown 转换后的 HTML 添加 Tailwind CSS 样式"""
+        styled = html
+        
+        # H1 - 超大标题（支持带属性的标签）
+        styled = re.sub(
+            r'<h1([^>]*)>([^<]+)</h1>',
+            r'<h1\1 class="text-4xl font-extrabold text-white mt-12 mb-6">\2</h1>',
+            styled
+        )
+        
+        # H2 - 主要章节标题（支持带属性的标签）
+        styled = re.sub(
+            r'<h2([^>]*)>([^<]+)</h2>',
+            r'<h2\1 class="text-3xl font-extrabold text-white mt-12 mb-6 border-b border-white/10 pb-4">\2</h2>',
+            styled
+        )
+        
+        # H3 - 子章节标题（支持带属性的标签）
+        styled = re.sub(
+            r'<h3([^>]*)>([^<]+)</h3>',
+            r'<h3\1 class="text-2xl font-bold text-white mt-8 mb-4">\2</h3>',
+            styled
+        )
+        
+        # H4 - 小标题（支持带属性的标签）
+        styled = re.sub(
+            r'<h4([^>]*)>([^<]+)</h4>',
+            r'<h4\1 class="text-xl font-semibold text-slate-200 mt-6 mb-3">\2</h4>',
+            styled
+        )
+        
+        # 段落
+        styled = re.sub(
+            r'<p>',
+            r'<p class="text-slate-300 leading-relaxed mb-6">',
+            styled
+        )
+        
+        # 无序列表
+        styled = re.sub(
+            r'<ul>',
+            r'<ul class="list-disc list-inside space-y-2 mb-6 text-slate-300">',
+            styled
+        )
+        
+        # 有序列表
+        styled = re.sub(
+            r'<ol>',
+            r'<ol class="list-decimal list-inside space-y-2 mb-6 text-slate-300">',
+            styled
+        )
+        
+        # 列表项
+        styled = re.sub(
+            r'<li>',
+            r'<li class="text-slate-300">',
+            styled
+        )
+        
+        # 代码块
+        styled = re.sub(
+            r'<pre><code([^>]*)>',
+            r'<pre class="bg-bg-card border border-white/10 rounded-xl p-6 overflow-x-auto mb-6"><code\1 class="text-sm text-slate-300">',
+            styled
+        )
+        
+        # 行内代码
+        styled = re.sub(
+            r'<code>([^<]+)</code>',
+            r'<code class="bg-bg-card px-2 py-1 rounded text-brand-400 text-sm">\1</code>',
+            styled
+        )
+        
+        # 引用块
+        styled = re.sub(
+            r'<blockquote>',
+            r'<blockquote class="border-l-4 border-brand-500 bg-brand-500/10 p-6 rounded-r-xl my-6 text-slate-300 italic">',
+            styled
+        )
+        
+        # 表格
+        styled = re.sub(
+            r'<table>',
+            r'<div class="overflow-x-auto mb-6"><table class="min-w-full border border-white/10 rounded-xl overflow-hidden">',
+            styled
+        )
+        styled = re.sub(
+            r'</table>',
+            r'</table></div>',
+            styled
+        )
+        styled = re.sub(
+            r'<thead>',
+            r'<thead class="bg-bg-card">',
+            styled
+        )
+        styled = re.sub(
+            r'<th>',
+            r'<th class="px-4 py-3 text-left text-sm font-bold text-white border-b border-white/10">',
+            styled
+        )
+        styled = re.sub(
+            r'<td>',
+            r'<td class="px-4 py-3 text-sm text-slate-300 border-b border-white/5">',
+            styled
+        )
+        
+        # 图片（处理自闭合标签）
+        styled = re.sub(
+            r'<img([^>]*)/?>',
+            r'<img\1 class="rounded-xl my-8 w-full">',
+            styled
+        )
+        
+        # 链接
+        styled = re.sub(
+            r'<a href="([^"]+)">',
+            r'<a href="\1" class="text-brand-400 hover:text-brand-300 underline">',
+            styled
+        )
+        
+        # Strong/Bold
+        styled = re.sub(
+            r'<strong>',
+            r'<strong class="text-white font-semibold">',
+            styled
+        )
+        
+        return styled
     
     def _generate_toc(self, html: str) -> str:
         """从 HTML 生成目录"""
