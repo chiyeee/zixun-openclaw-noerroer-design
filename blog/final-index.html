@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexscope Blog | Ecommerce Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #FFFFFF; font-family: 'Inter', sans-serif; color: #1F2937; }
+        
+        nav { background: rgba(255,255,255,0.9); border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-50; }
+        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; }
+        .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px; }
+        .nav-logo-text { font-size: 20px; font-weight: bold; color: black; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-link { text-decoration: none; color: #3B82F6; font-weight: 500; font-size: 14px; }
+        
+        .hero { background: linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%); padding: 5rem 2rem; text-align: center; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; color: black; margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; color: #6B7280; margin-bottom: 2rem; }
+        
+        .carousel-section { max-width: 1280px; margin: 2rem auto; padding: 0 2rem; }
+        .carousel-title { font-size: 1.875rem; font-weight: 700; color: black; margin-bottom: 2rem; }
+        .carousel-wrapper { display: flex; gap: 1rem; align-items: center; }
+        .carousel-btn { width: 44px; height: 44px; background: #3B82F6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; }
+        .carousel-container { flex: 1; overflow: hidden; }
+        .carousel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; transition: transform 0.3s; }
+        .carousel-card { background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); border-radius: 12px; padding: 2rem; color: white; text-decoration: none; cursor: pointer; }
+        .carousel-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+        
+        .articles-section { max-width: 1280px; margin: 3rem auto; padding: 0 2rem; }
+        .articles-title { font-size: 1.875rem; font-weight: 700; color: black; margin-bottom: 2rem; }
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 3rem; }
+        .article-card { border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden; cursor: pointer; transition: box-shadow 0.3s; }
+        .article-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .article-card img { width: 100%; height: 180px; object-fit: cover; }
+        .article-card-content { padding: 1.5rem; }
+        .article-tag { display: inline-block; background: #EFF6FF; color: #3B82F6; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 0.5rem; }
+        .article-card h3 { font-size: 1.25rem; font-weight: 700; color: black; margin-bottom: 0.5rem; }
+        .article-card-meta { font-size: 13px; color: #9CA3AF; margin-top: 1rem; }
+        
+        .pagination { display: flex; justify-content: center; gap: 0.5rem; margin: 2rem 0; }
+        .pagination a, .pagination span { padding: 8px 12px; border-radius: 6px; border: 1px solid #E5E7EB; text-decoration: none; color: #1F2937; cursor: pointer; }
+        .pagination a:hover { background: #F3F4F6; }
+        .pagination .active { background: #3B82F6; color: white; border-color: #3B82F6; }
+        
+        footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 2rem; text-align: center; color: #6B7280; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="nav-logo-icon">N</div>
+                <span class="nav-logo-text">Nexscope</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Blog</a>
+                <a href="#" style="background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: white; padding: 8px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">Get Early Access</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="hero">
+        <h1>Ecommerce Intelligence</h1>
+        <p>AI-powered insights for Amazon sellers</p>
+    </div>
+    
+    <div class="carousel-section">
+        <div class="carousel-title">Featured Categories</div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn" onclick="scrollCarousel(-1)">←</button>
+            <div class="carousel-container">
+                <div class="carousel" id="carousel">
+                    <a href="final-category-product-research.html" class="carousel-card">
+                        <h3>Product Research</h3>
+                        <p>Market analysis & niche identification</p>
+                    </a>
+                    <a href="final-category-ppc.html" class="carousel-card">
+                        <h3>Amazon PPC & Ads</h3>
+                        <p>Campaign optimization strategies</p>
+                    </a>
+                    <a href="final-category-listing.html" class="carousel-card">
+                        <h3>Listing Optimization</h3>
+                        <p>Keyword integration & conversion</p>
+                    </a>
+                    <a href="#" class="carousel-card" style="display: none;">
+                        <h3>Profit & FBA Operations</h3>
+                        <p>Fee structures & logistics</p>
+                    </a>
+                    <a href="#" class="carousel-card" style="display: none;">
+                        <h3>Sourcing & Supply Chain</h3>
+                        <p>Supplier management</p>
+                    </a>
+                    <a href="#" class="carousel-card" style="display: none;">
+                        <h3>Market Intelligence</h3>
+                        <p>Competitive analysis</p>
+                    </a>
+                    <a href="#" class="carousel-card" style="display: none;">
+                        <h3>AI for Amazon Sellers</h3>
+                        <p>AI automation tools</p>
+                    </a>
+                    <a href="#" class="carousel-card" style="display: none;">
+                        <h3>Tool Reviews</h3>
+                        <p>Compare seller tools</p>
+                    </a>
+                    <a href="#" class="carousel-card" style="display: none;">
+                        <h3>Seller Guides</h3>
+                        <p>Step-by-step tutorials</p>
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-btn" onclick="scrollCarousel(1)">→</button>
+        </div>
+    </div>
+    
+    <div class="articles-section">
+        <div class="articles-title">Latest Articles</div>
+        <div class="articles-grid">
+            <a href="final-article.html" style="text-decoration: none; color: inherit;">
+                <div class="article-card">
+                    <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424200114_cover-openclaw-amazon-sellers.png" alt="Article">
+                    <div class="article-card-content">
+                        <span class="article-tag">AI for Amazon Sellers</span>
+                        <h3>OpenClaw for Amazon Sellers</h3>
+                        <p style="font-size: 13px; color: #6B7280;">10 Use Cases That Work in 2026</p>
+                        <div class="article-card-meta">Updated Mar 26, 2026 • 12 min read</div>
+                    </div>
+                </div>
+            </a>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300" alt="Article">
+                <div class="article-card-content">
+                    <span class="article-tag">Listing Optimization</span>
+                    <h3>Keyword Research Mastery</h3>
+                    <p style="font-size: 13px; color: #6B7280;">Find high-volume keywords</p>
+                    <div class="article-card-meta">Mar 20, 2026 • 10 min read</div>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300" alt="Article">
+                <div class="article-card-content">
+                    <span class="article-tag">Product Research</span>
+                    <h3>Market Analysis Guide</h3>
+                    <p style="font-size: 13px; color: #6B7280;">Identify profitable niches</p>
+                    <div class="article-card-meta">Mar 15, 2026 • 9 min read</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pagination">
+            <span class="active">1</span>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">Next →</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2026 Nexscope Inc. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('carousel');
+            const scrollAmount = 350;
+            carousel.style.transform = `translateX(${direction * scrollAmount}px)`;
+        }
+    </script>
+</body>
+</html>
