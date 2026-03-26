@@ -516,17 +516,8 @@
         <aside>
             <div class="toc">
                 <div class="toc-title">Table of Contents</div>
-                <ul class="toc-list">
-                    <li><a href="#">What Makes a Good Product</a></li>
-                    <li><a href="#">Method 1: Best Sellers</a></li>
-                    <li><a href="#">Method 2: Opportunity Explorer</a></li>
-                    <li><a href="#">Method 3: Reverse Engineer</a></li>
-                    <li><a href="#">Method 4: Keyword Research</a></li>
-                    <li><a href="#">Method 5: Social Listening</a></li>
-                    <li><a href="#">Method 6: Supplier Research</a></li>
-                    <li><a href="#">Method 7: AI Automation</a></li>
-                    <li><a href="#">Checklist</a></li>
-                    <li><a href="#">FAQ</a></li>
+                <ul class="toc-list" id="toc-list">
+                    <!-- 由 JavaScript 自动生成 -->
                 </ul>
             </div>
             
@@ -554,6 +545,63 @@
       "datePublished": "2026-03-26",
       "dateModified": "2026-03-26"
     }
+    </script>
+    
+    <script>
+        // 自动生成 TOC 和 Scroll Spy
+        document.addEventListener('DOMContentLoaded', function() {
+            const article = document.querySelector('article');
+            const tocList = document.getElementById('toc-list');
+            const headings = article.querySelectorAll('h2, h3');
+            
+            // 为每个标题添加 ID
+            headings.forEach((heading, index) => {
+                if (!heading.id) {
+                    heading.id = `heading-${index}`;
+                }
+            });
+            
+            // 生成 TOC
+            headings.forEach((heading) => {
+                const li = document.createElement('li');
+                if (heading.tagName === 'H3') {
+                    li.style.marginLeft = '1rem';
+                }
+                const a = document.createElement('a');
+                a.href = `#${heading.id}`;
+                a.textContent = heading.textContent;
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    heading.scrollIntoView({ behavior: 'smooth' });
+                    updateActiveLink();
+                };
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+            
+            // Scroll Spy
+            function updateActiveLink() {
+                const allLinks = tocList.querySelectorAll('a');
+                allLinks.forEach(link => link.classList.remove('active'));
+                
+                let activeHeading = null;
+                headings.forEach((heading) => {
+                    if (heading.getBoundingClientRect().top <= 200) {
+                        activeHeading = heading;
+                    }
+                });
+                
+                if (activeHeading) {
+                    const activeLink = tocList.querySelector(`a[href="#${activeHeading.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            }
+            
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+        });
     </script>
 </body>
 </html>
