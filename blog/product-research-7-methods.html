@@ -634,24 +634,32 @@
                 // 让 CTA 跟随 TOC 下方
                 if (tocElement && ctaCard) {
                     const tocRect = tocElement.getBoundingClientRect();
-                    const tocBottom = tocRect.bottom; // TOC 的下边距离视口的距离
+                    const tocComputedStyle = window.getComputedStyle(tocElement);
+                    const tocWidth = tocRect.width;
                     
-                    if (tocBottom < window.innerHeight) {
-                        // TOC 在视口内，CTA 相对定位（紧跟在 TOC 下面）
+                    if (tocRect.top + tocRect.height < window.innerHeight) {
+                        // TOC 完全可见，CTA 相对定位（紧跟在 TOC 下面）
                         ctaCard.style.position = 'relative';
                         ctaCard.style.top = 'auto';
+                        ctaCard.style.left = 'auto';
+                        ctaCard.style.width = 'auto';
                     } else {
-                        // TOC 被滚动出去了，CTA 变成 fixed（固定在 TOC 原来的位置下方）
+                        // TOC 被滚动或超出视口，CTA 变成 fixed
                         ctaCard.style.position = 'fixed';
-                        ctaCard.style.top = (tocRect.top + tocRect.height) + 'px';
-                        ctaCard.style.width = '240px';
+                        ctaCard.style.top = Math.max(100, tocRect.top + tocRect.height) + 'px';
                         ctaCard.style.left = tocRect.left + 'px';
+                        ctaCard.style.width = tocWidth + 'px';
+                        ctaCard.style.boxSizing = 'border-box';
                     }
                 }
             }
             
             window.addEventListener('scroll', updateActiveLink);
+            window.addEventListener('resize', updateActiveLink);
+            
+            // 初始化 + 延迟调用确保 DOM 已完全渲染
             updateActiveLink();
+            setTimeout(updateActiveLink, 100);
         });
     </script>
 </body>
