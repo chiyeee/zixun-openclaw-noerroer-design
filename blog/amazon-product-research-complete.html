@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- v2.1 - Product Research Article - 2026-03-26 -->
+<!-- v2.2 - Complete Product Research Article -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Find Products to Sell on Amazon: 7 Proven Methods | Nexscope</title>
-    <meta name="description" content="Learn how to find profitable products to sell on Amazon using proven research methods. From BSR analysis to AI automation, find your winning niche faster.">
+    <meta name="description" content="Learn how to find profitable products to sell on Amazon using 7 proven research methods. From BSR analysis to AI automation, find your winning niche faster.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,7 +33,6 @@
         article { }
         article img { width: 100%; height: auto; border-radius: 12px; margin: 2rem 0; }
         
-        /* H标签规范 */
         article h1 { font-size: 2.75rem; font-weight: 800; color: black; margin-bottom: 1rem; line-height: 1.2; }
         article h2 { font-size: 2.25rem; font-weight: 700; color: black; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #E5E7EB; padding-bottom: 0.5rem; }
         article h3 { font-size: 1.75rem; font-weight: 600; color: black; margin-top: 1.5rem; margin-bottom: 0.8rem; }
@@ -46,7 +45,6 @@
         article a { color: #3B82F6; text-decoration: none; cursor: pointer; }
         article a:hover { text-decoration: underline; }
         
-        /* 表格 */
         .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
         .table-wrapper::-webkit-scrollbar { height: 8px; }
         .table-wrapper::-webkit-scrollbar-track { background: #E5E7EB; border-radius: 4px; }
@@ -55,44 +53,32 @@
         article th { background: #F9FAFB; font-weight: 600; border: 1px solid #E5E7EB; padding: 0.75em; text-align: left; }
         article td { border: 1px solid #E5E7EB; padding: 0.75em; }
         
-        /* 作者信息 */
         .author-section { display: flex; gap: 1rem; align-items: flex-start; padding: 1.5rem 0; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; margin: 2rem 0; }
         .author-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0; }
         .author-info { flex: 1; }
         .author-info p { margin-bottom: 0.25rem; font-size: 14px; }
         .author-link { color: #3B82F6; text-decoration: none; cursor: pointer; font-weight: 600; }
-        .author-link:hover { text-decoration: underline; }
-        .author-date { color: #6B7280; font-size: 12px; }
         
-        /* 侧边栏 */
-        .sidebar { }
-        
-        /* TOC */
         .toc { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; position: sticky; top: 100px; }
         .toc-title { font-size: 13px; font-weight: 700; color: #1F2937; text-transform: uppercase; margin-bottom: 1rem; }
         .toc-list { list-style: none; }
         .toc-list li { margin-bottom: 0.5rem; }
         .toc-list a { font-size: 13px; color: #6B7280; text-decoration: none; display: block; padding: 0.25rem 0.5rem; border-left: 3px solid transparent; }
-        .toc-list a.active { color: #3B82F6; border-left-color: #3B82F6; font-weight: 600; background: rgba(59, 130, 246, 0.1); }
         .toc-list a:hover { color: #3B82F6; }
         
-        /* CTA卡片 */
         .cta-card { background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); color: white; padding: 1.5rem; border-radius: 8px; text-align: center; position: sticky; top: 420px; margin-top: 1.5rem; }
         .cta-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 0.5rem; color: white; }
         .cta-card p { font-size: 13px; margin-bottom: 1rem; opacity: 0.9; }
         .cta-card a { display: inline-block; background: white; color: #3B82F6; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 13px; }
         
-        /* FAQ - 可折叠 */
         .faq-section { margin-top: 3rem; }
         .faq-section h2 { font-size: 2.25rem; font-weight: 700; color: black; margin-bottom: 1.5rem; border-bottom: 1px solid #E5E7EB; padding-bottom: 0.5rem; }
         .faq-item { border: 1px solid #E5E7EB; border-radius: 8px; margin-bottom: 1rem; overflow: hidden; }
-        .faq-item details { }
         .faq-item summary { padding: 1rem 1.5rem; cursor: pointer; font-weight: 600; color: black; background: #F9FAFB; user-select: none; display: flex; justify-content: space-between; align-items: center; }
         .faq-item summary:hover { background: #F3F4F6; }
         .faq-item details[open] summary { background: #EFF6FF; color: #3B82F6; }
         .faq-content { padding: 1.5rem; color: #4B5563; line-height: 1.8; }
         
-        /* 底部CTA */
         .bottom-cta { background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); color: white; padding: 3rem 2rem; border-radius: 12px; text-align: center; margin-top: 3rem; }
         .bottom-cta h3 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: white; }
         .bottom-cta a { display: inline-block; background: white; color: #3B82F6; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 16px; }
@@ -113,10 +99,7 @@
     </nav>
     
     <div class="breadcrumbs">
-        <a href="final-index.html">Home</a> / 
-        <a href="final-index.html">Blog</a> / 
-        <a href="#">Product Research</a> / 
-        <span style="color: #3B82F6;">How to Find Products to Sell on Amazon</span>
+        <a href="final-index.html">Home</a> / <a href="final-index.html">Blog</a> / <span style="color: #3B82F6;">Product Research</span>
     </div>
     
     <div class="main-container">
@@ -129,7 +112,7 @@
                 <div class="author-avatar">HN</div>
                 <div class="author-info">
                     <p>Written by <a href="final-author.html" class="author-link">Henk Nie</a></p>
-                    <p class="author-date" id="readTime">Updated Mar 26, 2026 • 20 min read</p>
+                    <p style="color: #6B7280; font-size: 12px;">Updated Mar 26, 2026 • 25 min read</p>
                 </div>
             </div>
             
@@ -185,9 +168,7 @@
             <p>These aren't arbitrary numbers. According to Jungle Scout's research, products in the $15-50 range with fewer than 500 competing reviews have the highest success rate for new sellers.</p>
             
             <h2>Method 1: Start with Amazon Best Sellers</h2>
-            
             <p>The simplest method is hiding in plain sight: Amazon's own Best Sellers page.</p>
-            
             <h3>How It Works</h3>
             <ol>
                 <li>Go to Amazon Best Sellers</li>
@@ -195,22 +176,16 @@
                 <li>Look for products ranking well but with low review counts</li>
                 <li>Check "Movers & Shakers" for trending items</li>
             </ol>
-            
             <h3>What to Look For</h3>
             <ul>
                 <li>Products in the #20-100 range with fewer than 200 reviews</li>
-                <li>Items where the top seller doesn't dominate (no single listing with 10,000+ reviews)</li>
+                <li>Items where the top seller doesn't dominate</li>
                 <li>Categories you can realistically source products for</li>
             </ul>
-            
-            <blockquote>
-                💡 <strong>Pro Tip:</strong> Focus on subcategories, not main categories. "Kitchen & Dining" is too broad. "Coffee & Tea Accessories > Coffee Filters > Reusable Filters" is where opportunities hide.
-            </blockquote>
+            <blockquote>💡 <strong>Pro Tip:</strong> Focus on subcategories, not main categories. "Kitchen & Dining" is too broad. Deep subcategories are where opportunities hide.</blockquote>
             
             <h2>Method 2: Use Amazon Product Opportunity Explorer</h2>
-            
-            <p>Amazon's Product Opportunity Explorer is a free tool available to all sellers. It shows you search demand versus existing supply—essentially telling you where customers want products that don't exist yet.</p>
-            
+            <p>Amazon's Product Opportunity Explorer is a free tool that shows you search demand versus existing supply—essentially telling you where customers want products that don't exist yet.</p>
             <h3>How It Works</h3>
             <ol>
                 <li>Log into Seller Central</li>
@@ -218,7 +193,6 @@
                 <li>Search for a niche or browse categories</li>
                 <li>Analyze the "Niche Score" (higher = better opportunity)</li>
             </ol>
-            
             <h3>Key Metrics to Check</h3>
             <ul>
                 <li><strong>Search Volume:</strong> How many customers are searching for this</li>
@@ -226,11 +200,10 @@
                 <li><strong>Average Units Sold:</strong> What the typical seller moves</li>
                 <li><strong>Number of Products:</strong> How crowded the niche is</li>
             </ul>
+            <p><strong>Why It's Powerful:</strong> This is first-party Amazon data—not estimates from third-party tools. When Amazon tells you a niche has high demand and low competition, that's as close to insider information as you'll get legally.</p>
             
             <h2>Method 3: Reverse Engineer Competitor Products</h2>
-            
             <p>Instead of starting from scratch, start with products that already sell and find ways to improve them.</p>
-            
             <h3>How It Works</h3>
             <ol>
                 <li>Find a product with strong sales but mediocre reviews (3.5-4.2 stars)</li>
@@ -238,22 +211,20 @@
                 <li>Identify the top 3-5 complaints</li>
                 <li>Create a product that solves those problems</li>
             </ol>
-            
             <h3>Real-World Example</h3>
-            <p>Say you're researching ceramic coffee mugs. You notice the top sellers have complaints like:</p>
-            <ul>
-                <li>"Handle broke after 2 weeks"</li>
-                <li>"Smaller than pictured"</li>
-                <li>"No lid option"</li>
-            </ul>
-            <p>Your opportunity: A ceramic mug with a reinforced handle, accurate sizing photos, and an included lid. Same product category, differentiated positioning.</p>
+            <p>Say you're researching ceramic coffee mugs. You notice the top sellers have complaints like "Handle broke after 2 weeks", "Smaller than pictured", "No lid option". Your opportunity: A ceramic mug with a reinforced handle, accurate sizing photos, and an included lid.</p>
             
             <h2>Method 4: Keyword-First Research</h2>
-            
             <p>Most sellers start with a product idea and then check if people search for it. Flip that approach: start with what people are searching for, then find products to match.</p>
-            
+            <h3>How It Works</h3>
+            <ol>
+                <li>Use Amazon's search bar (type a keyword and watch autocomplete)</li>
+                <li>Find keywords with high search volume but low competition</li>
+                <li>Analyze the products currently ranking for those keywords</li>
+                <li>Identify gaps you can fill</li>
+            </ol>
             <h3>Amazon Search Bar Trick</h3>
-            <p>Type a seed keyword and let Amazon autocomplete. Those suggestions are real searches from real customers. For example, typing "coffee mug" might reveal:</p>
+            <p>Type a seed keyword like "coffee mug" and let Amazon autocomplete. Those suggestions are real searches from real customers:
             <ul>
                 <li>coffee mug with lid ← specific feature request</li>
                 <li>coffee mug for men ← demographic targeting</li>
@@ -261,10 +232,7 @@
             </ul>
             
             <h2>Method 5: Social Listening (Reddit, TikTok, Forums)</h2>
-            
             <p>Amazon data tells you what people are buying. Social media tells you what people are frustrated about—before they even search for solutions.</p>
-            
-            <h3>Where to Look</h3>
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -295,9 +263,7 @@
             </div>
             
             <h2>Method 6: Supplier-First Research (1688/Alibaba)</h2>
-            
             <p>Most sellers do research backwards: they find a product on Amazon, then hunt for a supplier. Flip it.</p>
-            
             <h3>How It Works</h3>
             <ol>
                 <li>Browse Alibaba or 1688 (Chinese domestic site, lower prices)</li>
@@ -305,37 +271,89 @@
                 <li>Look at what they're already producing at scale</li>
                 <li>Check if those products have demand on Amazon</li>
             </ol>
+            <p><strong>Why This Works:</strong> Suppliers know what sells. If a factory is mass-producing something, there's demand somewhere. Your job is to connect that supply to the Amazon marketplace.</p>
             
             <h2>Method 7: AI-Powered Automation</h2>
-            
             <p>Each method above works. But doing them manually takes hours—and you're competing against sellers who don't.</p>
-            
             <h3>The Automation Advantage</h3>
-            <p>The real edge comes from automating the entire workflow:</p>
             <ol>
                 <li><strong>Data Collection:</strong> Scrape BSR, pricing, and review data automatically</li>
                 <li><strong>Review Analysis:</strong> Extract complaint patterns from thousands of reviews</li>
                 <li><strong>Keyword Research:</strong> Find search terms with favorable competition ratios</li>
                 <li><strong>Validation:</strong> Cross-reference demand signals across platforms</li>
             </ol>
+            <blockquote>💡 <strong>Pro Tip:</strong> Use OpenClaw to automate review analysis instantly for any ASIN.</blockquote>
             
-            <blockquote>
-                💡 <strong>Pro Tip:</strong> Use OpenClaw to automate review analysis. Ask: "Analyze the top 5 complaints for ASIN B0XXXXXXXX" and get instant insights.
-            </blockquote>
+            <h2>Product Research Checklist</h2>
+            <p><strong>Before committing to inventory, run through this validation checklist:</strong></p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Check</th>
+                            <th scope="col">Pass Criteria</th>
+                            <th scope="col">Tool</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>✅ Demand</td>
+                            <td>BSR &lt; 50,000</td>
+                            <td>Keepa</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Competition</td>
+                            <td>Top 3 &lt; 1,000 reviews</td>
+                            <td>Manual check</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Margin</td>
+                            <td>&gt; 30% after fees</td>
+                            <td>FBA Calculator</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Sourcing</td>
+                            <td>3+ suppliers found</td>
+                            <td>Alibaba</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Differentiation</td>
+                            <td>Can improve existing products</td>
+                            <td>Review analysis</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Legal</td>
+                            <td>No patents/trademarks</td>
+                            <td>USPTO</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             
-            <!-- 底部 CTA -->
+            <h2>Common Mistakes to Avoid</h2>
+            <h3>Mistake 1: Chasing Trends Too Late</h3>
+            <p>By the time a product goes viral, hundreds have already placed orders. Look for rising trends, not peaked ones.</p>
+            <h3>Mistake 2: Ignoring Seasonality</h3>
+            <p>A product selling 1,000 units in December might sell 50 in February. Check historical BSR data before committing.</p>
+            <h3>Mistake 3: Underestimating Competition</h3>
+            <p>"Only 200 reviews" looks easy until you realize those reviews are from a brand with a $50,000/month ad budget.</p>
+            <h3>Mistake 4: Skipping the Math</h3>
+            <p>A $25 product with $8 costs sounds great—until you add FBA fees ($5), PPC ($3), returns ($1). You're making $8 per unit, not $17.</p>
+            
+            <h2>Conclusion</h2>
+            <p>Finding products to sell on Amazon isn't about luck—it's about process. The seven methods covered here give you multiple angles to identify opportunities. The sellers who win aren't smarter—they're more systematic. Pick a method, validate your findings, and take action before the opportunity closes.</p>
+            
             <div class="bottom-cta">
                 <h3>Ready to find your winning product?</h3>
-                <a href="#">Start Your Research Now →</a>
+                <a href="final-index.html">Start Your Research Now →</a>
             </div>
         </article>
         
-        <!-- 侧边栏 -->
-        <aside class="sidebar">
+        <aside>
             <div class="toc">
                 <div class="toc-title">Table of Contents</div>
                 <ul class="toc-list">
-                    <li><a href="#" class="active">What Makes a Good Product</a></li>
+                    <li><a href="#">What Makes a Good Product</a></li>
                     <li><a href="#">Method 1: Best Sellers</a></li>
                     <li><a href="#">Method 2: Opportunity Explorer</a></li>
                     <li><a href="#">Method 3: Reverse Engineer</a></li>
@@ -343,74 +361,62 @@
                     <li><a href="#">Method 5: Social Listening</a></li>
                     <li><a href="#">Method 6: Supplier Research</a></li>
                     <li><a href="#">Method 7: AI Automation</a></li>
+                    <li><a href="#">Checklist</a></li>
                     <li><a href="#">FAQ</a></li>
                 </ul>
             </div>
             
             <div class="cta-card">
-                <h3>Find Your Niche</h3>
-                <p>7 proven research methods</p>
+                <h3>7 Research Methods</h3>
+                <p>Data-driven product finding</p>
                 <a href="#">Learn More →</a>
             </div>
         </aside>
     </div>
     
-    <!-- FAQ 部分 -->
-    <div class="main-container" style="display: block; max-width: 1280px; margin: 0 auto; padding: 0 2rem;">
+    <div class="main-container" style="display: block;">
         <section class="faq-section">
             <h2>Frequently Asked Questions</h2>
             
             <div class="faq-item">
                 <details>
                     <summary>How long does Amazon product research take? <span>▼</span></summary>
-                    <div class="faq-content">
-                        <p>Thorough product research typically takes 2-4 weeks for beginners. This includes identifying 10-20 potential products, validating demand and competition for each, and narrowing down to 2-3 finalists. With automation tools like OpenClaw, you can reduce this to 3-5 days.</p>
-                    </div>
+                    <div class="faq-content">Thorough product research typically takes 2-4 weeks for beginners. With automation tools like OpenClaw, you can reduce this to 3-5 days.</div>
                 </details>
             </div>
             
             <div class="faq-item">
                 <details>
                     <summary>What is the best price range for Amazon FBA products? <span>▼</span></summary>
-                    <div class="faq-content">
-                        <p>The sweet spot for Amazon FBA products is $15-50. Products under $15 have thin margins after fees. Products over $50 require more trust from buyers (harder for new sellers). The $20-35 range often offers the best balance of margin and conversion rate.</p>
-                    </div>
+                    <div class="faq-content">The sweet spot is $15-50. The $20-35 range offers the best balance of margin and conversion rate.</div>
                 </details>
             </div>
             
             <div class="faq-item">
                 <details>
-                    <summary>How do I know if an Amazon niche is too competitive? <span>▼</span></summary>
-                    <div class="faq-content">
-                        <p>A niche is likely too competitive if: the top 10 results all have 1,000+ reviews, major brands dominate the first page, PPC costs exceed $2 per click, or the category requires brand approval (gated). Use Product Opportunity Explorer's Niche Score as a quick indicator.</p>
-                    </div>
+                    <summary>How do I know if a niche is too competitive? <span>▼</span></summary>
+                    <div class="faq-content">Too competitive if: top 10 have 1,000+ reviews, major brands dominate, PPC costs exceed $2/click, or category requires brand approval.</div>
                 </details>
             </div>
             
             <div class="faq-item">
                 <details>
                     <summary>Can I do Amazon product research for free? <span>▼</span></summary>
-                    <div class="faq-content">
-                        <p>Yes. Free methods include: Amazon Best Sellers browsing, Amazon search bar autocomplete, Product Opportunity Explorer (requires seller account), Google Trends, Reddit research, and Alibaba supplier browsing. Paid tools speed up the process but aren't required to start.</p>
-                    </div>
+                    <div class="faq-content">Yes. Free methods: Best Sellers, search autocomplete, Product Opportunity Explorer, Google Trends, Reddit, Alibaba supplier browsing.</div>
                 </details>
             </div>
             
             <div class="faq-item">
                 <details>
                     <summary>What BSR is good for Amazon products? <span>▼</span></summary>
-                    <div class="faq-content">
-                        <p>A BSR (Best Sellers Rank) under 50,000 in the main category indicates consistent sales. BSR 10,000-30,000 is the sweet spot—enough demand to be profitable, but not so competitive that you can't break in. Remember: BSR varies by category, so always compare within the same category.</p>
-                    </div>
+                    <div class="faq-content">BSR under 50,000 indicates consistent sales. BSR 10,000-30,000 is the sweet spot—enough demand but not too competitive.</div>
                 </details>
             </div>
             
             <div class="faq-item">
                 <details>
-                    <summary>How many products should I research before choosing one? <span>▼</span></summary>
-                    <div class="faq-content">
-                        <p>Research at least 20-30 products before committing to one. Of those, maybe 5-10 will pass initial screening (demand + competition). After deeper analysis (margins, sourcing, differentiation), you'll typically have 2-3 viable options. Pick the one where you have the clearest competitive advantage.</p>
-                    </div>
+                    <summary>How many products should I research before choosing? <span>▼</span></summary>
+                    <div class="faq-content">Research 20-30 products. Maybe 5-10 pass initial screening. After deeper analysis, pick the one with clearest competitive advantage.</div>
                 </details>
             </div>
         </section>
@@ -420,59 +426,18 @@
         <p>© 2026 Nexscope Inc. All rights reserved.</p>
     </footer>
     
-    <!-- JSON-LD Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "How to Find Products to Sell on Amazon: 7 Proven Methods",
-      "description": "Learn how to find profitable products to sell on Amazon using proven research methods. From BSR analysis to AI automation, find your winning niche faster.",
+      "description": "Learn how to find profitable products to sell on Amazon using 7 proven research methods. From BSR analysis to AI automation, find your winning niche faster.",
       "image": "https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774510009167_amazon-product-research-cover-with-logo.png",
-      "author": {
-        "@type": "Person",
-        "name": "Henk Nie"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Nexscope"
-      },
+      "author": {"@type": "Person", "name": "Henk Nie"},
+      "publisher": {"@type": "Organization", "name": "Nexscope"},
       "datePublished": "2026-03-26",
       "dateModified": "2026-03-26"
     }
     </script>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How long does Amazon product research take?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Thorough product research typically takes 2-4 weeks for beginners. With automation tools like OpenClaw, you can reduce this to 3-5 days."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the best price range for Amazon FBA products?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The sweet spot for Amazon FBA products is $15-50. The $20-35 range often offers the best balance of margin and conversion rate."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I know if an Amazon niche is too competitive?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A niche is likely too competitive if the top 10 results all have 1,000+ reviews, major brands dominate the first page, or PPC costs exceed $2 per click."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I do Amazon product research for free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Free methods include Amazon Best Sellers, search bar autocomplete, Product
+</body>
+</html>
