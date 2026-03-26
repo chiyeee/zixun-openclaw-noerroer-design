@@ -563,11 +563,11 @@
     </script>
     
     <script>
-        // 自动生成 TOC 和 Scroll Spy
+        // 自动生成 TOC 和 Scroll Spy（仅 H2）
         document.addEventListener('DOMContentLoaded', function() {
             const article = document.querySelector('article');
             const tocList = document.getElementById('toc-list');
-            const headings = article.querySelectorAll('h2, h3');
+            const headings = article.querySelectorAll('h2');  // 只抓取 H2
             
             // 为每个标题添加 ID
             headings.forEach((heading, index) => {
@@ -576,12 +576,9 @@
                 }
             });
             
-            // 生成 TOC
+            // 生成 TOC（只有 H2，不包含 H3）
             headings.forEach((heading) => {
                 const li = document.createElement('li');
-                if (heading.tagName === 'H3') {
-                    li.style.marginLeft = '1rem';
-                }
                 const a = document.createElement('a');
                 a.href = `#${heading.id}`;
                 a.textContent = heading.textContent;
