@@ -25,9 +25,22 @@
         .carousel-title { font-size: 1.875rem; font-weight: 700; color: black; margin-bottom: 2rem; }
         .carousel-wrapper { display: flex; gap: 1rem; align-items: center; }
         .carousel-btn { width: 44px; height: 44px; background: #3B82F6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; }
-        .carousel-container { flex: 1; overflow: hidden; }
-        .carousel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; transition: transform 0.3s; }
-        .carousel-card { background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); border-radius: 12px; padding: 2rem; color: white; text-decoration: none; cursor: pointer; }
+        .carousel-container { flex: 1; overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; }
+        .carousel-container::-webkit-scrollbar { height: 6px; }
+        .carousel-container::-webkit-scrollbar-track { background: #E5E7EB; border-radius: 3px; }
+        .carousel-container::-webkit-scrollbar-thumb { background: #9CA3AF; border-radius: 3px; }
+        .carousel { display: grid; grid-template-columns: repeat(9, minmax(300px, 1fr)); gap: 1.5rem; transition: transform 0.3s; width: 100%; }
+        .carousel-card { border-radius: 12px; padding: 2rem; color: white; text-decoration: none; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; }
+        .carousel-card.cat1 { background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); }
+        .carousel-card.cat2 { background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); }
+        .carousel-card.cat3 { background: linear-gradient(135deg, #10B981 0%, #14B8A6 100%); }
+        .carousel-card.cat4 { background: linear-gradient(135deg, #F59E0B 0%, #F97316 100%); }
+        .carousel-card.cat5 { background: linear-gradient(135deg, #EF4444 0%, #F97316 100%); }
+        .carousel-card.cat6 { background: linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%); }
+        .carousel-card.cat7 { background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); }
+        .carousel-card.cat8 { background: linear-gradient(135deg, #EC4899 0%, #D946EF 100%); }
+        .carousel-card.cat9 { background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%); }
+        .carousel-card .emoji { font-size: 2rem; margin-bottom: 0.5rem; }
         .carousel-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
         
         .articles-section { max-width: 1280px; margin: 3rem auto; padding: 0 2rem; }
@@ -74,41 +87,41 @@
             <button class="carousel-btn" onclick="scrollCarousel(-1)">←</button>
             <div class="carousel-container">
                 <div class="carousel" id="carousel">
-                    <a href="final-category-product-research.html" class="carousel-card">
-                        <h3>Product Research</h3>
+                    <a href="final-category-product-research.html" class="carousel-card cat1">
+                        <div><div class="emoji">🔍</div><h3>Product Research</h3></div>
                         <p>Market analysis & niche identification</p>
                     </a>
-                    <a href="final-category-ppc.html" class="carousel-card">
-                        <h3>Amazon PPC & Ads</h3>
+                    <a href="final-category-ppc.html" class="carousel-card cat2">
+                        <div><div class="emoji">📢</div><h3>Amazon PPC & Ads</h3></div>
                         <p>Campaign optimization strategies</p>
                     </a>
-                    <a href="final-category-listing.html" class="carousel-card">
-                        <h3>Listing Optimization</h3>
+                    <a href="final-category-listing.html" class="carousel-card cat3">
+                        <div><div class="emoji">✨</div><h3>Listing Optimization</h3></div>
                         <p>Keyword integration & conversion</p>
                     </a>
-                    <a href="#" class="carousel-card" style="display: none;">
-                        <h3>Profit & FBA Operations</h3>
+                    <a href="#" class="carousel-card cat4">
+                        <div><div class="emoji">💰</div><h3>Profit & FBA Operations</h3></div>
                         <p>Fee structures & logistics</p>
                     </a>
-                    <a href="#" class="carousel-card" style="display: none;">
-                        <h3>Sourcing & Supply Chain</h3>
-                        <p>Supplier management</p>
+                    <a href="#" class="carousel-card cat5">
+                        <div><div class="emoji">🚚</div><h3>Sourcing & Supply Chain</h3></div>
+                        <p>Supplier management & negotiation</p>
                     </a>
-                    <a href="#" class="carousel-card" style="display: none;">
-                        <h3>Market Intelligence</h3>
-                        <p>Competitive analysis</p>
+                    <a href="#" class="carousel-card cat6">
+                        <div><div class="emoji">📊</div><h3>Market Intelligence</h3></div>
+                        <p>Competitive analysis & trends</p>
                     </a>
-                    <a href="#" class="carousel-card" style="display: none;">
-                        <h3>AI for Amazon Sellers</h3>
-                        <p>AI automation tools</p>
+                    <a href="#" class="carousel-card cat7">
+                        <div><div class="emoji">🤖</div><h3>AI for Amazon Sellers</h3></div>
+                        <p>AI automation & workflows</p>
                     </a>
-                    <a href="#" class="carousel-card" style="display: none;">
-                        <h3>Tool Reviews</h3>
-                        <p>Compare seller tools</p>
+                    <a href="#" class="carousel-card cat8">
+                        <div><div class="emoji">🛠️</div><h3>Tool Reviews & Comparisons</h3></div>
+                        <p>Compare and evaluate seller tools</p>
                     </a>
-                    <a href="#" class="carousel-card" style="display: none;">
-                        <h3>Seller Guides</h3>
-                        <p>Step-by-step tutorials</p>
+                    <a href="#" class="carousel-card cat9">
+                        <div><div class="emoji">📖</div><h3>Seller Guides</h3></div>
+                        <p>Step-by-step tutorials & tips</p>
                     </a>
                 </div>
             </div>
@@ -166,9 +179,9 @@
     
     <script>
         function scrollCarousel(direction) {
-            const carousel = document.getElementById('carousel');
+            const container = document.querySelector('.carousel-container');
             const scrollAmount = 350;
-            carousel.style.transform = `translateX(${direction * scrollAmount}px)`;
+            container.scrollLeft += direction * scrollAmount;
         }
     </script>
 </body>
