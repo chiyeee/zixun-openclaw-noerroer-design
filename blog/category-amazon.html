@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Sellers Category | Nexscope Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #FFFFFF; font-family: 'Inter', sans-serif; color: #1F2937; }
+        
+        nav { background: rgba(255,255,255,0.8); border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-50; }
+        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; }
+        .nav-logo-icon { width: 32px; height: 32px; background: #3B82F6; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .nav-logo-text { font-size: 20px; font-weight: bold; color: black; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link { text-decoration: none; color: #3B82F6; font-weight: 500; }
+        
+        .breadcrumbs { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; font-size: 13px; color: #6B7280; }
+        .breadcrumbs a { color: #3B82F6; text-decoration: none; margin: 0 4px; }
+        
+        .header { max-width: 1280px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 2.5rem; font-weight: 800; color: black; }
+        
+        .filter { }
+        .filter-select { padding: 10px 15px; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 14px; cursor: pointer; }
+        
+        .section { max-width: 1280px; margin: 0 auto; padding: 0 2rem 2rem; }
+        
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .article-card { border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden; transition: box-shadow 0.3s; }
+        .article-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .article-card img { width: 100%; height: 180px; object-fit: cover; }
+        .article-card-content { padding: 1.5rem; }
+        .article-tag { display: inline-block; background: #EFF6FF; color: #3B82F6; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 0.5rem; }
+        .article-card h3 { font-size: 1.25rem; font-weight: 700; color: black; margin-bottom: 0.5rem; }
+        .article-card a { text-decoration: none; color: #3B82F6; font-weight: 600; }
+        .article-card a:hover { text-decoration: underline; }
+        .article-card-meta { font-size: 13px; color: #9CA3AF; margin-top: 1rem; }
+        
+        footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 2rem; text-align: center; color: #6B7280; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="nav-logo-icon">N</div>
+                <span class="nav-logo-text">NexScope</span>
+            </div>
+            <div class="nav-links">
+                <a href="index-new.html" class="nav-link">Blog</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="breadcrumbs">
+        <a href="index-new.html">Home</a> / 
+        <a href="index-new.html">Blog</a> / 
+        <span style="color: #3B82F6;">Amazon Sellers</span>
+    </div>
+    
+    <div class="header">
+        <h1>Amazon Sellers</h1>
+        <div class="filter">
+            <select class="filter-select" onchange="if(this.value) window.location.href = this.value;">
+                <option value="">Switch Category</option>
+                <option value="category-amazon.html">Amazon Sellers</option>
+                <option value="category-ai.html">AI & Automation</option>
+                <option value="category-growth.html">Growth Strategies</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="articles-grid">
+            <div class="article-card">
+                <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424200114_cover-openclaw-amazon-sellers.png" alt="OpenClaw">
+                <div class="article-card-content">
+                    <span class="article-tag">Amazon</span>
+                    <h3>OpenClaw for Amazon Sellers</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">10 Use Cases That Work in 2026</p>
+                    <a href="openclaw-amazon-sellers-linked.html">Read More →</a>
+                    <p class="article-card-meta">Mar 26, 2026 • 12 min read</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Amazon+Tools" alt="Amazon Tools">
+                <div class="article-card-content">
+                    <span class="article-tag">Amazon</span>
+                    <h3>Best Amazon Seller Tools</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Compare features and pricing</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Mar 20, 2026 • 10 min read</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=FBA+Guide" alt="FBA Guide">
+                <div class="article-card-content">
+                    <span class="article-tag">Amazon</span>
+                    <h3>FBA Profit Margins 2026</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Updated fee structures</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Mar 15, 2026 • 9 min read</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Keywords" alt="Keywords">
+                <div class="article-card-content">
+                    <span class="article-tag">Amazon</span>
+                    <h3>Keyword Research Strategies</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Find high-volume keywords</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Mar 10, 2026 • 11 min read</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Reviews" alt="Reviews">
+                <div class="article-card-content">
+                    <span class="article-tag">Amazon</span>
+                    <h3>Review Analysis & Optimization</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Improve your ratings fast</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Mar 5, 2026 • 8 min read</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Competitors" alt="Competitors">
+                <div class="article-card-content">
+                    <span class="article-tag">Amazon</span>
+                    <h3>Competitor Monitoring Tips</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Stay ahead of the competition</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Feb 28, 2026 • 7 min read</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2026 Nexscope Inc. All rights reserved.</p>
+    </footer>
+</body>
+</html>

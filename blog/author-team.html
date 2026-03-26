@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexscope Team | Author Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #FFFFFF; font-family: 'Inter', sans-serif; color: #1F2937; }
+        
+        nav { background: rgba(255,255,255,0.8); border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-50; }
+        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; }
+        .nav-logo-icon { width: 32px; height: 32px; background: #3B82F6; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .nav-logo-text { font-size: 20px; font-weight: bold; color: black; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link { text-decoration: none; color: #3B82F6; font-weight: 500; }
+        
+        .breadcrumbs { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; font-size: 13px; color: #6B7280; }
+        .breadcrumbs a { color: #3B82F6; text-decoration: none; }
+        
+        .author-hero { background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); color: white; padding: 4rem 2rem; text-align: center; }
+        .author-hero-container { max-width: 1280px; margin: 0 auto; }
+        .author-avatar { width: 120px; height: 120px; background: white; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: bold; color: #3B82F6; }
+        .author-hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .author-hero p { font-size: 1.1rem; opacity: 0.95; margin-bottom: 1rem; }
+        .author-creds { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; font-size: 14px; opacity: 0.9; }
+        
+        .section { max-width: 1280px; margin: 0 auto; padding: 2rem; }
+        .section-title { font-size: 2rem; font-weight: 700; color: black; margin-bottom: 2rem; }
+        
+        .about-box { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 12px; padding: 2rem; margin-bottom: 2rem; line-height: 1.8; }
+        .about-box p { color: #4B5563; margin-bottom: 1rem; }
+        
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .article-card { border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden; }
+        .article-card img { width: 100%; height: 180px; object-fit: cover; }
+        .article-card-content { padding: 1.5rem; }
+        .article-tag { display: inline-block; background: #EFF6FF; color: #3B82F6; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 0.5rem; }
+        .article-card h3 { font-size: 1.25rem; font-weight: 700; color: black; margin-bottom: 0.5rem; }
+        .article-card a { text-decoration: none; color: #3B82F6; font-weight: 600; }
+        .article-card a:hover { text-decoration: underline; }
+        .article-card-meta { font-size: 13px; color: #9CA3AF; margin-top: 1rem; }
+        
+        footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 2rem; text-align: center; color: #6B7280; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="nav-logo-icon">N</div>
+                <span class="nav-logo-text">NexScope</span>
+            </div>
+            <div class="nav-links">
+                <a href="index-new.html" class="nav-link">Blog</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="breadcrumbs">
+        <a href="index-new.html">Home</a> / 
+        <a href="index-new.html">Blog</a> / 
+        <span style="color: #3B82F6;">Nexscope Team</span>
+    </div>
+    
+    <div class="author-hero">
+        <div class="author-hero-container">
+            <div class="author-avatar">NS</div>
+            <h1>Nexscope Team</h1>
+            <p>AI-powered growth strategies for ecommerce businesses</p>
+            <div class="author-creds">
+                <div>📚 12 Articles Published</div>
+                <div>🎯 Expert in AI & Automation</div>
+                <div>🚀 Growth Specialist</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2 class="section-title">About Nexscope Team</h2>
+        <div class="about-box">
+            <p>The Nexscope Team consists of growth specialists, AI engineers, and ecommerce experts dedicated to helping Amazon sellers scale their businesses using AI and automation.</p>
+            <p>With over 150+ articles published on product research, listing optimization, and AI-powered workflows, we share battle-tested strategies that actually work in 2026.</p>
+            <p><strong>E-E-A-T Focus:</strong> We demonstrate expertise through hands-on testing, experience with 50+ ecommerce tools, authority in AI applications, and trustworthy, transparent recommendations.</p>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2 class="section-title">Featured Articles</h2>
+        <div class="articles-grid">
+            <div class="article-card">
+                <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424200114_cover-openclaw-amazon-sellers.png" alt="OpenClaw">
+                <div class="article-card-content">
+                    <span class="article-tag">Amazon</span>
+                    <h3>OpenClaw for Amazon Sellers</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">10 Use Cases</p>
+                    <a href="openclaw-amazon-sellers-linked.html">Read More →</a>
+                    <p class="article-card-meta">Mar 26, 2026 • 12 min</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=AI+Photography" alt="AI Photography">
+                <div class="article-card-content">
+                    <span class="article-tag">AI</span>
+                    <h3>AI Product Photography</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Generate studio-quality images</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Mar 20, 2026 • 8 min</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Listing+Optimization" alt="Listing Optimization">
+                <div class="article-card-content">
+                    <span class="article-tag">Growth</span>
+                    <h3>Listing Optimization Strategies</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Double your keyword coverage</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Mar 15, 2026 • 10 min</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Review+Analysis" alt="Review Analysis">
+                <div class="article-card-content">
+                    <span class="article-tag">Amazon</span>
+                    <h3>Review Analysis at Scale</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Analyze 39,000+ reviews</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Mar 10, 2026 • 9 min</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Keyword+Research" alt="Keyword Research">
+                <div class="article-card-content">
+                    <span class="article-tag">SEO</span>
+                    <h3>Keyword Research Mastery</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Find high-volume keywords</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Mar 5, 2026 • 11 min</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Automation" alt="Automation">
+                <div class="article-card-content">
+                    <span class="article-tag">AI</span>
+                    <h3>Automated Competitor Monitoring</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">24/7 price tracking</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Feb 28, 2026 • 7 min</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Localization" alt="Localization">
+                <div class="article-card-content">
+                    <span class="article-tag">Growth</span>
+                    <h3>Listing Localization Guide</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Multi-market expansion</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Feb 20, 2026 • 9 min</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Reddit+Insights" alt="Reddit Insights">
+                <div class="article-card-content">
+                    <span class="article-tag">Research</span>
+                    <h3>Mining Customer Insights</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Reddit & social listening</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Feb 15, 2026 • 8 min</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Video+Generation" alt="Video Generation">
+                <div class="article-card-content">
+                    <span class="article-tag">Content</span>
+                    <h3>AI-Generated Product Videos</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">TikTok & Instagram Reels</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Feb 10, 2026 • 7 min</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Brand+Protection" alt="Brand Protection">
+                <div class="article-card-content">
+                    <span class="article-tag">Amazon</span>
+                    <h3>Brand Protection Strategies</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Prevent hijackers</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Feb 5, 2026 • 10 min</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=PPC+Strategy" alt="PPC Strategy">
+                <div class="article-card-content">
+                    <span class="article-tag">Growth</span>
+                    <h3>PPC Campaign Optimization</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Reduce ad spend</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Jan 30, 2026 • 11 min</p>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <img src="https://via.placeholder.com/400x300?text=Review+Responses" alt="Review Responses">
+                <div class="article-card-content">
+                    <span class="article-tag">Customer</span>
+                    <h3>Review Response Automation</h3>
+                    <p style="font-size: 14px; color: #6B7280; margin-bottom: 1rem;">Professional replies</p>
+                    <a href="#">Read More →</a>
+                    <p class="article-card-meta">Jan 25, 2026 • 6 min</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2026 Nexscope Inc. All rights reserved.</p>
+    </footer>
+</body>
+</html>
