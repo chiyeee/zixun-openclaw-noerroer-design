@@ -72,14 +72,84 @@
         .toc-list a { font-size: 12px; color: #6B7280; text-decoration: none; display: block; padding: 0.35rem 0.5rem; border-left: 2px solid transparent; line-height: 1.4; }
         .toc-list a:hover { color: #3B82F6; background: rgba(59, 130, 246, 0.05); }
         
-        .cta-card { background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); color: white; padding: 1.5rem; border-radius: 8px; text-align: center; margin-top: 1.5rem; }
-        .cta-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 0.5rem; color: white; }
-        .cta-card p { font-size: 13px; margin-bottom: 1rem; opacity: 0.9; color: white; }
-        .cta-card a { display: inline-block; background: white; color: #3B82F6; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 13px; }
+        /* CTA 在 TOC 下方 */
+        .cta-card-sidebar { 
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); 
+            border: 3px solid #EF4444; 
+            color: white; 
+            padding: 1.5rem; 
+            border-radius: 8px; 
+            text-align: center; 
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+        .cta-card-sidebar h3 { 
+            font-size: 16px; 
+            font-weight: 700; 
+            margin-bottom: 1rem; 
+            color: white;
+            line-height: 1.3;
+        }
+        .cta-btn-primary { 
+            display: inline-block; 
+            background: white; 
+            color: #3B82F6; 
+            padding: 12px 24px; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .cta-btn-primary:hover {
+            background: #F0F9FF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
         
-        .bottom-cta { background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); color: white; padding: 3rem 2rem; border-radius: 12px; text-align: center; margin-top: 3rem; }
-        .bottom-cta h3 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: white; }
-        .bottom-cta a { display: inline-block; background: white; color: #3B82F6; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 16px; }
+        /* 底部 CTA - 参考图三的设计 */
+        .bottom-cta { 
+            background: linear-gradient(135deg, rgba(219, 234, 254, 0.8) 0%, rgba(207, 250, 229, 0.6) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            color: #1F2937;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+        }
+        .bottom-cta h3 { 
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: #1F2937;
+        }
+        .bottom-cta p {
+            font-size: 14px;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+        .bottom-cta a { 
+            display: inline-block;
+            background: #1F2937;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            margin-bottom: 0.75rem;
+        }
+        .bottom-cta a:hover {
+            background: #111827;
+            transform: translateY(-2px);
+        }
+        .bottom-cta-small {
+            font-size: 12px;
+            color: #9CA3AF;
+            margin-top: 0.5rem;
+        }
         
         footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 2rem; text-align: center; color: #6B7280; margin-top: 3rem; }
     </style>
@@ -483,8 +553,10 @@
             <p><em>Have questions about Amazon product research? Join our community or explore more Amazon seller guides.</em></p>
             
             <div class="bottom-cta">
-                <h3>Ready to find your winning product?</h3>
-                <a href="final-index.html">Start Your Research Now →</a>
+                <h3>Find your winning niche in minutes</h3>
+                <p>Discover high-opportunity products with 7 proven research methods</p>
+                <a href="final-index.html">Get Started Free →</a>
+                <div class="bottom-cta-small">No credit card required • Instant access</div>
             </div>
             
             <h2>Frequently Asked Questions</h2>
@@ -524,10 +596,9 @@
                 </ul>
             </div>
             
-            <div class="cta-card">
-                <h3>7 Proven Methods</h3>
-                <p>Data-driven product research</p>
-                <a href="final-index.html">Learn More →</a>
+            <div class="cta-card-sidebar">
+                <h3>Ready to find your winning product?</h3>
+                <a href="final-index.html" class="cta-btn-primary">Start Your Research Now →</a>
             </div>
         </aside>
     </div>
@@ -587,8 +658,6 @@
             const article = document.querySelector('article');
             const tocList = document.getElementById('toc-list');
             const headings = article.querySelectorAll('h2');  // 只抓取 H2
-            const tocElement = document.querySelector('.toc');
-            const ctaCard = document.querySelector('.cta-card');
             
             // 为每个标题添加 ID
             headings.forEach((heading, index) => {
@@ -597,7 +666,7 @@
                 }
             });
             
-            // 生成 TOC（只有 H2，不包含 H3）
+            // 生成 TOC（只有 H2）
             headings.forEach((heading) => {
                 const li = document.createElement('li');
                 const a = document.createElement('a');
@@ -612,7 +681,7 @@
                 tocList.appendChild(li);
             });
             
-            // Scroll Spy + CTA 跟随 TOC
+            // Scroll Spy - 高亮当前章节
             function updateActiveLink() {
                 const allLinks = tocList.querySelectorAll('a');
                 allLinks.forEach(link => link.classList.remove('active'));
@@ -630,36 +699,10 @@
                         activeLink.classList.add('active');
                     }
                 }
-                
-                // 让 CTA 跟随 TOC 下方
-                if (tocElement && ctaCard) {
-                    const tocRect = tocElement.getBoundingClientRect();
-                    const tocComputedStyle = window.getComputedStyle(tocElement);
-                    const tocWidth = tocRect.width;
-                    
-                    if (tocRect.top + tocRect.height < window.innerHeight) {
-                        // TOC 完全可见，CTA 相对定位（紧跟在 TOC 下面）
-                        ctaCard.style.position = 'relative';
-                        ctaCard.style.top = 'auto';
-                        ctaCard.style.left = 'auto';
-                        ctaCard.style.width = 'auto';
-                    } else {
-                        // TOC 被滚动或超出视口，CTA 变成 fixed
-                        ctaCard.style.position = 'fixed';
-                        ctaCard.style.top = Math.max(100, tocRect.top + tocRect.height) + 'px';
-                        ctaCard.style.left = tocRect.left + 'px';
-                        ctaCard.style.width = tocWidth + 'px';
-                        ctaCard.style.boxSizing = 'border-box';
-                    }
-                }
             }
             
             window.addEventListener('scroll', updateActiveLink);
-            window.addEventListener('resize', updateActiveLink);
-            
-            // 初始化 + 延迟调用确保 DOM 已完全渲染
             updateActiveLink();
-            setTimeout(updateActiveLink, 100);
         });
     </script>
 </body>
