@@ -62,7 +62,8 @@
         .author-info p { margin-bottom: 0.25rem; font-size: 14px; }
         .author-link { color: #3B82F6; text-decoration: none; cursor: pointer; font-weight: 600; }
         
-        .toc { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; position: sticky; top: 100px; max-height: 60vh; overflow-y: auto; }
+        .toc-wrapper { position: sticky; top: 100px; }
+        .toc { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 1rem; margin-bottom: 0; max-height: 60vh; overflow-y: auto; }
         .toc::-webkit-scrollbar { width: 6px; }
         .toc::-webkit-scrollbar-track { background: #E5E7EB; border-radius: 3px; }
         .toc::-webkit-scrollbar-thumb { background: #9CA3AF; border-radius: 3px; }
@@ -72,7 +73,7 @@
         .toc-list a { font-size: 12px; color: #6B7280; text-decoration: none; display: block; padding: 0.35rem 0.5rem; border-left: 2px solid transparent; line-height: 1.4; }
         .toc-list a:hover { color: #3B82F6; background: rgba(59, 130, 246, 0.05); }
         
-        /* CTA 在 TOC 下方 - Sticky 跟随 */
+        /* CTA 在 TOC 下方 - 和 TOC 一起 Sticky 跟随 */
         .cta-card-sidebar { 
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%);
             border: 1px solid rgba(59, 130, 246, 0.15);
@@ -80,9 +81,7 @@
             padding: 1.75rem 1.5rem; 
             border-radius: 10px; 
             text-align: center; 
-            margin-top: 1.75rem;
-            position: sticky;
-            top: 420px;
+            margin-top: 1rem;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
             backdrop-filter: blur(10px);
         }
@@ -593,16 +592,18 @@
         </article>
         
         <aside>
-            <div class="toc">
-                <div class="toc-title">Table of Contents</div>
-                <ul class="toc-list" id="toc-list">
-                    <!-- 由 JavaScript 自动生成 -->
-                </ul>
-            </div>
-            
-            <div class="cta-card-sidebar">
-                <h3>Ready to find your winning product?</h3>
-                <a href="final-index.html" class="cta-btn-primary">Start Your Research Now →</a>
+            <div class="toc-wrapper">
+                <div class="toc">
+                    <div class="toc-title">Table of Contents</div>
+                    <ul class="toc-list" id="toc-list">
+                        <!-- 由 JavaScript 自动生成 -->
+                    </ul>
+                </div>
+                
+                <div class="cta-card-sidebar">
+                    <h3>Ready to find your winning product?</h3>
+                    <a href="final-index.html" class="cta-btn-primary">Start Your Research Now →</a>
+                </div>
             </div>
         </aside>
     </div>
