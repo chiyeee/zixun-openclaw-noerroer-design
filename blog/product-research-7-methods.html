@@ -72,7 +72,7 @@
         .toc-list a { font-size: 12px; color: #6B7280; text-decoration: none; display: block; padding: 0.35rem 0.5rem; border-left: 2px solid transparent; line-height: 1.4; }
         .toc-list a:hover { color: #3B82F6; background: rgba(59, 130, 246, 0.05); }
         
-        .cta-card { background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); color: white; padding: 1.5rem; border-radius: 8px; text-align: center; position: sticky; top: 380px; margin-top: 1.5rem; }
+        .cta-card { background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); color: white; padding: 1.5rem; border-radius: 8px; text-align: center; margin-top: 1.5rem; }
         .cta-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 0.5rem; color: white; }
         .cta-card p { font-size: 13px; margin-bottom: 1rem; opacity: 0.9; color: white; }
         .cta-card a { display: inline-block; background: white; color: #3B82F6; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 13px; }
@@ -587,6 +587,8 @@
             const article = document.querySelector('article');
             const tocList = document.getElementById('toc-list');
             const headings = article.querySelectorAll('h2');  // 只抓取 H2
+            const tocElement = document.querySelector('.toc');
+            const ctaCard = document.querySelector('.cta-card');
             
             // 为每个标题添加 ID
             headings.forEach((heading, index) => {
@@ -610,7 +612,7 @@
                 tocList.appendChild(li);
             });
             
-            // Scroll Spy
+            // Scroll Spy + CTA 跟随 TOC
             function updateActiveLink() {
                 const allLinks = tocList.querySelectorAll('a');
                 allLinks.forEach(link => link.classList.remove('active'));
@@ -626,6 +628,24 @@
                     const activeLink = tocList.querySelector(`a[href="#${activeHeading.id}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active');
+                    }
+                }
+                
+                // 让 CTA 跟随 TOC 下方
+                if (tocElement && ctaCard) {
+                    const tocRect = tocElement.getBoundingClientRect();
+                    const tocBottom = tocRect.bottom; // TOC 的下边距离视口的距离
+                    
+                    if (tocBottom < window.innerHeight) {
+                        // TOC 在视口内，CTA 相对定位（紧跟在 TOC 下面）
+                        ctaCard.style.position = 'relative';
+                        ctaCard.style.top = 'auto';
+                    } else {
+                        // TOC 被滚动出去了，CTA 变成 fixed（固定在 TOC 原来的位置下方）
+                        ctaCard.style.position = 'fixed';
+                        ctaCard.style.top = (tocRect.top + tocRect.height) + 'px';
+                        ctaCard.style.width = '240px';
+                        ctaCard.style.left = tocRect.left + 'px';
                     }
                 }
             }
