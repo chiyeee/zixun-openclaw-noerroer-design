@@ -1,152 +1,158 @@
 <!DOCTYPE html>
-<!-- v2.1 - 2026-03-26 07:45 UTC - Background gradient update -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI for Amazon Sellers | Nexscope Blog</title>
+    <title>AI for Ecommerce | Nexscope Blog</title>
+    <meta name="description" content="Leverage AI tools and automation to scale your ecommerce business faster.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.08) 0%, rgba(59, 130, 246, 0.04) 25%, #FFFFFF 60%),
-                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-                        #FFFFFF;
-            font-family: 'Inter', sans-serif; 
-            color: #1F2937; 
+        body { font-family: 'Inter', sans-serif; color: #1F2937; background: #FFFFFF; }
+        
+        nav { background: rgba(255,255,255,0.95); border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 16px; }
+        .nav-logo-text { font-size: 20px; font-weight: 700; color: #111827; }
+        .nav-link { text-decoration: none; color: #6B7280; font-weight: 500; font-size: 14px; transition: color 0.2s; }
+        .nav-link:hover { color: #3B82F6; }
+        
+        .hero {
+            background: linear-gradient(135deg, #312E81 0%, #4F46E5 50%, #7C3AED 100%);
+            padding: 3.5rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(99,102,241,0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(139,92,246,0.15) 0%, transparent 50%);
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+        .hero-emoji { font-size: 3rem; margin-bottom: 0.75rem; }
+        .hero h1 { font-size: 2.75rem; font-weight: 800; color: white; margin-bottom: 0.5rem; }
+        .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; }
+        .hero-breadcrumb { font-size: 13px; color: rgba(255,255,255,0.5); }
+        .hero-breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        .hero-breadcrumb a:hover { color: white; }
+        
+        .content { max-width: 1280px; margin: 0 auto; padding: 2.5rem 2rem; }
+        .content-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .content-title { font-size: 1.5rem; font-weight: 700; color: #111827; }
+        .cat-switcher {
+            padding: 10px 16px; border: 1px solid #D1D5DB; border-radius: 8px;
+            background: white; color: #374151; font-size: 14px; font-weight: 500;
+            cursor: pointer; font-family: 'Inter', sans-serif;
         }
         
-        nav { background: rgba(255,255,255,0.9); border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-50; }
-        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
-        .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
-        .nav-logo-text { font-size: 20px; font-weight: bold; color: black; }
-        .nav-link { text-decoration: none; color: #3B82F6; font-weight: 500; font-size: 14px; cursor: pointer; }
-        
-        .breadcrumbs { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; font-size: 13px; color: #6B7280; }
-        .breadcrumbs a { color: #3B82F6; text-decoration: none; cursor: pointer; }
-        
-        .header { max-width: 1280px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .header h1 { font-size: 2.5rem; font-weight: 800; color: black; }
-        
-        .filter-dropdown { padding: 10px 15px; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 14px; cursor: pointer; }
-        
-        .section { max-width: 1280px; margin: 0 auto; padding: 0 2rem 2rem; }
-        
         .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .article-card { border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden; cursor: pointer; transition: box-shadow 0.3s; }
-        .article-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .article-card img { width: 100%; height: 224px; object-fit: cover; } /* 16:9 aspect ratio */
-        .article-card-content { padding: 1.5rem; }
-        .article-tag { display: inline-block; background: #EFF6FF; color: #3B82F6; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 0.5rem; }
-        .article-card h3 { font-size: 1.35rem; font-weight: 700; color: black; margin-bottom: 0.5rem; line-height: 1.4; }
-        .article-card a { text-decoration: none; color: #3B82F6; font-weight: 600; }
-        .article-card-meta { font-size: 13px; color: #9CA3AF; margin-top: 1rem; }
+        .article-card {
+            border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden;
+            transition: all 0.25s; text-decoration: none; color: inherit; display: block; background: white;
+        }
+        .article-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+        .article-card img { width: 100%; height: 200px; object-fit: cover; }
+        .article-card-content { padding: 1.25rem; }
+        .article-tag {
+            display: inline-block; background: #EEF2FF; color: #4F46E5;
+            padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 600;
+            margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.3px;
+        }
+        .article-card h3 { font-size: 1.1rem; font-weight: 700; color: #111827; line-height: 1.4; margin-bottom: 0.75rem; }
+        .article-card-meta { font-size: 12px; color: #9CA3AF; }
+        .article-card-readmore {
+            font-size: 13px; font-weight: 600; color: #4F46E5;
+            display: flex; align-items: center; gap: 4px; margin-top: 0.75rem;
+        }
         
-        footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 2rem; text-align: center; color: #6B7280; margin-top: 3rem; }
+        .empty-state {
+            text-align: center; padding: 4rem 2rem; color: #9CA3AF;
+        }
+        .empty-state p { font-size: 1.1rem; }
+        
+        footer { background: #111827; padding: 3rem 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 3rem; }
+        footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        footer a:hover { color: white; }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='final-index.html'">
+            <a href="final-index.html" class="nav-logo">
                 <div class="nav-logo-icon">N</div>
                 <span class="nav-logo-text">Nexscope</span>
+            </a>
+            <div style="display:flex;gap:2rem;align-items:center;">
+                <a href="final-index.html" class="nav-link">Blog</a>
+                <a href="https://www.nexscope.ai" class="nav-link" style="background:#3B82F6;color:white;padding:8px 20px;border-radius:6px;">Get Started</a>
             </div>
-            <a href="final-index.html" class="nav-link">Blog</a>
         </div>
     </nav>
     
-    <div class="breadcrumbs">
-        <a href="final-index.html">Home</a> / 
-        <a href="final-index.html">Blog</a> / 
-        <span style="color: #3B82F6;">AI for Amazon Sellers</span>
-    </div>
-    
-    <div class="header">
-        <h1>AI for Amazon Sellers</h1>
-        <select class="filter-dropdown" onchange="if(this.value) window.location.href=this.value">
-            <option value="">Switch Category</option>
-            <option value="final-category-product-research.html">Product Research</option>
-            <option value="final-category-ppc.html">Amazon PPC & Ads</option>
-            <option value="final-category-listing.html">Listing Optimization</option>
-            <option value="final-category-profit.html">Profit & FBA</option>
-            <option value="final-category-sourcing.html">Sourcing & Supply Chain</option>
-            <option value="final-category-market.html">Market Intelligence</option>
-            <option value="final-category-ai.html">AI for Amazon Sellers</option>
-            <option value="final-category-tools.html">Tool Reviews</option>
-            <option value="final-category-guides.html">Seller Guides</option>
-        </select>
-    </div>
-    
-    <div class="section">
-        <div class="articles-grid">
-            <a href="final-article.html" style="text-decoration: none; color: inherit;">
-                <div class="article-card">
-                    <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424200114_cover-openclaw-amazon-sellers.png" alt="OpenClaw">
-                    <div class="article-card-content">
-                        <span class="article-tag">AI for Amazon Sellers</span>
-                        <h3>OpenClaw for Amazon Sellers</h3>
-                        <p style="font-size: 13px; color: #6B7280;">10 Use Cases in 2026</p>
-                        <div class="article-card-meta">Mar 26, 2026 • 12 min read</div>
-                    </div>
-                </div>
-            </a>
-            
-            <div class="article-card">
-                <img src="https://via.placeholder.com/400x300?text=AI+Photography" alt="AI">
-                <div class="article-card-content">
-                    <span class="article-tag">AI for Amazon Sellers</span>
-                    <h3>AI Product Photography</h3>
-                    <p style="font-size: 13px; color: #6B7280;">Generate images from phone photos</p>
-                    <div class="article-card-meta">Mar 20, 2026 • 8 min read</div>
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <img src="https://via.placeholder.com/400x300?text=AI+Video" alt="Video">
-                <div class="article-card-content">
-                    <span class="article-tag">AI for Amazon Sellers</span>
-                    <h3>AI-Generated Product Videos</h3>
-                    <p style="font-size: 13px; color: #6B7280;">TikTok & Instagram Reels</p>
-                    <div class="article-card-meta">Mar 15, 2026 • 7 min read</div>
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <img src="https://via.placeholder.com/400x300?text=AI+Review" alt="Review">
-                <div class="article-card-content">
-                    <span class="article-tag">AI for Amazon Sellers</span>
-                    <h3>AI Review Response Drafting</h3>
-                    <p style="font-size: 13px; color: #6B7280;">Automated reply generation</p>
-                    <div class="article-card-meta">Mar 10, 2026 • 9 min read</div>
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <img src="https://via.placeholder.com/400x300?text=AI+Monitoring" alt="Monitoring">
-                <div class="article-card-content">
-                    <span class="article-tag">AI for Amazon Sellers</span>
-                    <h3>Automated Competitor Monitoring</h3>
-                    <p style="font-size: 13px; color: #6B7280;">24/7 price & listing tracking</p>
-                    <div class="article-card-meta">Mar 5, 2026 • 10 min read</div>
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <img src="https://via.placeholder.com/400x300?text=AI+Automation" alt="Automation">
-                <div class="article-card-content">
-                    <span class="article-tag">AI for Amazon Sellers</span>
-                    <h3>Building AI Skills & Workflows</h3>
-                    <p style="font-size: 13px; color: #6B7280;">Custom automation</p>
-                    <div class="article-card-meta">Feb 28, 2026 • 11 min read</div>
-                </div>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-emoji">🤖</div>
+            <h1>AI for Ecommerce</h1>
+            <p>Leverage AI tools and automation to scale your ecommerce business faster.</p>
+            <div class="hero-breadcrumb">
+                <a href="final-index.html">Home</a> / <a href="final-index.html">Blog</a> / <span style="color:rgba(255,255,255,0.9)">AI for Ecommerce</span>
             </div>
         </div>
-    </div>
+    </section>
+    
+    <section class="content">
+        <div class="content-header">
+            <h2 class="content-title">3 Articles</h2>
+            <select class="cat-switcher" onchange="if(this.value) window.location.href=this.value">
+                <option value="">Switch Category</option>
+                <option value="final-category-product-research.html">🔍 Product Research</option>
+                <option value="final-category-ppc.html">📢 PPC & Ads</option>
+                <option value="final-category-listing.html">✨ Listing Optimization</option>
+                <option value="final-category-profit.html">💰 Profit & FBA</option>
+                <option value="final-category-sourcing.html">🚚 Sourcing & Supply</option>
+                <option value="final-category-market.html">📊 Market Intelligence</option>
+                <option value="final-category-ai.html" selected>🤖 AI for Ecommerce</option>
+                <option value="final-category-tools.html">🛠️ Tool Reviews</option>
+                <option value="final-category-guides.html">📖 Seller Guides</option>
+                <option value="final-category-news.html">📰 Nexscope News</option>
+            </select>
+        </div>
+        <div class="articles-grid">
+            <a href="openclaw-amazon-10-use-cases.html" class="article-card">
+                <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424200114_cover-openclaw-amazon-sellers.png" alt="AI for Ecommerce">
+                <div class="article-card-content">
+                    <span class="article-tag">AI for Ecommerce</span>
+                    <h3>OpenClaw for Amazon Sellers: 10 Use Cases That Actually Work in 2026</h3>
+                    <div class="article-card-meta">Updated Mar 27, 2026 · 11 min read</div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225?text=Review+Analysis" alt="AI for Ecommerce">
+                <div class="article-card-content">
+                    <span class="article-tag">AI for Ecommerce</span>
+                    <h3>AI Review Analysis & Customer Insights</h3>
+                    <div class="article-card-meta">Feb 15, 2026 · 8 min read</div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225?text=AI+Listing" alt="AI for Ecommerce">
+                <div class="article-card-content">
+                    <span class="article-tag">AI for Ecommerce</span>
+                    <h3>AI-Generated Listings: Do They Actually Convert?</h3>
+                    <div class="article-card-meta">Jan 30, 2026 · 10 min read</div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+        </div>
+    </section>
     
     <footer>
-        <p>© 2026 Nexscope Inc. All rights reserved.</p>
+        <p>&copy; 2026 Nexscope Inc. All rights reserved. &middot; <a href="https://www.nexscope.ai">nexscope.ai</a></p>
     </footer>
 </body>
 </html>
