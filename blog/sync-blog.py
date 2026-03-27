@@ -31,11 +31,27 @@ AUTHORS = {
     },
 }
 
+CATEGORY_LINKS = {
+    "Product Research": "final-category-product-research.html",
+    "PPC & Ads": "final-category-ppc.html",
+    "Listing Optimization": "final-category-listing.html",
+    "Profit & FBA": "final-category-profit.html",
+    "Sourcing & Supply": "final-category-sourcing.html",
+    "Market Intelligence": "final-category-market.html",
+    "AI for Amazon Sellers": "final-category-ai.html",
+    "AI for Ecommerce": "final-category-ai.html",
+    "AI & Automation": "final-category-ai.html",
+    "Tool Reviews": "final-category-tools.html",
+    "Seller Guides": "final-category-guides.html",
+    "Nexscope News": "final-category-news.html",
+}
+
 CTA_MAP = {
     "Product Research": ("Find your winning niche in minutes", "Discover high-opportunity products with proven research methods", "Start Your Research Now →"),
     "Seller Guides": ("Start selling smarter today", "AI-powered insights to launch and grow your ecommerce business", "Get Started Free →"),
     "AI for Amazon Sellers": ("Automate your Amazon workflow", "AI-powered tools to save hours on research, listing, and optimization", "Try Nexscope Free →"),
     "AI for Ecommerce": ("Automate your Amazon workflow", "AI-powered tools to save hours on research, listing, and optimization", "Try Nexscope Free →"),
+    "AI & Automation": ("Automate your Amazon workflow", "AI-powered tools to save hours on research, listing, and optimization", "Try Nexscope Free →"),
 }
 
 
@@ -219,6 +235,9 @@ def sync_article(md_filename):
     # Category
     category = meta.get("category", "")
     
+    # Category link
+    cat_link = CATEGORY_LINKS.get(category, "final-index.html")
+    
     # CTA
     cta_title, cta_desc, cta_btn = CTA_MAP.get(category, ("Grow your ecommerce business", "AI-powered intelligence for smarter selling decisions", "Get Started Free →"))
     
@@ -240,7 +259,7 @@ def sync_article(md_filename):
     </nav>
     
     <div class="breadcrumbs">
-        <a href="final-index.html">Home</a> / <a href="final-index.html">Blog</a> / <a href="#">{category}</a> / <span style="color: #3B82F6;">{meta["title"][:50]}...</span>
+        <a href="final-index.html">Home</a> / <a href="final-index.html">Blog</a> / <a href="{cat_link}">{category}</a> / <span style="color: #3B82F6;">{meta["title"][:50]}...</span>
     </div>
     
     <div class="main-container">
