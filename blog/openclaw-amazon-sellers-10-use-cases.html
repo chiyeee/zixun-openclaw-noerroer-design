@@ -710,6 +710,58 @@ openclaw gateway
     }
     </script>
     
-    
+    <script>
+        // 自动生成 TOC 和 Scroll Spy（仅 H2）
+        document.addEventListener('DOMContentLoaded', function() {
+            const article = document.querySelector('article');
+            const tocList = document.getElementById('toc-list');
+            const headings = article.querySelectorAll('h2');  // 只抓取 H2
+            
+            // 为每个标题添加 ID
+            headings.forEach((heading, index) => {
+                if (!heading.id) {
+                    heading.id = `heading-${index}`;
+                }
+            });
+            
+            // 生成 TOC（只有 H2）
+            headings.forEach((heading) => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = `#${heading.id}`;
+                a.textContent = heading.textContent;
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    heading.scrollIntoView({ behavior: 'smooth' });
+                    updateActiveLink();
+                };
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+            
+            // Scroll Spy - 高亮当前章节
+            function updateActiveLink() {
+                const allLinks = tocList.querySelectorAll('a');
+                allLinks.forEach(link => link.classList.remove('active'));
+                
+                let activeHeading = null;
+                headings.forEach((heading) => {
+                    if (heading.getBoundingClientRect().top <= 200) {
+                        activeHeading = heading;
+                    }
+                });
+                
+                if (activeHeading) {
+                    const activeLink = tocList.querySelector(`a[href="#${activeHeading.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            }
+            
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+        });
+    </script>
 </body>
 </html>

@@ -177,11 +177,20 @@ def sync_article(md_filename):
     head_end = template.find('</head>')
     head_section = template[:head_end]
     
-    # Get the TOC + ScrollSpy JS from template
-    js_match = re.search(r'(<script>\s*// Auto-generate TOC.*?</script>)', template, re.DOTALL)
-    if not js_match:
-        js_match = re.search(r'(<script>\s*document\.addEventListener.*?</script>)', template, re.DOTALL)
-    toc_js = js_match.group(1) if js_match else ""
+    # Extract the TOC + ScrollSpy JS from template (last <script> block before </body>)
+    all_scripts = re.findall(r'(<script>.*?</script>)', template, re.DOTALL)
+    # The TOC script is the last non-JSON-LD script
+    toc_js = ""
+    for s in all_scripts:
+        if 'application/ld+json' not in s and 'toc' in s.lower():
+            toc_js = s
+            break
+    if not toc_js:
+        # Fallback: use last plain script
+        for s in reversed(all_scripts):
+            if 'application/ld+json' not in s:
+                toc_js = s
+                break
     
     # === BUILD NEW HEAD ===
     # Replace title
