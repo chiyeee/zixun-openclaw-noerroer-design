@@ -47,15 +47,19 @@ def parse_frontmatter(content):
     return {}, content
 
 
-def md_to_html(md_text):
+def md_to_html(md_text, cover_image=""):
     """Convert markdown to article-body HTML."""
     html = markdown.markdown(md_text, extensions=['tables', 'fenced_code', 'toc'])
     
     # Remove first H1 (already shown above article)
     html = re.sub(r'<h1>.*?</h1>\s*', '', html, count=1)
     
-    # Remove first image if it matches cover (already shown above)
-    html = re.sub(r'^(\s*<p>)?<img[^>]*>(\s*</p>)?\s*', '', html, count=1)
+    # Remove cover image duplicates (already shown above article)
+    if cover_image:
+        # Remove any <img> or <p><img></p> that contains the cover image URL
+        cover_escaped = re.escape(cover_image)
+        html = re.sub(r'<p>\s*<img[^>]*src="' + cover_escaped + r'"[^>]*/?\s*>\s*</p>\s*', '', html)
+        html = re.sub(r'<img[^>]*src="' + cover_escaped + r'"[^>]*/?\s*>\s*', '', html)
     
     # Add IDs to h2 tags for TOC linking
     def add_h2_id(match):
@@ -182,7 +186,8 @@ def sync_article(md_filename):
     new_head = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{meta.get("description", "")}">', new_head)
     
     # === CONVERT BODY ===
-    body_html = md_to_html(body_md)
+    og_image = meta.get("og:image", "")
+    body_html = md_to_html(body_md, cover_image=og_image)
     read_time = calc_read_time(body_html)
     faqs = extract_faqs(body_md)
     
@@ -200,7 +205,6 @@ def sync_article(md_filename):
     
     # Category
     category = meta.get("category", "")
-    og_image = meta.get("og:image", "")
     
     # CTA
     cta_title, cta_desc, cta_btn = CTA_MAP.get(category, ("Grow your ecommerce business", "AI-powered intelligence for smarter selling decisions", "Get Started Free →"))
