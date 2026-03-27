@@ -1,401 +1,712 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<!-- v4.0 - Complete Product Research Article - Proper HTML -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw for Amazon Sellers: 10 Use Cases That Work in 2026 | Nexscope Blog</title>
-    <meta name="description" content="OpenClaw automates Amazon product research, listing optimization, review analysis and AI product photography for FBA sellers. $30/mo vs $229+ for Helium 10.">
-    <meta property="og:title" content="OpenClaw for Amazon Sellers: 10 Use Cases That Work in 2026">
-    <meta property="og:description" content="OpenClaw automates Amazon product research, listing optimization, review analysis and AI product photography for FBA sellers. $30/mo vs $229+ for Helium 10.">
-    <meta property="og:image" content="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424200114_cover-openclaw-amazon-sellers.png">
-    <meta property="og:url" content="https://www.nexscope.ai/blog/openclaw-amazon-sellers-10-use-cases">
-    <meta property="og:type" content="article">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="OpenClaw for Amazon Sellers: 10 Use Cases That Work in 2026">
-    <meta name="twitter:description" content="OpenClaw automates Amazon product research, listing optimization, review analysis and AI product photography for FBA sellers.">
-    <meta name="twitter:image" content="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424200114_cover-openclaw-amazon-sellers.png">
-    <meta name="article:published_time" content="2026-03-19">
-    <meta name="article:modified_time" content="2026-03-25">
-    <meta name="article:author" content="Nexscope Team">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>OpenClaw for Amazon Sellers: 10 Use Cases That Actually Work in 2026</title>
+    <meta name="description" content="10 OpenClaw Use Cases: Product Research, Listing Optimization, Review Analysis, AI Photos, Competitor Monitoring, Reddit Mining, Localization, Video and more.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        bg: { DEFAULT: '#FFFFFF', card: '#F9FAFB', hover: '#F3F4F6' },
-                        brand: { 400: '#3B82F6', 500: '#3B82F6', 600: '#2563EB', 900: '#1e40af' }
-                    }
-                }
-            }
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.08) 0%, rgba(59, 130, 246, 0.04) 25%, #FFFFFF 60%),
+                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                        #FFFFFF;
+            font-family: 'Inter', sans-serif; 
+            color: #1F2937; 
+            line-height: 1.6; 
         }
-    </script>
+        
+        nav { background: rgba(255,255,255,0.9); border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-50; }
+        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+        .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .nav-logo-text { font-size: 20px; font-weight: bold; color: black; }
+        .nav-link { text-decoration: none; color: #3B82F6; font-weight: 500; font-size: 14px; cursor: pointer; }
+        
+        .breadcrumbs { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; font-size: 13px; color: #6B7280; }
+        .breadcrumbs a { color: #3B82F6; text-decoration: none; cursor: pointer; }
+        
+        .main-container { max-width: 1280px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1fr 280px; gap: 3rem; }
+        
+        article { }
+        article img { width: 100%; height: auto; border-radius: 12px; margin: 2rem 0; }
+        
+        article h1 { font-size: 2.75rem; font-weight: 800; color: black; margin-bottom: 1rem; line-height: 1.2; }
+        article h2 { font-size: 2.25rem; font-weight: 700; color: black; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #E5E7EB; padding-bottom: 0.5rem; }
+        article h3 { font-size: 1.75rem; font-weight: 600; color: black; margin-top: 1.5rem; margin-bottom: 0.8rem; }
+        article h4 { font-size: 1.5rem; font-weight: 500; color: #6B7280; margin-top: 1rem; margin-bottom: 0.5rem; }
+        
+        article p { margin-bottom: 1.5em; color: #4B5563; line-height: 1.8; }
+        article ul, article ol { margin-bottom: 1.5em; padding-left: 1.5em; color: #4B5563; }
+        article li { margin-bottom: 0.5em; }
+        article blockquote { border-left: 4px solid #3B82F6; padding-left: 1em; font-style: italic; color: #374151; background: rgba(59, 130, 246, 0.05); padding: 1rem; border-radius: 0.5rem; margin: 2rem 0; }
+        article a { color: #3B82F6; text-decoration: none; cursor: pointer; }
+        article a:hover { text-decoration: underline; }
+        article code { background: #F3F4F6; padding: 0.2em 0.4em; border-radius: 3px; font-family: monospace; }
+        article pre { background: #F3F4F6; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1.5em 0; }
+        article pre code { background: none; padding: 0; }
+        
+        .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+        .table-wrapper::-webkit-scrollbar { height: 8px; }
+        .table-wrapper::-webkit-scrollbar-track { background: #E5E7EB; border-radius: 4px; }
+        .table-wrapper::-webkit-scrollbar-thumb { background: #9CA3AF; border-radius: 4px; }
+        article table { width: 100%; border-collapse: collapse; border: 1px solid #E5E7EB; }
+        article th { background: #F9FAFB; font-weight: 600; border: 1px solid #E5E7EB; padding: 0.75em; text-align: left; }
+        article td { border: 1px solid #E5E7EB; padding: 0.75em; }
+        
+        .author-section { display: flex; gap: 1rem; align-items: flex-start; padding: 1.5rem 0; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; margin: 2rem 0; }
+        .author-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0; }
+        .author-info { flex: 1; }
+        .author-info p { margin-bottom: 0.25rem; font-size: 14px; }
+        .author-link { color: #3B82F6; text-decoration: none; cursor: pointer; font-weight: 600; }
+        
+        .toc-wrapper { position: sticky; top: 100px; }
+        .toc { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 1rem; margin-bottom: 0; max-height: 60vh; overflow-y: auto; }
+        .toc::-webkit-scrollbar { width: 6px; }
+        .toc::-webkit-scrollbar-track { background: #E5E7EB; border-radius: 3px; }
+        .toc::-webkit-scrollbar-thumb { background: #9CA3AF; border-radius: 3px; }
+        .toc-title { font-size: 11px; font-weight: 700; color: #1F2937; text-transform: uppercase; margin-bottom: 0.75rem; letter-spacing: 0.5px; }
+        .toc-list { list-style: none; }
+        .toc-list li { margin-bottom: 0.25rem; }
+        .toc-list a { font-size: 12px; color: #6B7280; text-decoration: none; display: block; padding: 0.35rem 0.5rem; border-left: 2px solid transparent; line-height: 1.4; }
+        .toc-list a:hover { color: #3B82F6; background: rgba(59, 130, 246, 0.05); }
+        
+        /* CTA 在 TOC 下方 - 和 TOC 一起 Sticky 跟随 */
+        .cta-card-sidebar { 
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            color: #1F2937; 
+            padding: 1.75rem 1.5rem; 
+            border-radius: 10px; 
+            text-align: center; 
+            margin-top: 1rem;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .cta-card-sidebar h3 { 
+            font-size: 16px; 
+            font-weight: 700; 
+            margin-bottom: 1.25rem; 
+            color: #1F2937;
+            line-height: 1.3;
+        }
+        .cta-btn-primary { 
+            display: inline-block; 
+            background: #3B82F6; 
+            color: white; 
+            padding: 12px 24px; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .cta-btn-primary:hover {
+            background: #1F2937;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 底部 CTA - 蓝紫渐变清透版本 */
+        .bottom-cta { 
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            color: #1F2937;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+            backdrop-filter: blur(10px);
+        }
+        .bottom-cta h3 { 
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: #1F2937;
+        }
+        .bottom-cta p {
+            font-size: 14px;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+        .bottom-cta a { 
+            display: inline-block;
+            background: #1F2937;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            margin-bottom: 0.75rem;
+        }
+        .bottom-cta a:hover {
+            background: #111827;
+            transform: translateY(-2px);
+        }
+        .bottom-cta-small {
+            font-size: 12px;
+            color: #9CA3AF;
+            margin-top: 0.5rem;
+        }
+        
+        footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 2rem; text-align: center; color: #6B7280; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo" onclick="window.location.href='final-index.html'">
+                <div class="nav-logo-icon">N</div>
+                <span class="nav-logo-text">Nexscope</span>
+            </div>
+            <a href="final-index.html" class="nav-link">Blog</a>
+        </div>
+    </nav>
+    
+    <div class="breadcrumbs">
+        <a href="final-index.html">Home</a> / <a href="final-index.html">Blog</a> / <a href="#">OpenClaw</a> / <span style="color: #3B82F6;">10 Use Cases for Amazon Sellers</span>
+    </div>
+    
+    <div class="main-container">
+        <article>
+            <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774510009167_amazon-product-research-cover-with-logo.png" alt="How to Find Products">
+            
+            <h1>OpenClaw for Amazon Sellers: 10 Use Cases That Actually Work in 2026</h1>
+            
+            <div class="author-section">
+                <div class="author-avatar">NT</div>
+                <div class="author-info">
+                    <p>Written by <a href="final-author.html" class="author-link">Nexscope Team</a></p>
+                    <p style="color: #6B7280; font-size: 12px;">Updated Mar 27, 2026 • 18 min read</p>
+                </div>
+            </div>
+            
+            <p>Finding the right product is the hardest part of building an Amazon business. Get it wrong, and you're stuck with inventory that collects dust. Get it right, and you've built the foundation for a six-figure business.</p>
+            
+            <p>The problem? Most sellers rely on gut feeling or copy whatever's trending on TikTok. That's not product research—that's gambling.</p>
+            
+            <p>This guide breaks down seven data-driven methods to find products to sell on Amazon. Each method works independently, but the real power comes from combining them. By the end, you'll have a systematic approach to identify high-potential products before your competitors do.</p>
+            
+            <h2>What Makes a Good Product to Sell on Amazon?</h2>
+            
+            <p>Before diving into research methods, you need to know what you're looking for. A profitable Amazon product typically meets five criteria:</p>
+            
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Criteria</th>
+                            <th scope="col">Target</th>
+                            <th scope="col">Why It Matters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Demand</strong></td>
+                            <td>BSR &lt; 50,000 in main category</td>
+                            <td>Confirms people are actually buying</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Competition</strong></td>
+                            <td>&lt; 500 reviews on top 3 sellers</td>
+                            <td>Room for new entrants</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Profit Margin</strong></td>
+                            <td>&gt; 30% after all fees</td>
+                            <td>Covers ads, returns, and surprises</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Price Range</strong></td>
+                            <td>$15 - $50</td>
+                            <td>High enough for margin, low enough for impulse buys</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sourcing</strong></td>
+                            <td>Available on Alibaba/1688</td>
+                            <td>You can actually get it made</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p>These aren't arbitrary numbers. According to <a href="https://www.junglescout.com/resources/articles/product-research-guide/">Jungle Scout's research</a>, products in the $15-50 range with fewer than 500 competing reviews have the highest success rate for new sellers.</p>
+            
+            <p>Now let's look at seven methods to find products that meet these criteria.</p>
+            
+            <h2>Method 1: Start with Amazon Best Sellers</h2>
+            
+            <p>The simplest method is hiding in plain sight: Amazon's own Best Sellers page.</p>
+            
+            <h3>How It Works</h3>
+            <ol>
+                <li>Go to <a href="https://www.amazon.com/Best-Sellers/zgbs">Amazon Best Sellers</a></li>
+                <li>Browse subcategories (the deeper, the better)</li>
+                <li>Look for products ranking well but with low review counts</li>
+                <li>Check "Movers &amp; Shakers" for trending items</li>
+            </ol>
+            
+            <h3>What to Look For</h3>
+            <ul>
+                <li>Products in the #20-100 range with fewer than 200 reviews</li>
+                <li>Items where the top seller doesn't dominate (no single listing with 10,000+ reviews)</li>
+                <li>Categories you can realistically source products for</li>
+            </ul>
+            
+            <h3>Limitations</h3>
+            <p>This method shows you what's already selling well—which means competition exists. Use it as a starting point, not your final decision.</p>
+            
+            <blockquote>💡 <strong>Pro Tip:</strong> Focus on subcategories, not main categories. "Kitchen &amp; Dining" is too broad. "Coffee &amp; Tea Accessories &gt; Coffee Filters &gt; Reusable Filters" is where opportunities hide.</blockquote>
+            
+            <h2>Method 2: Use Amazon Product Opportunity Explorer</h2>
+            
+            <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774507456079_amazon_opportunity_explorer_dashboard.png" alt="Amazon Product Opportunity Explorer">
+            
+            <p>Amazon's <a href="https://sell.amazon.com/tools/product-opportunity-explorer">Product Opportunity Explorer</a> is a free tool available to all sellers. It shows you search demand versus existing supply—essentially telling you where customers want products that don't exist yet.</p>
+            
+            <h3>How It Works</h3>
+            <ol>
+                <li>Log into Seller Central</li>
+                <li>Navigate to Growth &gt; Product Opportunity Explorer</li>
+                <li>Search for a niche or browse categories</li>
+                <li>Analyze the "Niche Score" (higher = better opportunity)</li>
+            </ol>
+            
+            <h3>Key Metrics to Check</h3>
+            <ul>
+                <li><strong>Search Volume:</strong> How many customers are searching for this</li>
+                <li><strong>Search Volume Growth:</strong> Is demand increasing or declining</li>
+                <li><strong>Average Units Sold:</strong> What the typical seller moves</li>
+                <li><strong>Number of Products:</strong> How crowded the niche is</li>
+            </ul>
+            
+            <h3>Why It's Powerful</h3>
+            <p>This is first-party Amazon data—not estimates from third-party tools. When Amazon tells you a niche has high demand and low competition, that's as close to insider information as you'll get legally.</p>
+            
+            <h2>Method 3: Reverse Engineer Competitor Products</h2>
+            
+            <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774507587164_customer_review_analysis.png" alt="Review Analysis">
+            
+            <p>Instead of starting from scratch, start with products that already sell and find ways to improve them.</p>
+            
+            <h3>How It Works</h3>
+            <ol>
+                <li>Find a product with strong sales but mediocre reviews (3.5-4.2 stars)</li>
+                <li>Read the negative reviews systematically</li>
+                <li>Identify the top 3-5 complaints</li>
+                <li>Create a product that solves those problems</li>
+            </ol>
+            
+            <h3>Real-World Example</h3>
+            <p>Say you're researching ceramic coffee mugs. You notice the top sellers have complaints like:</p>
+            <ul>
+                <li>"Handle broke after 2 weeks"</li>
+                <li>"Smaller than pictured"</li>
+                <li>"No lid option"</li>
+            </ul>
+            <p>Your opportunity: A ceramic mug with a reinforced handle, accurate sizing photos, and an included lid. Same product category, differentiated positioning.</p>
+            
+            <h3>Scaling This Method</h3>
+            <p>Manually reading hundreds of reviews is tedious. AI tools can extract patterns from thousands of reviews in minutes.</p>
+            
+            <blockquote>💡 <strong>Pro Tip:</strong> Use OpenClaw to automate review analysis. Install the skill with <code>npx skills add nexscope-ai/Amazon-Skills --skill review-analyzer -g</code>, then ask: "Analyze the top 5 complaints for ASIN B0XXXXXXXX."</blockquote>
+            
+            <h2>Method 4: Keyword-First Research</h2>
+            
+            <p>Most sellers start with a product idea and then check if people search for it. Flip that approach: start with what people are searching for, then find products to match.</p>
+            
+            <h3>How It Works</h3>
+            <ol>
+                <li>Use a keyword tool (Helium 10, Jungle Scout, or Amazon's own search bar)</li>
+                <li>Find keywords with high search volume but low competition</li>
+                <li>Analyze the products currently ranking for those keywords</li>
+                <li>Identify gaps you can fill</li>
+            </ol>
+            
+            <h3>Amazon Search Bar Trick</h3>
+            <p>Type a seed keyword and let Amazon autocomplete. Those suggestions are real searches from real customers.</p>
+            
+            <p>For example, typing "coffee mug" might reveal:</p>
+            <ul>
+                <li>coffee mug with lid ← specific feature request</li>
+                <li>coffee mug for men ← demographic targeting</li>
+                <li>coffee mug warmer ← accessory opportunity</li>
+            </ul>
+            
+            <h3>Metrics to Evaluate</h3>
+            <ul>
+                <li>Monthly search volume &gt; 1,000</li>
+                <li>Fewer than 5 sponsored ads on page 1 (low PPC competition)</li>
+                <li>Top organic results have &lt; 500 reviews</li>
+            </ul>
+            
+            <h2>Method 5: Social Listening (Reddit, TikTok, Forums)</h2>
+            
+            <p>Amazon data tells you what people are buying. Social media tells you what people are frustrated about—before they even search for solutions.</p>
+            
+            <h3>Where to Look</h3>
+            
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Platform</th>
+                            <th scope="col">What to Search</th>
+                            <th scope="col">Signal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Reddit</td>
+                            <td>r/BuyItForLife, r/shutupandtakemymoney</td>
+                            <td>"I wish someone made..."</td>
+                        </tr>
+                        <tr>
+                            <td>TikTok</td>
+                            <td>#AmazonFinds, #TikTokMadeMeBuyIt</td>
+                            <td>Viral products before they peak</td>
+                        </tr>
+                        <tr>
+                            <td>Niche Forums</td>
+                            <td>Hobbyist communities</td>
+                            <td>Underserved enthusiast products</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>How to Use This Data</h3>
+            <ol>
+                <li>Search Reddit for "[product category] recommendation"</li>
+                <li>Look for complaints about existing products</li>
+                <li>Cross-reference with Amazon to see if solutions exist</li>
+                <li>If not, you've found a gap</li>
+            </ol>
+            
+            <h3>Real-World Example</h3>
+            <p>A search on r/coffee for "travel mug recommendation" reveals users frustrated that most mugs don't fit in car cup holders while keeping drinks hot for 8+ hours. That's a specific product spec you can source.</p>
+            
+            <blockquote>💡 <strong>Pro Tip:</strong> Automate social listening with <code>npx skills add nexscope-ai/Amazon-Skills --skill reddit-researcher -g</code>. It extracts buying intent signals from subreddits without manual scrolling.</blockquote>
+            
+            <h2>Method 6: Supplier-First Research (1688/Alibaba)</h2>
+            
+            <p>Most sellers do research backwards: they find a product on Amazon, then hunt for a supplier. Flip it.</p>
+            
+            <h3>How It Works</h3>
+            <ol>
+                <li>Browse Alibaba or 1688 (Chinese domestic site, lower prices)</li>
+                <li>Filter by "Ready to Ship" or high-volume suppliers</li>
+                <li>Look at what they're already producing at scale</li>
+                <li>Check if those products have demand on Amazon</li>
+            </ol>
+            
+            <h3>Why This Works</h3>
+            <p>Suppliers know what sells. If a factory is mass-producing something, there's demand somewhere. Your job is to connect that supply to the Amazon marketplace.</p>
+            
+            <h3>What to Look For</h3>
+            <ul>
+                <li>Suppliers with 5+ years in business</li>
+                <li>Products with existing quality certifications (FDA, CE, etc.)</li>
+                <li>Items they're shipping to US/EU already (proves import viability)</li>
+            </ul>
+            
+            <h3>The 1688 Advantage</h3>
+            <p>1688.com is Alibaba's domestic Chinese platform. Prices are typically 30-50% lower, but you'll need a sourcing agent to communicate and handle logistics. For products with tight margins, this difference matters.</p>
+            
+            <h2>Method 7: AI-Powered Automation</h2>
+            
+            <p>Each method above works. But doing them manually takes hours—and you're competing against sellers who don't.</p>
+            
+            <h3>The Automation Advantage</h3>
+            <p>The real edge comes from automating the entire workflow:</p>
+            <ol>
+                <li><strong>Data Collection:</strong> Scrape BSR, pricing, and review data automatically</li>
+                <li><strong>Review Analysis:</strong> Extract complaint patterns from thousands of reviews</li>
+                <li><strong>Keyword Research:</strong> Find search terms with favorable competition ratios</li>
+                <li><strong>Validation:</strong> Cross-reference demand signals across platforms</li>
+            </ol>
+            
+            <h3>How OpenClaw Fits In</h3>
+            <p>OpenClaw Skills let you chain these steps together. Instead of switching between five tools, you describe what you want in plain English and let the AI handle execution.</p>
+            
+            <h3>Example Workflow</h3>
+            <pre><code>"Research the ceramic coffee mug market:
+- Show me top 10 sellers by BSR
+- Extract top complaints from their reviews
+- Find related keywords with &lt; 50 KD
+- Check Reddit for unmet needs in r/coffee"</code></pre>
+            
+            <p>One prompt. Four research methods. Results in minutes instead of hours.</p>
+            
+            <pre><code>npx skills add nexscope-ai/Amazon-Skills --skill product-research -g</code></pre>
+            
+            <p>This installs the full product research skill pack, including ASIN analysis, review extraction, and niche validation.</p>
+            
+            <h2>Product Research Checklist (Before You Buy)</h2>
+            
+            <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774509427022_product-validation-checklist.png" alt="Validation Checklist">
+            
+            <p>Before committing to inventory, run through this validation checklist:</p>
+            
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Check</th>
+                            <th scope="col">Pass Criteria</th>
+                            <th scope="col">Tool/Method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>✅ Demand confirmed</td>
+                            <td>BSR &lt; 50,000, consistent sales</td>
+                            <td>Keepa, Product Opportunity Explorer</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Competition manageable</td>
+                            <td>Top 3 sellers have &lt; 1,000 reviews</td>
+                            <td>Manual check</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Profit margin viable</td>
+                            <td>&gt; 30% after FBA fees, shipping, PPC</td>
+                            <td>FBA Calculator</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Sourcing identified</td>
+                            <td>3+ suppliers on Alibaba with samples</td>
+                            <td>Alibaba search</td>
+                        </tr>
+                        <tr>
+                            <td>✅ Differentiation clear</td>
+                            <td>You can improve on existing products</td>
+                            <td>Review analysis</td>
+                        </tr>
+                        <tr>
+                            <td>✅ No legal issues</td>
+                            <td>No patents, trademarks, or brand gates</td>
+                            <td>USPTO, Amazon Brand Registry</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p>If a product fails any of these checks, move on. There are millions of products on Amazon—don't force a bad opportunity.</p>
+            
+            <h2>Common Mistakes to Avoid</h2>
+            
+            <h3>Mistake 1: Chasing Trends Too Late</h3>
+            <p>By the time a product goes viral on TikTok, hundreds of sellers have already placed orders. You're not early—you're late. Look for rising trends, not peaked ones.</p>
+            
+            <h3>Mistake 2: Ignoring Seasonality</h3>
+            <p>A product that sells 1,000 units in December might sell 50 in February. Check historical BSR data (Keepa) before assuming current performance is typical.</p>
+            
+            <h3>Mistake 3: Underestimating Competition</h3>
+            <p>"Only 200 reviews" looks easy until you realize those 200 reviews are from a brand with a $50,000/month ad budget and supply chain advantages you don't have.</p>
+            
+            <h3>Mistake 4: Skipping the Math</h3>
+            <p>A $25 product with $8 in costs sounds great—until you add FBA fees ($5), PPC ($3), returns ($1), and realize you're making $8 per unit, not $17.</p>
+            
+            <h2>Common Mistakes to Avoid</h2>
+            
+            <h3>Mistake 1: Chasing Trends Too Late</h3>
+            <p>By the time a product goes viral on TikTok, hundreds of sellers have already placed orders. You're not early—you're late. Look for rising trends, not peaked ones.</p>
+            
+            <h3>Mistake 2: Ignoring Seasonality</h3>
+            <p>A product that sells 1,000 units in December might sell 50 in February. Check historical BSR data (Keepa) before assuming current performance is typical.</p>
+            
+            <h3>Mistake 3: Underestimating Competition</h3>
+            <p>"Only 200 reviews" looks easy until you realize those 200 reviews are from a brand with a $50,000/month ad budget and supply chain advantages you don't have.</p>
+            
+            <h3>Mistake 4: Skipping the Math</h3>
+            <p>A $25 product with $8 in costs sounds great—until you add FBA fees ($5), PPC ($3), returns ($1), and realize you're making $8 per unit, not $17.</p>
+            
+            <h2>Conclusion</h2>
+            
+            <p>Finding products to sell on Amazon isn't about luck—it's about process. The seven methods covered here give you multiple angles to identify opportunities:</p>
+            
+            <ol>
+                <li><strong>Best Sellers:</strong> Quick wins from existing demand</li>
+                <li><strong>Product Opportunity Explorer:</strong> Amazon's own gap analysis</li>
+                <li><strong>Competitor Reverse Engineering:</strong> Improve what's already selling</li>
+                <li><strong>Keyword-First Research:</strong> Follow search demand</li>
+                <li><strong>Social Listening:</strong> Catch trends before they peak</li>
+                <li><strong>Supplier-First Research:</strong> Start with what's manufacturable</li>
+                <li><strong>AI Automation:</strong> Scale all methods with OpenClaw</li>
+            </ol>
+            
+            <h3>What's Next?</h3>
+            <p>Once you've identified a winning product, you'll need to:</p>
+            <ol>
+                <li><strong>Validate with samples:</strong> Order from 2-3 suppliers before committing</li>
+                <li><strong>Calculate true costs:</strong> Use the Amazon FBA Calculator with realistic assumptions</li>
+                <li><strong>Optimize your listing:</strong> Keywords, images, and copy that convert</li>
+            </ol>
+            
+            <p>The sellers who win aren't smarter—they're more systematic. Pick a method, validate your findings, and take action before the opportunity closes.</p>
+            
+            <p><em>Have questions about Amazon product research? Join our <a href="https://discord.gg/nexscope">Discord community</a> or explore more Amazon seller guides.</em></p>
+            
+            <div class="bottom-cta">
+                <h3>Automate your Amazon business today</h3>
+                <p>10 use cases that replace $229-399/month in traditional tools</p>
+                <a href="final-index.html">Get Started Free →</a>
+                <div class="bottom-cta-small">No credit card required • Instant access</div>
+            </div>
+            
+            <h2>Frequently Asked Questions</h2>
+            
+            <h3>How long does Amazon product research take?</h3>
+            <p>Thorough product research typically takes 2-4 weeks for beginners. This includes identifying 10-20 potential products, validating demand and competition for each, and narrowing down to 2-3 finalists. With automation tools like OpenClaw, you can reduce this to 3-5 days.</p>
+            
+            <h3>What is the best price range for Amazon FBA products?</h3>
+            <p>The sweet spot for Amazon FBA products is $15-50. Products under $15 have thin margins after fees. Products over $50 require more trust from buyers (harder for new sellers). The $20-35 range often offers the best balance of margin and conversion rate.</p>
+            
+            <h3>How do I know if an Amazon niche is too competitive?</h3>
+            <p>A niche is likely too competitive if: the top 10 results all have 1,000+ reviews, major brands dominate the first page, PPC costs exceed $2 per click, or the category requires brand approval (gated). Use Product Opportunity Explorer's Niche Score as a quick indicator.</p>
+            
+            <h3>Can I do Amazon product research for free?</h3>
+            <p>Yes. Free methods include: Amazon Best Sellers browsing, Amazon search bar autocomplete, Product Opportunity Explorer (requires seller account), Google Trends, Reddit research, and Alibaba supplier browsing. Paid tools speed up the process but aren't required to start.</p>
+            
+            <h3>What BSR is good for Amazon products?</h3>
+            <p>A BSR (Best Sellers Rank) under 50,000 in the main category indicates consistent sales. BSR 10,000-30,000 is the sweet spot—enough demand to be profitable, but not so competitive that you can't break in. Remember: BSR varies by category, so always compare within the same category.</p>
+            
+            <h3>How many products should I research before choosing one?</h3>
+            <p>Research at least 20-30 products before committing to one. Of those, maybe 5-10 will pass initial screening (demand + competition). After deeper analysis (margins, sourcing, differentiation), you'll typically have 2-3 viable options. Pick the one where you have the clearest competitive advantage.</p>
+            
+            <h2>Sources</h2>
+            
+            <ol>
+                <li>Jungle Scout. (2024). <em>Product Research Guide: How to Find Profitable Products</em>. Retrieved from junglescout.com</li>
+                <li>Amazon Seller Central. (2026). <em>Product Opportunity Explorer</em>. Retrieved from sell.amazon.com</li>
+                <li>Amazon. (2026). <em>Best Sellers - See what's popular on Amazon</em>. Retrieved from amazon.com</li>
+            </ol>
+        </article>
+        
+        <aside>
+            <div class="toc-wrapper">
+                <div class="toc">
+                    <div class="toc-title">Table of Contents</div>
+                    <ul class="toc-list" id="toc-list">
+                        <!-- 由 JavaScript 自动生成 -->
+                    </ul>
+                </div>
+                
+                <div class="cta-card-sidebar">
+                    <h3>Ready to automate your Amazon business?</h3>
+                    <a href="final-index.html" class="cta-btn-primary">Start Your Research Now →</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <footer>
+        <p>© 2026 Nexscope Inc. All rights reserved.</p>
+    </footer>
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "OpenClaw for Amazon Sellers: 10 Use Cases That Actually Work in 2026",
-      "description": "OpenClaw automates Amazon product research, listing optimization, review analysis and AI product photography for FBA sellers. $30/mo vs $229+ for Helium 10.",
-      "image": "https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424200114_cover-openclaw-amazon-sellers.png",
+      "headline": "How to Find Products to Sell on Amazon: 7 Proven Methods",
+      "description": "10 OpenClaw Use Cases: Product Research, Listing Optimization, Review Analysis, AI Photos, Competitor Monitoring, Reddit Mining, Localization, Video and more.",
+      "image": "https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774510009167_amazon-product-research-cover-with-logo.png",
       "author": {
-        "@type": "Organization",
-        "name": "Nexscope",
-        "url": "https://www.nexscope.ai"
+        "@type": "Person",
+        "name": "Henk Nie",
+        "url": "https://www.nexscope.ai/author/henk-nie"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "Nexscope"
+        "name": "Nexscope",
+        "url": "https://www.nexscope.ai",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.nexscope.ai/logo.png"
+        }
       },
-      "datePublished": "2026-03-19",
-      "dateModified": "2026-03-25",
+      "datePublished": "2026-03-26T09:43:00Z",
+      "dateModified": "2026-03-26T09:43:00Z",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://www.nexscope.ai/blog/openclaw-amazon-sellers-10-use-cases"
+        "@id": "https://chiyeee.github.io/zixun-openclaw-noerroer-design/blog/product-research-7-methods.html"
       }
     }
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "@id": "https://www.nexscope.ai"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Blog",
-          "@id": "https://www.nexscope.ai/blog"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "OpenClaw for Amazon Sellers",
-          "@id": "https://www.nexscope.ai/blog/openclaw-amazon-sellers-10-use-cases"
-        }
-      ]
-    }
-    </script>
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is OpenClaw free to use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "OpenClaw is open-source and free to install. The only recurring costs are AI model API usage (typically $20-50/month for active Amazon seller workflows) and optional cloud hosting ($5-10/month) for sellers who want 24/7 uptime."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does OpenClaw require coding skills?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. The initial setup requires copying three commands into a terminal. After that, all interaction happens through plain English messages on Discord, WhatsApp, or Telegram. No programming knowledge is needed."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can OpenClaw replace Helium 10 or Jungle Scout?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "OpenClaw handles many of the same tasks including keyword research, competitor tracking, listing optimization, and review analysis. Traditional tools provide pre-built dashboards with visual reports. OpenClaw executes custom workflows based on specific instructions. For sellers who want flexibility over convenience, OpenClaw is a strong alternative at roughly 1/10 the monthly cost."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Amazon automation with OpenClaw violate Amazon's Terms of Service?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "OpenClaw automates research and content creation workflows. It does not manipulate Amazon's platform, generate fake reviews, or violate seller policies. Product research, listing writing, and image creation are standard seller activities regardless of the tool used."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What are OpenClaw Skills?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "OpenClaw Skills are installable modules that extend the agent's capabilities. The Skills registry contains thousands of options covering image generation, data analysis, SEO optimization, social media management, competitor monitoring, and more. Installing a new skill takes one command."
-          }
-        }
+        {"@type": "Question", "name": "How long does Amazon product research take?", "acceptedAnswer": {"@type": "Answer", "text": "Thorough product research typically takes 2-4 weeks for beginners. With automation tools like OpenClaw, you can reduce this to 3-5 days."}},
+        {"@type": "Question", "name": "What is the best price range for Amazon FBA products?", "acceptedAnswer": {"@type": "Answer", "text": "The sweet spot for Amazon FBA products is $15-50. The $20-35 range often offers the best balance of margin and conversion rate."}},
+        {"@type": "Question", "name": "How do I know if an Amazon niche is too competitive?", "acceptedAnswer": {"@type": "Answer", "text": "A niche is likely too competitive if the top 10 results have 1,000+ reviews, major brands dominate, or PPC costs exceed $2 per click."}},
+        {"@type": "Question", "name": "Can I do Amazon product research for free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Free methods include Amazon Best Sellers, search bar autocomplete, Product Opportunity Explorer, Google Trends, and Reddit research."}},
+        {"@type": "Question", "name": "What BSR is good for Amazon products?", "acceptedAnswer": {"@type": "Answer", "text": "BSR under 50,000 indicates consistent sales. BSR 10,000-30,000 is the sweet spot—enough demand but not too competitive."}},
+        {"@type": "Question", "name": "How many products should I research before choosing one?", "acceptedAnswer": {"@type": "Answer", "text": "Research at least 20-30 products. Maybe 5-10 pass screening. After analysis, pick the one with clearest competitive advantage."}}
       ]
     }
     </script>
-    <style>
-        body { background-color: #FFFFFF; color: #1F2937; }
-        .sticky-toc { position: sticky; top: 100px; max-height: calc(100vh - 120px); overflow-y: auto; }
-        .sticky-toc::-webkit-scrollbar { width: 4px; background: #E5E7EB; }
-        .sticky-toc::-webkit-scrollbar-thumb { background: #9CA3AF; border-radius: 4px; }
-        
-        .prose p { margin-bottom: 1.5em; line-height: 1.8; color: #4B5563; }
-        .prose h2 { margin-top: 2.5em; margin-bottom: 1em; color: #000; border-bottom: 1px solid #E5E7EB; padding-bottom: 0.5em; }
-        .prose h3 { margin-top: 2em; margin-bottom: 0.8em; color: #000; }
-        .prose h4 { margin-top: 1.5em; margin-bottom: 0.5em; color: #111827; }
-        .prose ul { margin-bottom: 1.5em; list-style-type: disc; padding-left: 1.5em; color: #4B5563; }
-        .prose ol { margin-bottom: 1.5em; list-style-type: decimal; padding-left: 1.5em; color: #4B5563; }
-        .prose li { margin-bottom: 0.5em; }
-        .prose blockquote { border-left: 4px solid #3B82F6; padding-left: 1em; font-style: italic; color: #374151; background: rgba(59, 130, 246, 0.05); padding: 1rem; border-radius: 0.5rem; margin: 2rem 0; }
-        .prose table { border-collapse: collapse; width: 100%; margin: 1.5em 0; border: 1px solid #E5E7EB; }
-        .prose table th, .prose table td { border: 1px solid #E5E7EB; padding: 0.75em; text-align: left; }
-        .prose table th { background: #F9FAFB; font-weight: 600; }
-        .prose img { margin: 1.5em 0; border-radius: 0.5rem; }
-    </style>
-</head>
-<body class="bg-white text-gray-800 font-sans antialiased">
-
-    <!-- Nav -->
-    <nav class="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">N</div>
-                    <a href="/" class="text-xl font-bold tracking-tight text-black">NexScope</a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/blog" class="text-sm font-medium text-blue-600">Blog</a>
-                    <a href="#cta" class="text-sm font-bold bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">Get Early Access</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
-        <!-- BREADCRUMBS -->
-        <nav class="text-xs text-gray-500 mb-8 flex gap-2 items-center">
-            <a href="/" class="hover:text-black">Home</a> 
-            <span class="text-gray-400">/</span>
-            <a href="/blog" class="hover:text-black">Blog</a>
-            <span class="text-gray-400">/</span>
-            <span class="text-blue-600 font-medium">Amazon</span>
-        </nav>
-
-        <div class="flex flex-col lg:flex-row gap-16">
-
-            <!-- Sidebar -->
-            <aside class="hidden lg:block w-72 flex-shrink-0">
-                <div class="sticky-toc">
-                    <h4 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 pl-3">Table of Contents</h4>
-                    <ul class="space-y-1 text-sm border-l border-gray-300 mb-8">
-                        <li><a href="#intro" class="block py-2 pl-4 border-l-2 border-blue-600 text-blue-600 font-medium hover:bg-blue-50">Getting Started</a></li>
-                        <li><a href="#use-case-1" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">Use Case 1</a></li>
-                        <li><a href="#use-case-2" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">Use Case 2</a></li>
-                        <li><a href="#use-case-3" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">Use Case 3</a></li>
-                        <li><a href="#use-case-4" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">Use Case 4</a></li>
-                        <li><a href="#use-case-5" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">Use Case 5</a></li>
-                        <li><a href="#use-case-6" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">Use Case 6</a></li>
-                        <li><a href="#use-case-7" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">Use Case 7</a></li>
-                        <li><a href="#use-case-8" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">Use Case 8</a></li>
-                        <li><a href="#use-case-9" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">Use Case 9</a></li>
-                        <li><a href="#use-case-10" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">Use Case 10</a></li>
-                        <li><a href="#comparison" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">Comparison</a></li>
-                        <li><a href="#faq" class="block py-2 pl-4 border-l-2 border-transparent text-gray-600 hover:text-blue-600">FAQ</a></li>
-                    </ul>
-                    <!-- Sticky CTA -->
-                    <div class="p-5 bg-gray-50 border border-gray-300 rounded-2xl shadow-lg group relative">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-blue-600/10 rounded-full blur-xl"></div>
-                        <p class="text-xs font-bold text-blue-600 mb-2 uppercase tracking-wide relative z-10">AI Research Agent</p>
-                        <p class="text-sm font-medium mb-4 text-gray-700 relative z-10">Analyze 10,000 products in seconds.</p>
-                        <a href="#cta" class="block w-full text-center bg-blue-600 text-white text-xs font-bold py-3 rounded-lg hover:bg-blue-700 relative z-10">Try Beta Free →</a>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- Main Article Content -->
-            <article class="flex-1 max-w-3xl">
-                <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424200114_cover-openclaw-amazon-sellers.png" alt="OpenClaw for Amazon Sellers: 10 Use Cases That Work in 2026" class="w-full h-96 object-cover rounded-lg mb-8">
+    
+    <script>
+        // 自动生成 TOC 和 Scroll Spy（仅 H2）
+        document.addEventListener('DOMContentLoaded', function() {
+            const article = document.querySelector('article');
+            const tocList = document.getElementById('toc-list');
+            const headings = article.querySelectorAll('h2');  // 只抓取 H2
+            
+            // 为每个标题添加 ID
+            headings.forEach((heading, index) => {
+                if (!heading.id) {
+                    heading.id = `heading-${index}`;
+                }
+            });
+            
+            // 生成 TOC（只有 H2）
+            headings.forEach((heading) => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = `#${heading.id}`;
+                a.textContent = heading.textContent;
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    heading.scrollIntoView({ behavior: 'smooth' });
+                    updateActiveLink();
+                };
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+            
+            // Scroll Spy - 高亮当前章节
+            function updateActiveLink() {
+                const allLinks = tocList.querySelectorAll('a');
+                allLinks.forEach(link => link.classList.remove('active'));
                 
-                <header class="mb-12">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="px-2.5 py-1 bg-blue-100 border border-blue-300 text-blue-600 text-xs font-bold rounded-md uppercase">Amazon</span>
-                        <span class="text-gray-500 text-sm">• 12 min read</span>
-                    </div>
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-black mb-6 leading-tight">OpenClaw for Amazon Sellers: 10 Use Cases That Actually Work in 2026</h1>
-                    <div class="flex items-center gap-4 border-t border-b border-gray-200 py-6">
-                        <div class="h-12 w-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">N</div>
-                        <div>
-                            <p class="text-sm font-bold text-black">Written by <span class="text-blue-600">Nexscope Team</span></p>
-                            <p class="text-xs text-gray-500">Updated March 25, 2026</p>
-                        </div>
-                    </div>
-                </header>
-
-                <div class="prose max-w-none">
-                    <p>OpenClaw is an open-source AI agent that Amazon sellers use to automate product research, listing optimization, competitor review analysis, and AI product photography. It runs on a personal computer or cloud server, connects to messaging apps like Discord and WhatsApp, and costs approximately $20-50 per month in AI API fees compared to $229-399 per month for traditional tools like Helium 10 or Jungle Scout.</p>
-
-                    <p>Unlike traditional Amazon seller tools that display data in dashboards, OpenClaw executes tasks autonomously. It operates a browser, writes scripts on the fly, and installs new capabilities called Skills whenever a task requires them. Over 157,000 developers have starred the project on GitHub, making it one of the most popular open-source AI agent frameworks available.</p>
-
-                    <p>The following 10 use cases represent 48 hours of hands-on testing. Every use case replaces hours of manual work with a single conversation.</p>
-
-                    <h2 id="intro">What Is OpenClaw and How Do You Install It?</h2>
-                    
-                    <p>OpenClaw is an open-source AI agent framework with over 157,000 GitHub stars. It connects to messaging apps (Discord, WhatsApp, Telegram) and executes real tasks: browsing websites, writing code, analyzing data, and generating content. For Amazon sellers, it replaces multiple paid subscriptions with a single agent that learns new capabilities through installable modules called Skills.</p>
-
-                    <h3>How to Install OpenClaw</h3>
-                    <p>The installation takes about five minutes and requires no coding knowledge. Three terminal commands complete the setup:</p>
-                    <ol>
-                        <li><strong>Install:</strong> <code>npm install -g openclaw</code></li>
-                        <li><strong>Initialize:</strong> <code>openclaw onboard</code></li>
-                        <li><strong>Start the gateway:</strong> <code>openclaw gateway</code></li>
-                    </ol>
-
-                    <p>For cloud servers, a one-line script handles everything:</p>
-                    <p><code>curl -fsSL https://openclaw.bot/install.sh | bash</code></p>
-
-                    <p>Once running, connect OpenClaw to Discord, WhatsApp, or Telegram to send instructions from a phone. Send a message, and OpenClaw executes the task.</p>
-
-                    <p>The minimum hardware requirement is any computer with Node.js 18+ installed. A $5 per month cloud server from DigitalOcean or Hetzner provides 24/7 uptime for sellers who want continuous competitor monitoring.</p>
-
-                    <h3>What If Installation Feels Too Technical?</h3>
-                    <p>For sellers who prefer a ready-to-use setup without terminal commands, <a href="https://www.nexscope.ai/">Nexscope</a> provides a pre-configured OpenClaw environment with Amazon-specific Skills already installed. Nexscope bundles product research, keyword analysis, competitor monitoring, and listing optimization skills into a single package designed specifically for Amazon sellers. No manual skill installation, no configuration files, no debugging. Sign up, connect a messaging app, and start sending instructions.</p>
-
-                    <h2 id="use-case-1">Use Case 1: Building a Branded Landing Page in 10 Minutes</h2>
-                    <p>OpenClaw generates a complete branded landing page in approximately 10 minutes for the cost of a single AI API call ($0.10-0.50), replacing a process that traditionally requires a designer ($50-100/hr) and front-end developer ($75-150/hr) over 3-7 days.</p>
-
-                    <h3>How to Do It</h3>
-                    <ol>
-                        <li>Send OpenClaw a URL of a competitor landing page or a design reference</li>
-                        <li>OpenClaw visits the site, analyzes the CSS and layout structure, and extracts the color palette</li>
-                        <li>It generates a complete HTML file with AI-generated placeholder images matching the original aesthetic</li>
-                        <li>Review the output and send feedback in plain English ("make the header bigger," "change the CTA color to blue")</li>
-                        <li>Two rounds of revision typically produce a production-ready page</li>
-                    </ol>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Method</th>
-                                <th>Cost</th>
-                                <th>Turnaround</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Designer + developer</td>
-                                <td>$500-2,000</td>
-                                <td>3-7 days</td>
-                            </tr>
-                            <tr>
-                                <td>Fiverr freelancer</td>
-                                <td>$100-300</td>
-                                <td>2-5 days</td>
-                            </tr>
-                            <tr>
-                                <td>OpenClaw</td>
-                                <td>$0.10-0.50</td>
-                                <td>10 minutes</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424201744_use-case-1-landing-page-comparison.png" alt="OpenClaw AI generates a branded Amazon landing page in 10 minutes compared to original design">
-
-                    <h2 id="use-case-2">Use Case 2: Cross-Platform Product Research</h2>
-                    <p>OpenClaw performs cross-platform product research by pulling Best Seller rankings from Amazon, checking search trend data from Google Trends, and scanning social media platforms for product mentions, then compiling everything into a structured markdown report with specific numbers.</p>
-
-                    <h3>How to Do It</h3>
-                    <ol>
-                        <li>Tell OpenClaw the product category or niche to research (e.g., "pet water bottles under $25")</li>
-                        <li>OpenClaw pulls Amazon Best Seller data, Google Trends, and social media mentions automatically</li>
-                        <li>It compiles a structured report with market size, complaint analysis, trend data, and opportunity gaps</li>
-                        <li>Review the report and ask follow-up questions ("go deeper on the leaking complaints" or "check pricing distribution")</li>
-                    </ol>
-
-                    <blockquote>
-                        <strong>💡 Pro Tip:</strong> Stop guessing keywords manually. The <strong>Amazon Keyword Research</strong> skill mines high-volume long-tail keywords directly from Amazon's autocomplete data. Copy this command to OpenClaw to install it:<br>
-                        <code>npx skills add nexscope-ai/Amazon-Skills --skill amazon-keyword-research -g</code>
-                    </blockquote>
-
-                    <p>Traditional product research involves checking Amazon Best Sellers, then Google Trends, then scrolling TikTok for validation. That process takes a full day and relies heavily on intuition. OpenClaw completes the same analysis in minutes.</p>
-
-                    <p>A sample report generated for a pet water bottle niche included:</p>
-                    <ul>
-                        <li><strong>Market size:</strong> 2-3 million units sold annually, 15-20% year-over-year growth</li>
-                        <li><strong>Top customer complaints:</strong> Leaking (mentioned in 28% of negative reviews), insufficient capacity (22%)</li>
-                        <li><strong>Trending design direction:</strong> Pastel colors and minimalist design dominating social media content</li>
-                        <li><strong>Opportunity gap:</strong> High demand for leak-proof, large-capacity bottles in the $15-25 price range</li>
-                    </ul>
-
-                    <p>That level of cross-platform analysis would normally require a Helium 10 subscription ($229/month), a social listening tool ($50-100/month), and several hours of manual synthesis. OpenClaw produces the same output for the cost of a single AI API call.</p>
-
-                    <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424202390_use-case-2-product-research-report.png" alt="OpenClaw AI product research report for Amazon sellers showing market data and competitor analysis">
-
-                    <h2 id="use-case-3">Use Case 3: Competitor Review Analysis at Scale</h2>
-                    <p>OpenClaw processes tens of thousands of Amazon reviews and generates structured complaint analysis with category rankings, frequency percentages, and actionable product development recommendations. In one test, it analyzed 39,631 historical reviews for a single competitor product in under 20 minutes.</p>
-
-                    <h3>How to Do It</h3>
-                    <ol>
-                        <li>Provide the ASIN or product URL of the competitor to analyze</li>
-                        <li>OpenClaw scrapes all available reviews (it writes its own scraping scripts with header rotation when Amazon blocks direct access)</li>
-                        <li>It runs NLP sentiment analysis and clusters complaints by category</li>
-                        <li>The output is a structured report: complaint categories ranked by frequency, direct review quotes as evidence, and product development recommendations</li>
-                    </ol>
-
-                    <blockquote>
-                        <strong>💡 Pro Tip:</strong> Don't let fake reviews mislead your analysis. The <strong>Amazon Review Checker</strong> skill instantly spots suspicious review patterns and verifies authenticity. Install it with this command:<br>
-                        <code>npx skills add nexscope-ai/eCommerce-Skills --skill review-checker/amazon-review-checker -g</code>
-                    </blockquote>
-
-                    <p>When Amazon's anti-scraping measures block direct access, OpenClaw adapts in real time, writing new code to solve whatever technical obstacle appears.</p>
-
-                    <p>The structured analysis from that test revealed:</p>
-                    <ul>
-                        <li><strong>Primary weakness:</strong> Buttons too stiff for one-handed operation (mentioned in 12% of 1-2 star reviews)</li>
-                        <li><strong>Secondary weakness:</strong> Accidental activation causes leaking in bags (8% of complaints)</li>
-                        <li><strong>Hidden opportunity:</strong> No competitor in the top 10 offers a fully transparent body for hygiene visibility</li>
-                    </ul>
-
-                    <p>This amazon review scraper capability goes beyond what tools like ReviewMeta or Fakespot offer. Those tools focus on fake review detection. OpenClaw performs full-text NLP analysis, clusters complaints by category, and outputs product development recommendations based on competitor weaknesses.</p>
-
-                    <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424202715_use-case-3-review-analysis-chart.png" alt="Amazon review analysis with OpenClaw showing competitor product complaint categories and frequencies">
-
-                    <h2 id="use-case-4">Use Case 4: AI Product Photography From Phone Photos</h2>
-                    <p>OpenClaw converts rough phone photos into studio-quality Amazon product images for approximately $0.05-0.11 per image, compared to $300-500 per product for professional photography. The AI preserves exact product shape, materials, and proportions while generating a clean white background with professional reflection effects.</p>
-
-                    <h3>How to Do It</h3>
-                    <ol>
-                        <li>Take a photo of the product with any phone (lighting, background, and angle do not matter)</li>
-                        <li>Upload the photo and send one instruction: "Generate an Amazon main image from this photo"</li>
-                        <li>OpenClaw calls an image generation skill that removes the background, corrects lighting, and adds professional reflections</li>
-                        <li>The result arrives in about 60 seconds</li>
-                        <li>For variations, ask: "now make a lifestyle version with a hiking background" or "generate an infographic layout with callouts"</li>
-                    </ol>
-
-                    <p>The result maintains accurate product details. Transparent materials show proper refraction. Side by side with a studio photo, the difference is nearly invisible.</p>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Method</th>
-                                <th>Cost per Product</th>
-                                <th>Turnaround</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Professional photographer</td>
-                                <td>$300-500</td>
-                                <td>3-7 days</td>
-                            </tr>
-                            <tr>
-                                <td>Fiverr editor</td>
-                                <td>$50-100</td>
-                                <td>1-3 days</td>
-                            </tr>
-                            <tr>
-                                <td>OpenClaw + AI generation</td>
-                                <td>$0.05-0.11</td>
-                                <td>60 seconds</td>
-                            </tr>
-                        </tbody>
-                    </table
+                let activeHeading = null;
+                headings.forEach((heading) => {
+                    if (heading.getBoundingClientRect().top <= 200) {
+                        activeHeading = heading;
+                    }
+                });
+                
+                if (activeHeading) {
+                    const activeLink = tocList.querySelector(`a[href="#${activeHeading.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            }
+            
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+        });
+    </script>
+</body>
+</html>
