@@ -51,8 +51,12 @@ def md_to_html(md_text, cover_image=""):
     """Convert markdown to article-body HTML."""
     html = markdown.markdown(md_text, extensions=['tables', 'fenced_code', 'toc'])
     
-    # Remove first H1 (already shown above article)
-    html = re.sub(r'<h1>.*?</h1>\s*', '', html, count=1)
+    # Remove ALL H1 tags (title is already shown above article via template)
+    html = re.sub(r'<h1[^>]*>.*?</h1>\s*', '', html)
+    
+    # Remove "Table of Contents" H2 and everything up to the next real H2 
+    # (TOC section includes the md-generated TOC list, which we don't need — JS auto-generates it)
+    html = re.sub(r'<h2[^>]*>Table of Contents</h2>.*?(?=<h2[^>]*>(?!Table))', '', html, flags=re.DOTALL)
     
     # Remove cover image duplicates (already shown above article)
     if cover_image:
