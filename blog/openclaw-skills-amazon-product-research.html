@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Product Research with OpenClaw: Complete Guide</title>
+    <meta name="description" content="Learn to automate Amazon product research with OpenClaw Skills. Use keyword research and sales estimator to find winning products in minutes.">
+    <meta name="keywords" content="amazon product research, openclaw skills, amazon keyword research, amazon sales estimator, find products to sell on amazon">
+    <meta property="og:title" content="Amazon Product Research with OpenClaw: Complete Guide">
+    <meta property="og:description" content="Learn to automate Amazon product research with OpenClaw Skills. Use keyword research and sales estimator to find winning products in minutes.">
+    <meta property="og:image" content="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774597297096_amazon-product-research-cover-final.png">
+    <meta property="og:type" content="article">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.08) 0%, rgba(59, 130, 246, 0.04) 25%, #FFFFFF 60%),
+                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                        #FFFFFF;
+            font-family: 'Inter', sans-serif; 
+            color: #1F2937; 
+            line-height: 1.6; 
+        }
+        
+        nav { background: rgba(255,255,255,0.9); border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-50; }
+        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+        .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .nav-logo-text { font-size: 20px; font-weight: bold; color: black; }
+        .nav-link { text-decoration: none; color: #3B82F6; font-weight: 500; font-size: 14px; cursor: pointer; }
+        
+        .breadcrumbs { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; font-size: 13px; color: #6B7280; }
+        .breadcrumbs a { color: #3B82F6; text-decoration: none; cursor: pointer; }
+        
+        .main-container { max-width: 1280px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: 1fr 280px; gap: 3rem; }
+        
+        article { }
+        article img { width: 100%; height: auto; border-radius: 12px; margin: 2rem 0; }
+        
+        article h1 { font-size: 2.75rem; font-weight: 800; color: black; margin-bottom: 1rem; line-height: 1.2; }
+        article h2 { font-size: 2.25rem; font-weight: 700; color: black; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #E5E7EB; padding-bottom: 0.5rem; }
+        article h3 { font-size: 1.75rem; font-weight: 600; color: black; margin-top: 1.5rem; margin-bottom: 0.8rem; }
+        article h4 { font-size: 1.5rem; font-weight: 500; color: #6B7280; margin-top: 1rem; margin-bottom: 0.5rem; }
+        
+        article p { margin-bottom: 1.5em; color: #4B5563; line-height: 1.8; }
+        article ul, article ol { margin-bottom: 1.5em; padding-left: 1.5em; color: #4B5563; }
+        article li { margin-bottom: 0.5em; }
+        article blockquote { border-left: 4px solid #3B82F6; padding-left: 1em; font-style: italic; color: #374151; background: rgba(59, 130, 246, 0.05); padding: 1rem; border-radius: 0.5rem; margin: 2rem 0; }
+        article a { color: #3B82F6; text-decoration: none; cursor: pointer; }
+        article a:hover { text-decoration: underline; }
+        article code { background: #F3F4F6; padding: 0.2em 0.4em; border-radius: 3px; font-family: monospace; }
+        article pre { background: #F3F4F6; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1.5em 0; }
+        article pre code { background: none; padding: 0; }
+        
+        .table-wrapper { overflow-x: auto; margin: 1.5em 0; }
+        .table-wrapper::-webkit-scrollbar { height: 8px; }
+        .table-wrapper::-webkit-scrollbar-track { background: #E5E7EB; border-radius: 4px; }
+        .table-wrapper::-webkit-scrollbar-thumb { background: #9CA3AF; border-radius: 4px; }
+        article table { width: 100%; border-collapse: collapse; border: 1px solid #E5E7EB; }
+        article th { background: #F9FAFB; font-weight: 600; border: 1px solid #E5E7EB; padding: 0.75em; text-align: left; }
+        article td { border: 1px solid #E5E7EB; padding: 0.75em; }
+        
+        .author-section { display: flex; gap: 1rem; align-items: flex-start; padding: 1.5rem 0; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; margin: 2rem 0; }
+        .author-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0; }
+        .author-info { flex: 1; }
+        .author-info p { margin-bottom: 0.25rem; font-size: 14px; }
+        .author-link { color: #3B82F6; text-decoration: none; cursor: pointer; font-weight: 600; }
+        
+        .toc-wrapper { position: sticky; top: 100px; }
+        .toc { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 1rem; margin-bottom: 0; max-height: 60vh; overflow-y: auto; }
+        .toc::-webkit-scrollbar { width: 6px; }
+        .toc::-webkit-scrollbar-track { background: #E5E7EB; border-radius: 3px; }
+        .toc::-webkit-scrollbar-thumb { background: #9CA3AF; border-radius: 3px; }
+        .toc-title { font-size: 11px; font-weight: 700; color: #1F2937; text-transform: uppercase; margin-bottom: 0.75rem; letter-spacing: 0.5px; }
+        .toc-list { list-style: none; }
+        .toc-list li { margin-bottom: 0.25rem; }
+        .toc-list a { font-size: 12px; color: #6B7280; text-decoration: none; display: block; padding: 0.35rem 0.5rem; border-left: 2px solid transparent; line-height: 1.4; }
+        .toc-list a:hover { color: #3B82F6; background: rgba(59, 130, 246, 0.05); }
+        
+        /* CTA 在 TOC 下方 - 和 TOC 一起 Sticky 跟随 */
+        .cta-card-sidebar { 
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            color: #1F2937; 
+            padding: 1.75rem 1.5rem; 
+            border-radius: 10px; 
+            text-align: center; 
+            margin-top: 1rem;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .cta-card-sidebar h3 { 
+            font-size: 16px; 
+            font-weight: 700; 
+            margin-bottom: 1.25rem; 
+            color: #1F2937;
+            line-height: 1.3;
+        }
+        .cta-btn-primary { 
+            display: inline-block; 
+            background: #3B82F6; 
+            color: white; 
+            padding: 12px 24px; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .cta-btn-primary:hover {
+            background: #1F2937;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 底部 CTA - 蓝紫渐变清透版本 */
+        .bottom-cta { 
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            color: #1F2937;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+            backdrop-filter: blur(10px);
+        }
+        .bottom-cta h3 { 
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: #1F2937;
+        }
+        .bottom-cta p {
+            font-size: 14px;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+        .bottom-cta a { 
+            display: inline-block;
+            background: #1F2937;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            margin-bottom: 0.75rem;
+        }
+        .bottom-cta a:hover {
+            background: #111827;
+            transform: translateY(-2px);
+        }
+        .bottom-cta-small {
+            font-size: 12px;
+            color: #9CA3AF;
+            margin-top: 0.5rem;
+        }
+        
+        footer { background: #F9FAFB; border-top: 1px solid #E5E7EB; padding: 2rem; text-align: center; color: #6B7280; margin-top: 3rem; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Amazon Product Research with OpenClaw: Complete Guide",
+      "description": "Learn to automate Amazon product research with OpenClaw Skills. Use keyword research and sales estimator to find winning products in minutes.",
+      "image": "https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774597297096_amazon-product-research-cover-final.png",
+      "author": {
+        "@type": "Person",
+        "name": "Nexscope Team",
+        "url": "https://chiyeee.github.io/zixun-openclaw-noerroer-design/blog/final-author.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Nexscope",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.nexscope.ai/logo.png"
+        }
+      },
+      "datePublished": "2026-03-27T00:00:00Z",
+      "dateModified": "2026-03-27T00:00:00Z",
+      "mainEntityOfPage": {
+        "@type": "WebPage"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate are the sales estimates from OpenClaw Skills?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sales estimates use BSR-to-sales conversion formulas calibrated to each Amazon category. Accuracy typically falls within 20-30% of actual sales. The estimates are reliable enough for comparing products and validating opportunities, though exact numbers will vary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these skills for Amazon marketplaces outside the US?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The amazon-keyword-research skill supports 12 Amazon marketplaces including US, UK, Germany, France, Italy, Spain, Canada, Mexico, Japan, Australia, India, and UAE. Specify the marketplace in your query to get localized data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need expensive software subscriptions to use these skills?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. OpenClaw Skills are free to install and use. Your only cost is the AI API usage for running queries. This is typically a few cents per research session, far less than monthly subscriptions to tools like Jungle Scout or Helium 10."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I re-run product research?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markets change constantly. Re-run keyword and sales research monthly for products you are actively selling. For new product ideas, research immediately before making sourcing decisions to ensure data is current."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can OpenClaw Skills replace Jungle Scout or Helium 10?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For core product research tasks, yes. The skills handle keyword research, sales estimation, and profitability calculation. Some advanced features like historical BSR tracking or supplier databases may still require dedicated tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a skill returns unexpected results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Skills depend on Amazon data availability. If results seem off, verify the ASIN or keyword is correct, check that the marketplace is specified correctly, and retry the query. Persistent issues may indicate Amazon API changes that require skill updates."
+      }
+    }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="final-index.html" class="nav-logo" style="text-decoration:none">
+                <div class="nav-logo-icon">N</div>
+                <span class="nav-logo-text">Nexscope</span>
+            </a>
+            <div style="display:flex;gap:2rem;align-items:center;">
+                <a href="final-index.html" class="nav-link">Blog</a>
+                <a href="https://www.nexscope.ai" class="nav-link" style="background:#3B82F6;color:white;padding:8px 20px;border-radius:6px;">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumbs">
+        <a href="final-index.html">Home</a> / <a href="final-index.html">Blog</a> / <span style="color: #3B82F6;">Product Research</span>
+    </div>
+
+    <div class="content-wrapper">
+        <main class="main-content">
+            <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774597297096_amazon-product-research-cover-final.png" alt="Amazon Product Research with OpenClaw: Complete Guide" style="width:100%;border-radius:12px;margin-bottom:1.5rem;">
+            
+            <div class="author-section">
+                <div class="author-avatar" style="padding:0;overflow:hidden;background:white;">
+                    <img src="images/authors/nexscope-team.png" alt="Nexscope Team" style="width:100%;height:100%;object-fit:contain;border-radius:50%">
+                </div>
+                <div class="author-info">
+                    <p>Written by <a href="final-author.html" class="author-link">Nexscope Team</a></p>
+                    <p style="color: #6B7280; font-size: 12px;">Updated Mar 27, 2026 &bull; 9 min read</p>
+                </div>
+            </div>
+            
+            <article>
+                <h1 id="amazon-product-research-with-openclaw-complete-guide">Amazon Product Research with OpenClaw: Complete Guide</h1>
+<p><img alt="Amazon Product Research with OpenClaw complete guide cover image showing search and data analysis icons" src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774597297096_amazon-product-research-cover-final.png" /></p>
+<p>Finding profitable products on Amazon requires data. Search volume tells you if people want a product. Sales estimates reveal how much competitors are making. Keyword analysis shows which terms drive traffic. Gathering this data manually takes hours of switching between tools and spreadsheets.</p>
+<p>OpenClaw Skills automate this process. Install a skill, ask a question, and get structured data in seconds. This guide shows you how to set up and use the available Amazon research skills to find validated product opportunities.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#what-are-openclaw-skills">What Are OpenClaw Skills</a></li>
+<li><a href="#available-skills-for-product-research">Available Skills for Product Research</a></li>
+<li><a href="#step-1-install-the-research-skills">Step 1: Install the Research Skills</a></li>
+<li><a href="#step-2-research-keywords">Step 2: Research Keywords</a></li>
+<li><a href="#step-3-estimate-sales-potential">Step 3: Estimate Sales Potential</a></li>
+<li><a href="#step-4-calculate-profitability">Step 4: Calculate Profitability</a></li>
+<li><a href="#step-5-validate-your-product-idea">Step 5: Validate Your Product Idea</a></li>
+<li><a href="#putting-it-all-together">Putting It All Together</a></li>
+<li><a href="#common-mistakes-to-avoid">Common Mistakes to Avoid</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li><a href="#sources">Sources</a></li>
+</ol>
+<h2 id="what-are-openclaw-skills">What Are OpenClaw Skills</h2>
+<p>OpenClaw Skills are modular automation packages that extend what your AI assistant can do. Each skill adds a specific capability. You install them with a single command, and they work together seamlessly.</p>
+<p>For Amazon sellers, skills handle tasks that previously required expensive software subscriptions or hours of manual work:</p>
+<ul>
+<li>Keyword research across 12 Amazon marketplaces</li>
+<li>Sales estimation from BSR or ASIN data</li>
+<li>FBA fee calculations and profit analysis</li>
+<li>Listing optimization scoring</li>
+</ul>
+<p>Skills run locally on your machine. Your data stays private. You pay nothing beyond your existing AI API costs.</p>
+<h2 id="available-skills-for-product-research">Available Skills for Product Research</h2>
+<p>The following skills are production-ready and available for product research:</p>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>What It Does</th>
+<th>Install Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>amazon-keyword-research</strong></td>
+<td>Long-tail keyword mining, competition analysis, search volume trends</td>
+<td><code>npx skills add nexscope-ai/Amazon-Skills --skill amazon-keyword-research -g</code></td>
+</tr>
+<tr>
+<td><strong>amazon-sales-estimator</strong></td>
+<td>Estimate monthly sales from BSR, ASIN, or keyword</td>
+<td><code>npx skills add nexscope-ai/Amazon-Skills --skill amazon-sales-estimator -g</code></td>
+</tr>
+<tr>
+<td><strong>amazon-fba-calculator</strong></td>
+<td>Complete FBA fee breakdown and profit analysis</td>
+<td><code>npx skills add nexscope-ai/Amazon-Skills --skill amazon-fba-calculator -g</code></td>
+</tr>
+</tbody>
+</table>
+<p>These three skills cover the core product research workflow: find keywords, estimate demand, and calculate profitability.</p>
+<h2 id="step-1-install-the-research-skills">Step 1: Install the Research Skills</h2>
+<p>Open your terminal and install all three skills:</p>
+<pre><code class="language-bash">npx skills add nexscope-ai/Amazon-Skills --skill amazon-keyword-research -g
+npx skills add nexscope-ai/Amazon-Skills --skill amazon-sales-estimator -g
+npx skills add nexscope-ai/Amazon-Skills --skill amazon-fba-calculator -g
+</code></pre>
+<p>The <code>-g</code> flag installs globally, making skills available in any project.</p>
+<p>Verify installation:</p>
+<pre><code class="language-bash">npx skills list
+</code></pre>
+<p>You should see all three skills listed as installed.</p>
+<blockquote>
+<p>💡 <strong>Pro Tip:</strong> Install all research skills upfront. They work together, and having them ready saves time when you need quick answers during research sessions.</p>
+</blockquote>
+<h2 id="step-2-research-keywords">Step 2: Research Keywords</h2>
+<p>Keyword research reveals what customers search for and how competitive those terms are. The amazon-keyword-research skill mines long-tail keywords from Amazon autocomplete and analyzes competition.</p>
+<h3 id="basic-keyword-research">Basic Keyword Research</h3>
+<p>Ask OpenClaw to research a seed keyword:</p>
+<pre><code>Research Amazon keywords for &quot;ceramic coffee mug&quot; in the US marketplace.
+Show search volume, competition level, and related long-tail keywords.
+</code></pre>
+<p>The skill returns:</p>
+<ul>
+<li><strong>Primary keyword metrics:</strong> Search volume, click share, competition score</li>
+<li><strong>Long-tail variations:</strong> Lower competition alternatives with buying intent</li>
+<li><strong>Seasonal patterns:</strong> Whether demand spikes at certain times</li>
+<li><strong>Opportunity score:</strong> Combined metric weighing volume against competition</li>
+</ul>
+<h3 id="finding-low-competition-keywords">Finding Low-Competition Keywords</h3>
+<p>Focus your research on keywords where you can realistically rank:</p>
+<pre><code>Find 10 long-tail keywords related to &quot;coffee mug&quot; with:
+- Monthly search volume above 1,000
+- Competition score below 50
+- Clear buying intent
+</code></pre>
+<p>Long-tail keywords like "ceramic coffee mug with lid for travel" have lower search volume but higher conversion rates. Customers searching specific terms know what they want.</p>
+<blockquote>
+<p>💡 <strong>Pro Tip:</strong> Automate keyword discovery for any product idea. Install with <code>npx skills add nexscope-ai/Amazon-Skills --skill amazon-keyword-research -g</code> and run research across 12 Amazon marketplaces.</p>
+</blockquote>
+<h2 id="step-3-estimate-sales-potential">Step 3: Estimate Sales Potential</h2>
+<p>Keywords show demand. Sales estimates show revenue. The amazon-sales-estimator skill converts BSR rankings into monthly unit sales.</p>
+<h3 id="estimate-from-bsr">Estimate from BSR</h3>
+<p>If you know a competitor's BSR:</p>
+<pre><code>Estimate monthly sales for a product in Kitchen &amp; Dining 
+with BSR 5,000 on Amazon US.
+</code></pre>
+<p>The skill uses category-specific conversion formulas. BSR 5,000 in Kitchen means different sales volume than BSR 5,000 in Industrial.</p>
+<h3 id="estimate-from-asin">Estimate from ASIN</h3>
+<p>Research a specific competitor product:</p>
+<pre><code>Estimate monthly sales and revenue for ASIN B08XYZ1234.
+Include the product's current price and BSR.
+</code></pre>
+<p>The skill pulls current product data and calculates:</p>
+<ul>
+<li>Estimated monthly units sold</li>
+<li>Estimated monthly revenue</li>
+<li>Price history trends</li>
+<li>BSR trajectory (improving or declining)</li>
+</ul>
+<h3 id="analyze-top-sellers-in-a-niche">Analyze Top Sellers in a Niche</h3>
+<p>Get a market overview by analyzing multiple products:</p>
+<pre><code>Estimate monthly sales for the top 10 products ranking for 
+&quot;ceramic coffee mug with lid&quot;. Calculate the total market size.
+</code></pre>
+<p>This reveals:</p>
+<ul>
+<li>How much revenue flows through this niche</li>
+<li>Whether sales concentrate in top 1-2 products or distribute evenly</li>
+<li>The minimum sales velocity needed to rank on page one</li>
+</ul>
+<blockquote>
+<p>💡 <strong>Pro Tip:</strong> Validate demand before sourcing. Install with <code>npx skills add nexscope-ai/Amazon-Skills --skill amazon-sales-estimator -g</code> to project monthly revenue from any ASIN or keyword.</p>
+</blockquote>
+<h2 id="step-4-calculate-profitability">Step 4: Calculate Profitability</h2>
+<p>Revenue means nothing without profit. The amazon-fba-calculator skill computes every fee Amazon charges and shows your true margin.</p>
+<h3 id="calculate-fba-fees">Calculate FBA Fees</h3>
+<p>Input your product details:</p>
+<pre><code>Calculate FBA fees and profit for a product with:
+- Selling price: $24.99
+- Product cost: $6.00
+- Weight: 1.2 lbs
+- Dimensions: 6&quot; x 4&quot; x 4&quot;
+- Category: Kitchen &amp; Dining
+</code></pre>
+<p>The skill returns:</p>
+<ul>
+<li><strong>Referral fee:</strong> Amazon's percentage cut (typically 15%)</li>
+<li><strong>FBA fulfillment fee:</strong> Pick, pack, and ship costs</li>
+<li><strong>Storage fee:</strong> Monthly and long-term storage costs</li>
+<li><strong>Net profit:</strong> What remains after all fees</li>
+<li><strong>ROI percentage:</strong> Return on your product investment</li>
+</ul>
+<h3 id="compare-fba-vs-fbm">Compare FBA vs FBM</h3>
+<p>Not sure which fulfillment method to use:</p>
+<pre><code>Compare FBA vs FBM profitability for a product priced at $24.99
+with a landed cost of $6.00 and weight of 1.2 lbs.
+</code></pre>
+<p>The skill shows breakeven points and recommends the better option based on your specific numbers.</p>
+<h3 id="model-different-scenarios">Model Different Scenarios</h3>
+<p>Test pricing strategies before committing:</p>
+<pre><code>Calculate profit at $19.99, $24.99, and $29.99 price points
+for a product with $6.00 cost and 1.2 lb weight.
+Show the volume needed to hit $5,000 monthly profit at each price.
+</code></pre>
+<blockquote>
+<p>💡 <strong>Pro Tip:</strong> Know your margins before you source. Install with <code>npx skills add nexscope-ai/Amazon-Skills --skill amazon-fba-calculator -g</code> to get complete fee breakdowns and ROI projections.</p>
+</blockquote>
+<h2 id="step-5-validate-your-product-idea">Step 5: Validate Your Product Idea</h2>
+<p>Combine all three skills to validate a product opportunity systematically.</p>
+<h3 id="the-validation-checklist">The Validation Checklist</h3>
+<p>Run through these checks before committing to any product:</p>
+<p><strong>1. Keyword Demand</strong></p>
+<pre><code>Research keyword volume for &quot;ceramic travel mug with handle&quot;.
+Is monthly search volume above 2,000?
+</code></pre>
+<p><strong>2. Sales Velocity</strong></p>
+<pre><code>Estimate sales for the top 5 products ranking for this keyword.
+Are top sellers moving 300+ units monthly?
+</code></pre>
+<p><strong>3. Competition Level</strong></p>
+<pre><code>How many of the top 10 products have fewer than 100 reviews?
+Are there opportunities for new entrants?
+</code></pre>
+<p><strong>4. Profit Margin</strong></p>
+<pre><code>Calculate FBA profit at $24.99 with $7.00 product cost.
+Is net margin above 25%?
+</code></pre>
+<h3 id="scoring-your-opportunity">Scoring Your Opportunity</h3>
+<p>A strong product opportunity scores well on all four criteria:</p>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Target</th>
+<th>Your Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monthly search volume</td>
+<td>&gt; 2,000</td>
+<td>✅ or ❌</td>
+</tr>
+<tr>
+<td>Top seller monthly units</td>
+<td>&gt; 300</td>
+<td>✅ or ❌</td>
+</tr>
+<tr>
+<td>Products with &lt; 100 reviews in top 10</td>
+<td>&gt; 3</td>
+<td>✅ or ❌</td>
+</tr>
+<tr>
+<td>Net profit margin</td>
+<td>&gt; 25%</td>
+<td>✅ or ❌</td>
+</tr>
+</tbody>
+</table>
+<p>Four checkmarks means a validated opportunity. Two or fewer suggests looking elsewhere.</p>
+<h2 id="putting-it-all-together">Putting It All Together</h2>
+<p>Here is the complete workflow for researching a product idea:</p>
+<p><strong>Step 1:</strong> Start with a product category or idea</p>
+<p><strong>Step 2:</strong> Use amazon-keyword-research to find keywords with volume and low competition</p>
+<p><strong>Step 3:</strong> Use amazon-sales-estimator to verify top sellers generate meaningful revenue</p>
+<p><strong>Step 4:</strong> Use amazon-fba-calculator to confirm your target price yields acceptable margins</p>
+<p><strong>Step 5:</strong> Score against the validation checklist</p>
+<p><strong>Step 6:</strong> If validated, move to sourcing and listing optimization</p>
+<p>This workflow replaces hours of manual research with a structured, repeatable process.</p>
+<h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
+<p><strong>Trusting BSR without context.</strong> BSR 10,000 means different things in different categories. Always use category-specific sales estimates.</p>
+<p><strong>Ignoring seasonality.</strong> A product with great numbers in December might be a holiday spike. Check keyword trends across the full year before committing.</p>
+<p><strong>Calculating profit without all fees.</strong> Amazon charges referral fees, FBA fees, storage fees, and more. Use the FBA calculator to capture every cost.</p>
+<p><strong>Skipping competition analysis.</strong> High demand means nothing if the top 10 products all have 5,000+ reviews. Look for markets where new entrants can compete.</p>
+<p><strong>Researching once and forgetting.</strong> Markets change. Set up periodic research runs to catch shifts in demand, pricing, and competition.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Product research determines whether your Amazon business succeeds or fails. The right product with validated demand and healthy margins gives you a foundation for growth. The wrong product wastes time, money, and inventory.</p>
+<p>OpenClaw Skills make research faster and more thorough. Instead of juggling multiple tools and spreadsheets, you run commands and get structured answers.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ul>
+<li>Use amazon-keyword-research to find keywords with volume and low competition</li>
+<li>Use amazon-sales-estimator to verify actual sales velocity in your niche</li>
+<li>Use amazon-fba-calculator to confirm profitability before sourcing</li>
+<li>Validate every product idea against the four-point checklist</li>
+<li>Repeat the research process periodically as markets evolve</li>
+</ul>
+<p><strong>Get Started:</strong></p>
+<pre><code class="language-bash">npx skills add nexscope-ai/Amazon-Skills --skill amazon-keyword-research -g
+npx skills add nexscope-ai/Amazon-Skills --skill amazon-sales-estimator -g
+npx skills add nexscope-ai/Amazon-Skills --skill amazon-fba-calculator -g
+</code></pre>
+<blockquote>
+<p>💡 <strong>Pro Tip:</strong> Ready to sell smarter and grow faster? <a href="https://www.nexscope.ai">Nexscope</a> is your AI agent for Amazon selling. Research products, validate demand, and monitor competitors in one chat. Start your AI agent at <a href="https://www.nexscope.ai">nexscope.ai</a>.</p>
+</blockquote>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-accurate-are-the-sales-estimates-from-openclaw-skills">How accurate are the sales estimates from OpenClaw Skills?</h3>
+<p>Sales estimates use BSR-to-sales conversion formulas calibrated to each Amazon category. Accuracy typically falls within 20-30% of actual sales. The estimates are reliable enough for comparing products and validating opportunities, though exact numbers will vary.</p>
+<h3 id="can-i-use-these-skills-for-amazon-marketplaces-outside-the-us">Can I use these skills for Amazon marketplaces outside the US?</h3>
+<p>Yes. The amazon-keyword-research skill supports 12 Amazon marketplaces including US, UK, Germany, France, Italy, Spain, Canada, Mexico, Japan, Australia, India, and UAE. Specify the marketplace in your query to get localized data.</p>
+<h3 id="do-i-need-expensive-software-subscriptions-to-use-these-skills">Do I need expensive software subscriptions to use these skills?</h3>
+<p>No. OpenClaw Skills are free to install and use. Your only cost is the AI API usage for running queries. This is typically a few cents per research session, far less than monthly subscriptions to tools like Jungle Scout or Helium 10.</p>
+<h3 id="how-often-should-i-re-run-product-research">How often should I re-run product research?</h3>
+<p>Markets change constantly. Re-run keyword and sales research monthly for products you are actively selling. For new product ideas, research immediately before making sourcing decisions to ensure data is current.</p>
+<h3 id="can-openclaw-skills-replace-jungle-scout-or-helium-10">Can OpenClaw Skills replace Jungle Scout or Helium 10?</h3>
+<p>For core product research tasks, yes. The skills handle keyword research, sales estimation, and profitability calculation. Some advanced features like historical BSR tracking or supplier databases may still require dedicated tools.</p>
+<h3 id="what-if-a-skill-returns-unexpected-results">What if a skill returns unexpected results?</h3>
+<p>Skills depend on Amazon data availability. If results seem off, verify the ASIN or keyword is correct, check that the marketplace is specified correctly, and retry the query. Persistent issues may indicate Amazon API changes that require skill updates.</p>
+<h2 id="sources">Sources</h2>
+<ol>
+<li>
+<p>Amazon Seller Central. (2026). <em>FBA Revenue Calculator</em>. Retrieved from sellercentral.amazon.com</p>
+</li>
+<li>
+<p>Jungle Scout. (2026). <em>How to Estimate Amazon Sales from BSR</em>. Retrieved from junglescout.com</p>
+</li>
+<li>
+<p>Helium 10. (2026). <em>Amazon Keyword Research Best Practices</em>. Retrieved from helium10.com</p>
+</li>
+<li>
+<p>OpenClaw Documentation. (2026). <em>Skills Installation Guide</em>. Retrieved from docs.openclaw.ai</p>
+</li>
+<li>
+<p>Nexscope AI. (2026). <em>Amazon Skills Repository</em>. Retrieved from github.com/nexscope-ai/Amazon-Skills</p>
+</li>
+</ol>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Amazon Product Research with OpenClaw: Complete Guide",
+  "description": "Learn to automate Amazon product research with OpenClaw Skills. Use keyword research and sales estimator to find winning products in minutes.",
+  "image": "https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774597297096_amazon-product-research-cover-final.png",
+  "author": {
+    "@type": "Organization",
+    "name": "Nexscope Team",
+    "url": "https://www.nexscope.ai"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nexscope",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.nexscope.ai/logo.png"
+    }
+  },
+  "datePublished": "2026-03-27",
+  "dateModified": "2026-03-27"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate are the sales estimates from OpenClaw Skills?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sales estimates use BSR-to-sales conversion formulas calibrated to each Amazon category. Accuracy typically falls within 20-30% of actual sales. The estimates are reliable enough for comparing products and validating opportunities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these skills for Amazon marketplaces outside the US?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The amazon-keyword-research skill supports 12 Amazon marketplaces including US, UK, Germany, France, Italy, Spain, Canada, Mexico, Japan, Australia, India, and UAE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need expensive software subscriptions to use these skills?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. OpenClaw Skills are free to install and use. Your only cost is the AI API usage for running queries, typically a few cents per research session."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I re-run product research?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markets change constantly. Re-run keyword and sales research monthly for products you are actively selling. For new product ideas, research immediately before making sourcing decisions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can OpenClaw Skills replace Jungle Scout or Helium 10?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For core product research tasks, yes. The skills handle keyword research, sales estimation, and profitability calculation. Some advanced features may still require dedicated tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a skill returns unexpected results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Skills depend on Amazon data availability. Verify the ASIN or keyword is correct, check marketplace specification, and retry. Persistent issues may indicate API changes requiring skill updates."
+      }
+    }
+  ]
+}
+</script>
+            </article>
+            
+            <div class="bottom-cta" style="background: linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%); border-radius: 16px; padding: 3rem; text-align: center; margin: 3rem 0; color: white;">
+                <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.75rem; color: white;">Find Winning Products Faster</h2>
+                <p style="font-size: 1.05rem; opacity: 0.9; margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto;">Nexscope uses AI to analyze market data and surface high-potential product opportunities — so you can skip the guesswork.</p>
+                <a href="https://www.nexscope.ai" style="display: inline-block; background: #111827; color: white; padding: 14px 36px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 16px;">Get Started — It's Free</a>
+                <p style="font-size: 12px; opacity: 0.7; margin-top: 0.75rem;">No coding required &bull; Instant access</p>
+            </div>
+        </main>
+
+        <aside>
+            <div class="toc-wrapper">
+                <div class="toc">
+                    <h3 class="toc-title">Table of Contents</h3>
+                    <ul id="toc-list"></ul>
+                </div>
+                <div class="cta-card-sidebar" style="background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(139,92,246,0.08)); border: 1px solid rgba(59,130,246,0.15); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem; backdrop-filter: blur(8px);">
+                    <h3 style="font-size: 1rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem;">Find Winning Products Faster</h3>
+                    <p style="font-size: 13px; color: #6B7280; margin-bottom: 1rem;">Nexscope uses AI to analyze market data and surface high-potential product opportunities — so you can skip the guesswork.</p>
+                    <a href="https://www.nexscope.ai" style="display: block; text-align: center; background: linear-gradient(135deg, #3B82F6, #7C3AED); color: white; padding: 10px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 14px;">Try Nexscope Free</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer style="background: #111827; padding: 3rem 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 3rem;">
+        <p>&copy; 2026 Nexscope Inc. All rights reserved. &middot; <a href="https://www.nexscope.ai" style="color: rgba(255,255,255,0.7); text-decoration: none;">nexscope.ai</a></p>
+    </footer>
+
+    <script>
+        // Auto-generate TOC from H2 tags
+        document.addEventListener('DOMContentLoaded', function() {
+            const article = document.querySelector('article');
+            const tocList = document.getElementById('toc-list');
+            const headings = article.querySelectorAll('h2');
+            
+            headings.forEach(function(h, i) {
+                if (!h.id) h.id = 'section-' + i;
+                const li = document.createElement('li');
+                li.className = 'toc-item';
+                const a = document.createElement('a');
+                a.href = '#' + h.id;
+                a.textContent = h.textContent;
+                a.className = 'toc-link';
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+            
+            // Scroll spy
+            const links = document.querySelectorAll('.toc-link');
+            window.addEventListener('scroll', function() {
+                let current = '';
+                headings.forEach(function(h) {
+                    if (window.scrollY >= h.offsetTop - 120) current = h.id;
+                });
+                links.forEach(function(link) {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
