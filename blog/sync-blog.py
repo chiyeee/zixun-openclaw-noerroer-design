@@ -235,6 +235,15 @@ def sync_article(md_filename):
     # Category
     category = meta.get("category", "")
     
+    # Split body at FAQ section — CTA goes between main content and FAQ
+    faq_split = re.search(r'(<h2[^>]*>(?:Frequently Asked Questions|FAQ))', body_html)
+    if faq_split:
+        body_before_faq = body_html[:faq_split.start()]
+        body_faq_and_after = body_html[faq_split.start():]
+    else:
+        body_before_faq = body_html
+        body_faq_and_after = ""
+    
     # Category link
     cat_link = CATEGORY_LINKS.get(category, "final-index.html")
     
@@ -276,7 +285,7 @@ def sync_article(md_filename):
                 </div>
             </div>
             
-            {body_html}
+            {body_before_faq}
             
             <div class="bottom-cta">
                 <h3>{cta_title}</h3>
@@ -284,6 +293,8 @@ def sync_article(md_filename):
                 <a href="https://www.nexscope.ai">Get Started Free →</a>
                 <div class="bottom-cta-small">No coding required • Instant access</div>
             </div>
+            
+            {body_faq_and_after}
         </article>
         
         <aside>
