@@ -18,43 +18,35 @@
         .nav-link { text-decoration: none; color: #6B7280; font-weight: 500; font-size: 14px; transition: color 0.2s; }
         .nav-link:hover { color: #3B82F6; }
         
-        .hero {
-            background: linear-gradient(135deg, #1E3A5F 0%, #3B82F6 50%, #6366F1 100%);
-            padding: 3.5rem 2rem 3rem;
-            text-align: center;
+        .banner {
+            background: radial-gradient(ellipse at 30% 50%, rgba(59,130,246,0.08), rgba(99,102,241,0.05)),
+                        radial-gradient(ellipse at 70% 80%, rgba(59,130,246,0.08), rgba(99,102,241,0.05));
+            padding: 3rem 2rem 2.5rem;
             position: relative;
-            overflow: hidden;
         }
-        .hero::before {
-            content: '';
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(59,130,246,0.2) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 60%, rgba(99,102,241,0.15) 0%, transparent 50%);
-        }
-        .hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
-        .hero-emoji { font-size: 3rem; margin-bottom: 0.75rem; }
-        .hero h1 { font-size: 2.75rem; font-weight: 800; color: white; margin-bottom: 0.5rem; }
-        .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; }
-        .hero-breadcrumb { font-size: 13px; color: rgba(255,255,255,0.5); }
-        .hero-breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
-        .hero-breadcrumb a:hover { color: white; }
+        .banner-inner { max-width: 1280px; margin: 0 auto; }
+        .banner-breadcrumb { font-size: 13px; color: #6B7280; margin-bottom: 1.25rem; }
+        .banner-breadcrumb a { color: #3B82F6; text-decoration: none; }
+        .banner-breadcrumb a:hover { text-decoration: underline; }
+        .banner h1 { font-size: 2.75rem; font-weight: 800; color: #111827; margin-bottom: 0.5rem; }
+        .banner p { font-size: 1.1rem; color: #6B7280; max-width: 600px; }
         
         .content { max-width: 1280px; margin: 0 auto; padding: 2.5rem 2rem; }
         .content-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
-        .content-title { font-size: 1.5rem; font-weight: 700; color: #111827; }
+        .content-count { font-size: 0.9rem; font-weight: 500; color: #9CA3AF; }
         .cat-switcher {
             padding: 10px 16px; border: 1px solid #D1D5DB; border-radius: 8px;
             background: white; color: #374151; font-size: 14px; font-weight: 500;
             cursor: pointer; font-family: 'Inter', sans-serif;
         }
         
-        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 3rem; }
         .article-card {
             border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden;
             transition: all 0.25s; text-decoration: none; color: inherit; display: block; background: white;
         }
         .article-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
-        .article-card img { width: 100%; height: 200px; object-fit: cover; }
+        .article-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
         .article-card-content { padding: 1.25rem; }
         .article-tag {
             display: inline-block; background: #EFF6FF; color: #3B82F6;
@@ -63,15 +55,15 @@
         }
         .article-card h3 { font-size: 1.1rem; font-weight: 700; color: #111827; line-height: 1.4; margin-bottom: 0.75rem; }
         .article-card-meta { font-size: 12px; color: #9CA3AF; }
-        .article-card-readmore {
-            font-size: 13px; font-weight: 600; color: #3B82F6;
-            display: flex; align-items: center; gap: 4px; margin-top: 0.75rem;
-        }
         
-        .empty-state {
-            text-align: center; padding: 4rem 2rem; color: #9CA3AF;
+        .pagination { display: flex; justify-content: center; gap: 0.5rem; }
+        .pagination a, .pagination span { 
+            padding: 8px 14px; border-radius: 8px; border: 1px solid #E5E7EB; 
+            text-decoration: none; color: #374151; cursor: pointer; font-size: 14px; font-weight: 500;
+            transition: all 0.2s;
         }
-        .empty-state p { font-size: 1.1rem; }
+        .pagination a:hover { background: #F3F4F6; }
+        .pagination .active { background: #3B82F6; color: white; border-color: #3B82F6; }
         
         footer { background: #111827; padding: 3rem 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 3rem; }
         footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
@@ -92,53 +84,138 @@
         </div>
     </nav>
     
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-emoji">📰</div>
+    <section class="banner">
+        <div class="banner-inner">
+            <div class="banner-breadcrumb">
+                <a href="final-index.html">Home</a> &nbsp;/&nbsp; <a href="final-index.html">Blog</a> &nbsp;/&nbsp; <span style="color:#111827;font-weight:500">Nexscope News</span>
+            </div>
             <h1>Nexscope News</h1>
             <p>Product updates, new features, and announcements from the Nexscope team.</p>
-            <div class="hero-breadcrumb">
-                <a href="final-index.html">Home</a> / <a href="final-index.html">Blog</a> / <span style="color:rgba(255,255,255,0.9)">Nexscope News</span>
-            </div>
         </div>
     </section>
     
     <section class="content">
         <div class="content-header">
-            <h2 class="content-title">2 Articles</h2>
+            <span class="content-count">12 articles</span>
             <select class="cat-switcher" onchange="if(this.value) window.location.href=this.value">
                 <option value="">Switch Category</option>
-                <option value="final-category-product-research.html">🔍 Product Research</option>
-                <option value="final-category-ppc.html">📢 PPC & Ads</option>
-                <option value="final-category-listing.html">✨ Listing Optimization</option>
-                <option value="final-category-profit.html">💰 Profit & FBA</option>
-                <option value="final-category-sourcing.html">🚚 Sourcing & Supply</option>
-                <option value="final-category-market.html">📊 Market Intelligence</option>
-                <option value="final-category-ai.html">🤖 AI for Ecommerce</option>
-                <option value="final-category-tools.html">🛠️ Tool Reviews</option>
-                <option value="final-category-guides.html">📖 Seller Guides</option>
-                <option value="final-category-news.html" selected>📰 Nexscope News</option>
+                <option value="final-category-product-research.html">Product Research</option>
+                <option value="final-category-ppc.html">PPC & Ads</option>
+                <option value="final-category-listing.html">Listing Optimization</option>
+                <option value="final-category-profit.html">Profit & FBA</option>
+                <option value="final-category-sourcing.html">Sourcing & Supply</option>
+                <option value="final-category-market.html">Market Intelligence</option>
+                <option value="final-category-ai.html">AI for Ecommerce</option>
+                <option value="final-category-tools.html">Tool Reviews</option>
+                <option value="final-category-guides.html">Seller Guides</option>
+                <option value="final-category-news.html" selected>Nexscope News</option>
             </select>
         </div>
         <div class="articles-grid">
             <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225?text=Nexscope+Launch" alt="Nexscope News">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Nexscope+Launch" alt="Nexscope News">
                 <div class="article-card-content">
                     <span class="article-tag">Nexscope News</span>
                     <h3>Introducing Nexscope: AI-Powered Ecommerce Intelligence</h3>
                     <div class="article-card-meta">Mar 25, 2026 · 5 min read</div>
-                    <div class="article-card-readmore">Read Now →</div>
                 </div>
             </a>
             <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225?text=Feature+Update" alt="Nexscope News">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=March+Update" alt="Nexscope News">
                 <div class="article-card-content">
                     <span class="article-tag">Nexscope News</span>
                     <h3>March 2026 Update: What's New in Nexscope</h3>
                     <div class="article-card-meta">Mar 15, 2026 · 4 min read</div>
-                    <div class="article-card-readmore">Read Now →</div>
                 </div>
             </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=AI+Engine+V2" alt="Nexscope News">
+                <div class="article-card-content">
+                    <span class="article-tag">Nexscope News</span>
+                    <h3>Nexscope AI Engine V2: Faster, Smarter, More Accurate</h3>
+                    <div class="article-card-meta">Feb 28, 2026 · 6 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Pricing+Update" alt="Nexscope News">
+                <div class="article-card-content">
+                    <span class="article-tag">Nexscope News</span>
+                    <h3>New Pricing Plans: More Value at Every Tier</h3>
+                    <div class="article-card-meta">Feb 10, 2026 · 3 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Integration" alt="Nexscope News">
+                <div class="article-card-content">
+                    <span class="article-tag">Nexscope News</span>
+                    <h3>Shopify Integration Now Live: Cross-Platform Insights</h3>
+                    <div class="article-card-meta">Jan 28, 2026 · 5 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Beta+Program" alt="Nexscope News">
+                <div class="article-card-content">
+                    <span class="article-tag">Nexscope News</span>
+                    <h3>Join the Nexscope Beta: Early Access to New Features</h3>
+                    <div class="article-card-meta">Jan 15, 2026 · 4 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Year+in+Review" alt="Nexscope News">
+                <div class="article-card-content">
+                    <span class="article-tag">Nexscope News</span>
+                    <h3>2025 Year in Review: Building Nexscope</h3>
+                    <div class="article-card-meta">Jan 1, 2026 · 8 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=API+Launch" alt="Nexscope News">
+                <div class="article-card-content">
+                    <span class="article-tag">Nexscope News</span>
+                    <h3>Nexscope API: Build Custom Integrations</h3>
+                    <div class="article-card-meta">Dec 20, 2025 · 6 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Community" alt="Nexscope News">
+                <div class="article-card-content">
+                    <span class="article-tag">Nexscope News</span>
+                    <h3>Nexscope Community: Discord Launch & Events</h3>
+                    <div class="article-card-meta">Dec 10, 2025 · 3 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Mobile+App" alt="Nexscope News">
+                <div class="article-card-content">
+                    <span class="article-tag">Nexscope News</span>
+                    <h3>Nexscope Mobile App: Check Metrics on the Go</h3>
+                    <div class="article-card-meta">Nov 28, 2025 · 5 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Partner+Program" alt="Nexscope News">
+                <div class="article-card-content">
+                    <span class="article-tag">Nexscope News</span>
+                    <h3>Nexscope Partner Program: Earn While You Refer</h3>
+                    <div class="article-card-meta">Nov 15, 2025 · 4 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Roadmap" alt="Nexscope News">
+                <div class="article-card-content">
+                    <span class="article-tag">Nexscope News</span>
+                    <h3>2026 Product Roadmap: What We're Building Next</h3>
+                    <div class="article-card-meta">Nov 1, 2025 · 7 min read</div>
+                </div>
+            </a>
+        </div>
+        <div class="pagination">
+            <a href="#">← Prev</a>
+            <span class="active">1</span>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">...</a>
+            <a href="#">Next →</a>
         </div>
     </section>
     

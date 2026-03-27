@@ -18,43 +18,35 @@
         .nav-link { text-decoration: none; color: #6B7280; font-weight: 500; font-size: 14px; transition: color 0.2s; }
         .nav-link:hover { color: #3B82F6; }
         
-        .hero {
-            background: linear-gradient(135deg, #1E3A5F 0%, #1E40AF 50%, #312E81 100%);
-            padding: 3.5rem 2rem 3rem;
-            text-align: center;
+        .banner {
+            background: radial-gradient(ellipse at 30% 50%, rgba(59,130,246,0.08), rgba(139,92,246,0.05)),
+                        radial-gradient(ellipse at 70% 80%, rgba(59,130,246,0.08), rgba(139,92,246,0.05));
+            padding: 3rem 2rem 2.5rem;
             position: relative;
-            overflow: hidden;
         }
-        .hero::before {
-            content: '';
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(59,130,246,0.2) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 60%, rgba(139,92,246,0.15) 0%, transparent 50%);
-        }
-        .hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
-        .hero-emoji { font-size: 3rem; margin-bottom: 0.75rem; }
-        .hero h1 { font-size: 2.75rem; font-weight: 800; color: white; margin-bottom: 0.5rem; }
-        .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; }
-        .hero-breadcrumb { font-size: 13px; color: rgba(255,255,255,0.5); }
-        .hero-breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
-        .hero-breadcrumb a:hover { color: white; }
+        .banner-inner { max-width: 1280px; margin: 0 auto; }
+        .banner-breadcrumb { font-size: 13px; color: #6B7280; margin-bottom: 1.25rem; }
+        .banner-breadcrumb a { color: #3B82F6; text-decoration: none; }
+        .banner-breadcrumb a:hover { text-decoration: underline; }
+        .banner h1 { font-size: 2.75rem; font-weight: 800; color: #111827; margin-bottom: 0.5rem; }
+        .banner p { font-size: 1.1rem; color: #6B7280; max-width: 600px; }
         
         .content { max-width: 1280px; margin: 0 auto; padding: 2.5rem 2rem; }
         .content-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
-        .content-title { font-size: 1.5rem; font-weight: 700; color: #111827; }
+        .content-count { font-size: 0.9rem; font-weight: 500; color: #9CA3AF; }
         .cat-switcher {
             padding: 10px 16px; border: 1px solid #D1D5DB; border-radius: 8px;
             background: white; color: #374151; font-size: 14px; font-weight: 500;
             cursor: pointer; font-family: 'Inter', sans-serif;
         }
         
-        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 3rem; }
         .article-card {
             border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden;
             transition: all 0.25s; text-decoration: none; color: inherit; display: block; background: white;
         }
         .article-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
-        .article-card img { width: 100%; height: 200px; object-fit: cover; }
+        .article-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
         .article-card-content { padding: 1.25rem; }
         .article-tag {
             display: inline-block; background: #EFF6FF; color: #3B82F6;
@@ -63,15 +55,15 @@
         }
         .article-card h3 { font-size: 1.1rem; font-weight: 700; color: #111827; line-height: 1.4; margin-bottom: 0.75rem; }
         .article-card-meta { font-size: 12px; color: #9CA3AF; }
-        .article-card-readmore {
-            font-size: 13px; font-weight: 600; color: #3B82F6;
-            display: flex; align-items: center; gap: 4px; margin-top: 0.75rem;
-        }
         
-        .empty-state {
-            text-align: center; padding: 4rem 2rem; color: #9CA3AF;
+        .pagination { display: flex; justify-content: center; gap: 0.5rem; }
+        .pagination a, .pagination span { 
+            padding: 8px 14px; border-radius: 8px; border: 1px solid #E5E7EB; 
+            text-decoration: none; color: #374151; cursor: pointer; font-size: 14px; font-weight: 500;
+            transition: all 0.2s;
         }
-        .empty-state p { font-size: 1.1rem; }
+        .pagination a:hover { background: #F3F4F6; }
+        .pagination .active { background: #3B82F6; color: white; border-color: #3B82F6; }
         
         footer { background: #111827; padding: 3rem 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 3rem; }
         footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
@@ -92,32 +84,31 @@
         </div>
     </nav>
     
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-emoji">🔍</div>
+    <section class="banner">
+        <div class="banner-inner">
+            <div class="banner-breadcrumb">
+                <a href="final-index.html">Home</a> &nbsp;/&nbsp; <a href="final-index.html">Blog</a> &nbsp;/&nbsp; <span style="color:#111827;font-weight:500">Product Research</span>
+            </div>
             <h1>Product Research</h1>
             <p>Discover winning products with data-driven research methods and market analysis.</p>
-            <div class="hero-breadcrumb">
-                <a href="final-index.html">Home</a> / <a href="final-index.html">Blog</a> / <span style="color:rgba(255,255,255,0.9)">Product Research</span>
-            </div>
         </div>
     </section>
     
     <section class="content">
         <div class="content-header">
-            <h2 class="content-title">6 Articles</h2>
+            <span class="content-count">12 articles</span>
             <select class="cat-switcher" onchange="if(this.value) window.location.href=this.value">
                 <option value="">Switch Category</option>
-                <option value="final-category-product-research.html" selected>🔍 Product Research</option>
-                <option value="final-category-ppc.html">📢 PPC & Ads</option>
-                <option value="final-category-listing.html">✨ Listing Optimization</option>
-                <option value="final-category-profit.html">💰 Profit & FBA</option>
-                <option value="final-category-sourcing.html">🚚 Sourcing & Supply</option>
-                <option value="final-category-market.html">📊 Market Intelligence</option>
-                <option value="final-category-ai.html">🤖 AI for Ecommerce</option>
-                <option value="final-category-tools.html">🛠️ Tool Reviews</option>
-                <option value="final-category-guides.html">📖 Seller Guides</option>
-                <option value="final-category-news.html">📰 Nexscope News</option>
+                <option value="final-category-product-research.html" selected>Product Research</option>
+                <option value="final-category-ppc.html">PPC & Ads</option>
+                <option value="final-category-listing.html">Listing Optimization</option>
+                <option value="final-category-profit.html">Profit & FBA</option>
+                <option value="final-category-sourcing.html">Sourcing & Supply</option>
+                <option value="final-category-market.html">Market Intelligence</option>
+                <option value="final-category-ai.html">AI for Ecommerce</option>
+                <option value="final-category-tools.html">Tool Reviews</option>
+                <option value="final-category-guides.html">Seller Guides</option>
+                <option value="final-category-news.html">Nexscope News</option>
             </select>
         </div>
         <div class="articles-grid">
@@ -127,54 +118,104 @@
                     <span class="article-tag">Product Research</span>
                     <h3>How to Find Products to Sell on Amazon: 7 Proven Methods</h3>
                     <div class="article-card-meta">Updated Mar 26, 2026 · 9 min read</div>
-                    <div class="article-card-readmore">Read Now →</div>
                 </div>
             </a>
             <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225?text=Market+Analysis" alt="Product Research">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Market+Analysis" alt="Product Research">
                 <div class="article-card-content">
                     <span class="article-tag">Product Research</span>
                     <h3>Market Analysis Guide: Identify Profitable Niches</h3>
                     <div class="article-card-meta">Mar 15, 2026 · 9 min read</div>
-                    <div class="article-card-readmore">Read Now →</div>
                 </div>
             </a>
             <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225?text=BSR+Analysis" alt="Product Research">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=BSR+Analysis" alt="Product Research">
                 <div class="article-card-content">
                     <span class="article-tag">Product Research</span>
                     <h3>Amazon BSR Analysis: What the Numbers Really Mean</h3>
                     <div class="article-card-meta">Mar 8, 2026 · 8 min read</div>
-                    <div class="article-card-readmore">Read Now →</div>
                 </div>
             </a>
             <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225?text=Seasonal+Trends" alt="Product Research">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Seasonal+Trends" alt="Product Research">
                 <div class="article-card-content">
                     <span class="article-tag">Product Research</span>
                     <h3>Seasonal Trends Detection: Plan for Peak Seasons</h3>
                     <div class="article-card-meta">Feb 20, 2026 · 9 min read</div>
-                    <div class="article-card-readmore">Read Now →</div>
                 </div>
             </a>
             <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225?text=Cross+Platform" alt="Product Research">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Cross+Platform" alt="Product Research">
                 <div class="article-card-content">
                     <span class="article-tag">Product Research</span>
                     <h3>Cross-Platform Research: Reddit, TikTok & Google Trends</h3>
                     <div class="article-card-meta">Feb 10, 2026 · 11 min read</div>
-                    <div class="article-card-readmore">Read Now →</div>
                 </div>
             </a>
             <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225?text=Review+Analysis" alt="Product Research">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Review+Mining" alt="Product Research">
                 <div class="article-card-content">
                     <span class="article-tag">Product Research</span>
                     <h3>Review Mining for Product Research: Find Customer Pain Points</h3>
                     <div class="article-card-meta">Jan 28, 2026 · 7 min read</div>
-                    <div class="article-card-readmore">Read Now →</div>
                 </div>
             </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Demand+Validation" alt="Product Research">
+                <div class="article-card-content">
+                    <span class="article-tag">Product Research</span>
+                    <h3>Demand Validation: Prove Your Product Idea Before Investing</h3>
+                    <div class="article-card-meta">Jan 20, 2026 · 10 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Niche+Selection" alt="Product Research">
+                <div class="article-card-content">
+                    <span class="article-tag">Product Research</span>
+                    <h3>Niche Selection Framework: A Data-First Approach</h3>
+                    <div class="article-card-meta">Jan 12, 2026 · 12 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Competitor+Gaps" alt="Product Research">
+                <div class="article-card-content">
+                    <span class="article-tag">Product Research</span>
+                    <h3>Finding Competitor Gaps: Opportunities They Missed</h3>
+                    <div class="article-card-meta">Jan 5, 2026 · 8 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Keyword+Demand" alt="Product Research">
+                <div class="article-card-content">
+                    <span class="article-tag">Product Research</span>
+                    <h3>Keyword Demand Analysis for Product Validation</h3>
+                    <div class="article-card-meta">Dec 28, 2025 · 9 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Category+Trends" alt="Product Research">
+                <div class="article-card-content">
+                    <span class="article-tag">Product Research</span>
+                    <h3>Category Trend Reports: Where Growth Is Happening</h3>
+                    <div class="article-card-meta">Dec 15, 2025 · 11 min read</div>
+                </div>
+            </a>
+            <a href="#" class="article-card">
+                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Product+Scoring" alt="Product Research">
+                <div class="article-card-content">
+                    <span class="article-tag">Product Research</span>
+                    <h3>Product Scoring Model: Rank Ideas Objectively</h3>
+                    <div class="article-card-meta">Dec 1, 2025 · 10 min read</div>
+                </div>
+            </a>
+        </div>
+        <div class="pagination">
+            <a href="#">← Prev</a>
+            <span class="active">1</span>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">...</a>
+            <a href="#">Next →</a>
         </div>
     </section>
     
