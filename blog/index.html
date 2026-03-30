@@ -183,7 +183,7 @@
             <p>Data-driven insights and proven strategies for ecommerce sellers</p>
             <div class="search-wrapper">
                 <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" placeholder="Search articles..." id="searchInput" onkeyup="filterArticles()">
+                <input type="text" class="search-input" placeholder="Search articles..." id="searchInput">
             </div>
         </div>
     </section>
@@ -357,14 +357,7 @@
             container.scrollLeft += direction * 320;
         }
         
-        function filterArticles() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.article-card');
-            cards.forEach(card => {
-                const title = card.getAttribute('data-title').toLowerCase();
-                card.style.display = title.includes(query) ? '' : 'none';
-            });
-        }
+        // Search handled by unified DOMContentLoaded script below
     </script>
 
     <script>
