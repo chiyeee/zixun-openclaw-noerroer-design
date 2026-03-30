@@ -56,7 +56,7 @@
             border-bottom: 1px solid #E5E7EB;
         }
         .categories-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-        .categories-header {  margin-bottom: 1.5rem; }
+        .categories-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
         .categories-title { font-size: 1.25rem; font-weight: 600; color: #374151; }
         .carousel-nav { display: flex; gap: 0.5rem; }
         .carousel-btn { 
@@ -365,6 +365,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('[Nexscope] Blog JS loaded, cards:', document.querySelectorAll('#articlesGrid .article-card').length);
             const ITEMS_PER_PAGE = 12;
             const grid = document.getElementById('articlesGrid');
             const allCards = Array.from(grid.querySelectorAll('.article-card'));
@@ -445,9 +446,9 @@
                 currentQuery = searchInput.value.toLowerCase().trim();
                 currentPage = 1;
                 render();
-                if (currentQuery) {
-                    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                console.log('[Nexscope] Search:', currentQuery, 'Found:', getFilteredCards().length);
+                // Always scroll to results area
+                document.querySelector('.articles-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
             
             searchInput.addEventListener('input', function() {
