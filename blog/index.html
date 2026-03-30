@@ -46,6 +46,8 @@
         .search-input::placeholder { color: rgba(255,255,255,0.5); }
         .search-input:focus { border-color: #3B82F6; background: rgba(255,255,255,0.15); }
         .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.5); font-size: 18px; }
+        .search-btn { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); background: #3B82F6; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; transition: background 0.2s; }
+        .search-btn:hover { background: #2563EB; }
         
         /* CATEGORIES */
         .categories-section { 
@@ -184,6 +186,7 @@
             <div class="search-wrapper">
                 <span class="search-icon">🔍</span>
                 <input type="text" class="search-input" placeholder="Search articles..." id="searchInput">
+                <button class="search-btn" id="searchBtn">Search</button>
             </div>
         </div>
     </section>
@@ -437,11 +440,28 @@
                 });
             });
             
-            // Search
+            // Search - real-time filter + scroll to results
+            function doSearch() {
+                currentQuery = searchInput.value.toLowerCase().trim();
+                currentPage = 1;
+                render();
+                if (currentQuery) {
+                    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+            
             searchInput.addEventListener('input', function() {
                 currentQuery = this.value.toLowerCase().trim();
                 currentPage = 1;
                 render();
+            });
+            
+            // Search button click
+            document.getElementById('searchBtn').addEventListener('click', doSearch);
+            
+            // Enter key
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') doSearch();
             });
             
             render();
