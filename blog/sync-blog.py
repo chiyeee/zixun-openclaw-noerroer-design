@@ -15,40 +15,40 @@ import os, re, sys, yaml, markdown
 from datetime import datetime
 from html import escape
 
-SOURCE_DIR = "/tmp/ns-blog-preview"
-TARGET_DIR = "/tmp/template-repo/blog"
-TEMPLATE_FILE = os.path.join(TARGET_DIR, "product-research-7-methods.html")
+SOURCE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "content")
+TARGET_DIR = os.path.dirname(os.path.abspath(__file__))
+TEMPLATE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "product-research-7-methods.html")
 
 # ─── Author Mapping ───
 AUTHORS = {
     "Henk Nie": {
         "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden"><img src="images/authors/henk-nie.jpg" alt="Henk Nie" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>',
-        "page": "final-author-henk-nie.html",
+        "page": "author-henk-nie.html",
     },
     "Nexscope Team": {
         "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden;background:white"><img src="images/authors/nexscope-team.png" alt="Nexscope Team" style="width:100%;height:100%;object-fit:contain;border-radius:50%"></div>',
-        "page": "final-author.html",
+        "page": "author-nexscope-team.html",
     },
     "Zhiyi Wu": {
         "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden"><img src="images/authors/zhiyi-wu.jpg" alt="Zhiyi Wu" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>',
-        "page": "final-author-zhiyi-wu.html",
+        "page": "author-zhiyi-wu.html",
     },
 }
 
 # ─── Category → Page Link ───
 CATEGORY_LINKS = {
-    "Product Research": "final-category-product-research.html",
-    "PPC & Ads": "final-category-ppc.html",
-    "Listing Optimization": "final-category-listing.html",
-    "Profit & FBA": "final-category-profit.html",
-    "Sourcing & Supply": "final-category-sourcing.html",
-    "Market Intelligence": "final-category-market.html",
-    "AI for Amazon Sellers": "final-category-ai.html",
-    "AI for Ecommerce": "final-category-ai.html",
-    "AI & Automation": "final-category-ai.html",
-    "Tool Reviews": "final-category-tools.html",
-    "Seller Guides": "final-category-guides.html",
-    "Nexscope News": "final-category-news.html",
+    "Product Research": "category-product-research.html",
+    "PPC & Ads": "category-ppc.html",
+    "Listing Optimization": "category-listing.html",
+    "Profit & FBA": "category-profit.html",
+    "Sourcing & Supply": "category-sourcing.html",
+    "Market Intelligence": "category-market.html",
+    "AI for Amazon Sellers": "category-ai.html",
+    "AI for Ecommerce": "category-ai.html",
+    "AI & Automation": "category-ai.html",
+    "Tool Reviews": "category-tools.html",
+    "Seller Guides": "category-guides.html",
+    "Nexscope News": "category-news.html",
 }
 
 # ─── Category Tag Colors (for author/category pages with inline style) ───
@@ -262,7 +262,7 @@ def _insert_card_replacing_placeholder(page_html, new_card_html):
 
 def update_homepage(article):
     """Add article card to homepage, replacing a placeholder."""
-    hp_path = os.path.join(TARGET_DIR, "final-index.html")
+    hp_path = os.path.join(TARGET_DIR, "index.html")
     with open(hp_path) as f:
         html = f.read()
     
@@ -391,7 +391,7 @@ def sync_article(md_filename):
     
     # Category
     category = meta.get("category", "")
-    cat_link = CATEGORY_LINKS.get(category, "final-index.html")
+    cat_link = CATEGORY_LINKS.get(category, "index.html")
     
     # Split at FAQ
     faq_split = re.search(r'(<h2[^>]*>(?:Frequently Asked Questions|FAQ))', body_html)
@@ -415,16 +415,16 @@ def sync_article(md_filename):
 <body>
     <nav>
         <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='final-index.html'">
+            <div class="nav-logo" onclick="window.location.href='index.html'">
                 <div class="nav-logo-icon">N</div>
                 <span class="nav-logo-text">Nexscope</span>
             </div>
-            <a href="final-index.html" class="nav-link">Blog</a>
+            <a href="index.html" class="nav-link">Blog</a>
         </div>
     </nav>
     
     <div class="breadcrumbs">
-        <a href="final-index.html">Home</a> / <a href="final-index.html">Blog</a> / <a href="{cat_link}">{category}</a> / <span style="color: #3B82F6;">{meta["title"][:50]}...</span>
+        <a href="index.html">Home</a> / <a href="index.html">Blog</a> / <a href="{cat_link}">{category}</a> / <span style="color: #3B82F6;">{meta["title"][:50]}...</span>
     </div>
     
     <div class="main-container">

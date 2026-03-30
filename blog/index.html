@@ -1,220 +1,455 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce Intelligence | Nexscope</title>
-    <meta name="description" content="AI-driven insights for Amazon sellers. Product research, market analysis, and profit strategies.">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Nexscope Blog | Ecommerce Intelligence</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        bg: { DEFAULT: '#0B0E14', card: '#151921', hover: '#1E2330' },
-                        brand: { 400: '#38BDF8', 500: '#0EA5E9', 600: '#0284C7', glow: 'rgba(14, 165, 233, 0.15)' }
-                    }
-                }
-            }
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #1F2937; background: #FFFFFF; }
+        
+        /* NAV */
+        nav { background: rgba(255,255,255,0.95); border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 16px; }
+        .nav-logo-text { font-size: 20px; font-weight: 700; color: #111827; }
+        .nav-link { text-decoration: none; color: #6B7280; font-weight: 500; font-size: 14px; transition: color 0.2s; }
+        .nav-link:hover { color: #3B82F6; }
+        
+        /* HERO */
+        .hero { 
+            background: linear-gradient(135deg, #1E3A5F 0%, #1E293B 50%, #312E81 100%);
+            padding: 4rem 2rem 3rem; 
+            text-align: center; 
+            position: relative;
+            overflow: hidden;
         }
-    </script>
+        .hero::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(139,92,246,0.12) 0%, transparent 50%);
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+        .hero h1 { font-size: 2.75rem; font-weight: 800; color: white; margin-bottom: 0.75rem; line-height: 1.15; }
+        .hero p { font-size: 1.35rem; color: rgba(255,255,255,0.75); margin-bottom: 2rem; }
+        .search-wrapper { max-width: 560px; margin: 0 auto; position: relative; }
+        .search-input { 
+            width: 100%; padding: 14px 20px 14px 48px; 
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; 
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
+            color: white; font-size: 15px; font-family: 'Inter', sans-serif;
+            outline: none; transition: all 0.2s;
+        }
+        .search-input::placeholder { color: rgba(255,255,255,0.5); }
+        .search-input:focus { border-color: #3B82F6; background: rgba(255,255,255,0.15); }
+        .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.5); font-size: 18px; }
+        
+        /* CATEGORIES */
+        .categories-section { 
+            background: #F9FAFB; 
+            padding: 3rem 0; 
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .categories-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .categories-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .categories-title { font-size: 1.25rem; font-weight: 600; color: #374151; }
+        .carousel-nav { display: flex; gap: 0.5rem; }
+        .carousel-btn { 
+            width: 36px; height: 36px; border-radius: 50%; border: 1px solid #D1D5DB; 
+            background: white; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: #374151; font-size: 16px; transition: all 0.2s;
+        }
+        .carousel-btn:hover { background: #3B82F6; color: white; border-color: #3B82F6; }
+        .carousel-container { overflow-x: auto; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+        .carousel-container::-webkit-scrollbar { display: none; }
+        .carousel { display: flex; gap: 1.25rem; }
+        .cat-card { 
+            min-width: 280px; height: 180px; border-radius: 12px; overflow: hidden;
+            position: relative; cursor: pointer; text-decoration: none; flex-shrink: 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
+        .cat-card-bg { 
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+            background-size: cover; background-position: center; 
+        }
+        .cat-card-overlay { 
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 1.25rem;
+        }
+        .cat-card h3 { color: white; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+        .cat-card-link { color: rgba(255,255,255,0.95); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 4px; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+        
+        /* CTA BANNER */
+        .cta-banner { 
+            max-width: 1280px; margin: 3rem auto; padding: 0 2rem;
+        }
+        .cta-banner-inner {
+            background: linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%);
+            border-radius: 16px; padding: 2.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 2rem;
+        }
+        .cta-banner-text h2 { font-size: 1.5rem; font-weight: 800; color: white; margin-bottom: 0.5rem; }
+        .cta-banner-text p { color: rgba(255,255,255,0.85); font-size: 14px; }
+        .cta-banner-btn { 
+            background: white; color: #3B82F6; padding: 14px 32px; border-radius: 8px;
+            font-weight: 700; font-size: 15px; text-decoration: none; white-space: nowrap;
+            transition: all 0.2s; flex-shrink: 0;
+        }
+        .cta-banner-btn:hover { background: #F0F9FF; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        
+        /* ARTICLES */
+        .articles-section { max-width: 1280px; margin: 0 auto; padding: 3rem 2rem; }
+        .articles-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .articles-title { font-size: 1.75rem; font-weight: 700; color: #111827; }
+        .articles-filter { 
+            padding: 8px 16px; border: 1px solid #D1D5DB; border-radius: 8px; 
+            background: white; color: #374151; font-size: 14px; font-weight: 500;
+            cursor: pointer; font-family: 'Inter', sans-serif;
+        }
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 3rem; }
+        .article-card { 
+            border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden; 
+            transition: all 0.25s; text-decoration: none; color: inherit; display: block;
+            background: white;
+        }
+        .article-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+        .article-card img { width: 100%; height: 200px; object-fit: cover; }
+        .article-card-content { padding: 1.25rem; }
+        .article-tag { 
+            display: inline-block; background: #EFF6FF; color: #3B82F6; 
+            padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; 
+            margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.3px;
+        }
+        .article-card h3 { font-size: 1.1rem; font-weight: 700; color: #111827; line-height: 1.4; margin-bottom: 0.75rem; }
+        .article-card-meta { font-size: 12px; color: #9CA3AF; display: flex; align-items: center; gap: 0.5rem; }
+        .article-card-readmore { 
+            font-size: 13px; font-weight: 600; color: #3B82F6; 
+            display: flex; align-items: center; gap: 4px; margin-top: 0.75rem;
+        }
+        
+        /* PAGINATION */
+        .pagination { display: flex; justify-content: center; gap: 0.5rem; margin: 2rem 0 3rem; }
+        .pagination a, .pagination span { 
+            padding: 8px 14px; border-radius: 8px; border: 1px solid #E5E7EB; 
+            text-decoration: none; color: #374151; cursor: pointer; font-size: 14px; font-weight: 500;
+            transition: all 0.2s;
+        }
+        .pagination a:hover { background: #F3F4F6; }
+        .pagination .active { background: #3B82F6; color: white; border-color: #3B82F6; }
+        
+        /* FOOTER */
+        footer { background: #111827; padding: 3rem 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; }
+        footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        footer a:hover { color: white; }
+    </style>
 </head>
-<body class="bg-bg text-slate-300 font-sans antialiased">
-
-    <!-- Nav -->
-    <nav class="bg-bg/80 backdrop-blur-md border-b border-white/5 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-[0_0_15px_rgba(14,165,233,0.5)]">N</div>
-                    <a href="/" class="text-xl font-bold tracking-tight text-white">NexScope</a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Product</a>
-                    <a href="/blog" class="text-sm font-medium text-brand-400">Blog</a>
-                    <a href="#waitlist" class="text-sm font-bold bg-brand-500 text-white px-5 py-2 rounded-lg hover:bg-brand-400 transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)]">Get Early Access</a>
-                </div>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">N</div>
+                <span class="nav-logo-text">Nexscope</span>
+            </a>
+            <div style="display:flex;gap:2rem;align-items:center;">
+                <a href="index.html" class="nav-link">Blog</a>
+                <a href="https://www.nexscope.ai" class="nav-link" style="background:#3B82F6;color:white;padding:8px 20px;border-radius:6px;">Get Started</a>
             </div>
         </div>
     </nav>
-
-    <!-- SECTION 1: Professional Hero (H1 focused on Value) -->
-    <header class="relative py-20 px-4 text-center border-b border-white/5 overflow-hidden bg-[#0B0E14]">
-        <!-- Background Glow -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-brand-500/5 -z-10 blur-3xl"></div>
-        
-        <div class="max-w-4xl mx-auto relative z-10">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight">
-                Ecommerce Intelligence
-            </h1>
-            <p class="text-xl text-slate-400 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
-                Data-driven strategies for Amazon sellers. Master product research, PPC scaling, and profit calculation with AI.
-            </p>
-            
-            <!-- Search Bar -->
-            <div class="max-w-xl mx-auto relative group">
-                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <svg class="h-5 w-5 text-slate-500 group-hover:text-brand-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                    </svg>
-                </div>
-                <input type="text" placeholder="Search guides (e.g. 'FBA fees', 'PPC')" class="block w-full pl-11 pr-4 py-4 bg-bg-card border border-white/10 rounded-xl text-white placeholder-slate-600 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all shadow-lg">
+    
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Nexscope Blog</h1>
+            <p>Data-driven insights and proven strategies for ecommerce sellers</p>
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="Search articles..." id="searchInput" onkeyup="filterArticles()">
             </div>
         </div>
-    </header>
-
-    <!-- SECTION 2: Categories Carousel (BigCommerce Style) -->
-    <section class="py-16 bg-[#0F1219]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-white mb-10">Explore Topics</h2>
-            
-            <!-- Carousel Container -->
-            <div class="relative">
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Category 1 -->
-                    <a href="/blog/category/strategy" class="group relative h-64 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/50 transition-all">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10"></div>
-                        <div class="absolute inset-0 bg-slate-800 group-hover:scale-105 transition-transform duration-700">
-                            <!-- Abstract Bg -->
-                            <div class="w-full h-full opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-900 to-bg"></div>
-                        </div>
-                        <div class="absolute bottom-0 left-0 p-8 z-20">
-                            <span class="text-brand-400 text-xs font-bold uppercase tracking-wider mb-2 block">Strategy</span>
-                            <h3 class="text-2xl font-bold text-white group-hover:text-brand-400 transition-colors">Product Research</h3>
-                        </div>
-                    </a>
-
-                    <!-- Category 2 -->
-                    <a href="/blog/category/ai" class="group relative h-64 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/50 transition-all">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10"></div>
-                        <div class="absolute inset-0 bg-slate-800 group-hover:scale-105 transition-transform duration-700">
-                            <div class="w-full h-full opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900 to-bg"></div>
-                        </div>
-                        <div class="absolute bottom-0 left-0 p-8 z-20">
-                            <span class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-2 block">Technology</span>
-                            <h3 class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">AI Automation</h3>
-                        </div>
-                    </a>
-
-                    <!-- Category 3 -->
-                    <a href="/blog/category/growth" class="group relative h-64 rounded-2xl overflow-hidden border border-white/10 hover:border-brand-500/50 transition-all">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10"></div>
-                        <div class="absolute inset-0 bg-slate-800 group-hover:scale-105 transition-transform duration-700">
-                            <div class="w-full h-full opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-green-900 to-bg"></div>
-                        </div>
-                        <div class="absolute bottom-0 left-0 p-8 z-20">
-                            <span class="text-green-400 text-xs font-bold uppercase tracking-wider mb-2 block">Growth</span>
-                            <h3 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors">Marketing & PPC</h3>
-                        </div>
-                    </a>
+    </section>
+    
+    <!-- CATEGORIES (BigCommerce style with image + gradient overlay) -->
+    <section class="categories-section">
+        <div class="categories-inner">
+            <div class="categories-header">
+                <div class="categories-title">Choose your area of interest</div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="scrollCarousel(-1)">←</button>
+                    <button class="carousel-btn" onclick="scrollCarousel(1)">→</button>
                 </div>
-
-                <!-- Carousel Controls (BigCommerce Style) -->
-                <div class="flex items-center justify-between mt-8 border-t border-white/5 pt-6">
-                    <div class="flex gap-4">
-                        <button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:bg-white/10 hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                        </button>
-                        <button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:bg-white/10 hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                        </button>
-                    </div>
-                    <!-- Progress Bar -->
-                    <div class="hidden md:block w-48 h-1 bg-white/10 rounded-full overflow-hidden">
-                        <div class="w-1/3 h-full bg-brand-500 rounded-full"></div>
-                    </div>
+            </div>
+            <div class="carousel-container" id="carouselContainer">
+                <div class="carousel">
+                    <a href="category-product-research.html" class="cat-card">
+                        <div class="cat-card-bg" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop')"></div>
+                        <div class="cat-card-overlay" style="background:linear-gradient(180deg, transparent 0%, rgba(59,130,246,0.35) 40%, rgba(59,130,246,0.92) 100%)">
+                            <h3>Product Research</h3>
+                            <span class="cat-card-link">Explore →</span>
+                        </div>
+                    </a>
+                    <a href="category-ppc.html" class="cat-card">
+                        <div class="cat-card-bg" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop')"></div>
+                        <div class="cat-card-overlay" style="background:linear-gradient(180deg, transparent 0%, rgba(139,92,246,0.35) 40%, rgba(139,92,246,0.92) 100%)">
+                            <h3>PPC & Ads</h3>
+                            <span class="cat-card-link">Explore →</span>
+                        </div>
+                    </a>
+                    <a href="category-listing.html" class="cat-card">
+                        <div class="cat-card-bg" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop')"></div>
+                        <div class="cat-card-overlay" style="background:linear-gradient(180deg, transparent 0%, rgba(16,185,129,0.35) 40%, rgba(16,185,129,0.92) 100%)">
+                            <h3>Listing Optimization</h3>
+                            <span class="cat-card-link">Explore →</span>
+                        </div>
+                    </a>
+                    <a href="category-profit.html" class="cat-card">
+                        <div class="cat-card-bg" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=250&fit=crop')"></div>
+                        <div class="cat-card-overlay" style="background:linear-gradient(180deg, transparent 0%, rgba(245,158,11,0.35) 40%, rgba(245,158,11,0.92) 100%)">
+                            <h3>Profit & FBA</h3>
+                            <span class="cat-card-link">Explore →</span>
+                        </div>
+                    </a>
+                    <a href="category-sourcing.html" class="cat-card">
+                        <div class="cat-card-bg" style="background-image:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop')"></div>
+                        <div class="cat-card-overlay" style="background:linear-gradient(180deg, transparent 0%, rgba(239,68,68,0.35) 40%, rgba(239,68,68,0.92) 100%)">
+                            <h3>Sourcing & Supply</h3>
+                            <span class="cat-card-link">Explore →</span>
+                        </div>
+                    </a>
+                    <a href="category-market.html" class="cat-card">
+                        <div class="cat-card-bg" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop')"></div>
+                        <div class="cat-card-overlay" style="background:linear-gradient(180deg, transparent 0%, rgba(6,182,212,0.35) 40%, rgba(6,182,212,0.92) 100%)">
+                            <h3>Market Intelligence</h3>
+                            <span class="cat-card-link">Explore →</span>
+                        </div>
+                    </a>
+                    <a href="category-ai.html" class="cat-card">
+                        <div class="cat-card-bg" style="background-image:url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop')"></div>
+                        <div class="cat-card-overlay" style="background:linear-gradient(180deg, transparent 0%, rgba(99,102,241,0.35) 40%, rgba(99,102,241,0.92) 100%)">
+                            <h3>AI & Automation</h3>
+                            <span class="cat-card-link">Explore →</span>
+                        </div>
+                    </a>
+                    <a href="category-tools.html" class="cat-card">
+                        <div class="cat-card-bg" style="background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=250&fit=crop')"></div>
+                        <div class="cat-card-overlay" style="background:linear-gradient(180deg, transparent 0%, rgba(236,72,153,0.35) 40%, rgba(236,72,153,0.92) 100%)">
+                            <h3>Tool Reviews</h3>
+                            <span class="cat-card-link">Explore →</span>
+                        </div>
+                    </a>
+                    <a href="category-guides.html" class="cat-card">
+                        <div class="cat-card-bg" style="background-image:url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=250&fit=crop')"></div>
+                        <div class="cat-card-overlay" style="background:linear-gradient(180deg, transparent 0%, rgba(217,119,6,0.35) 40%, rgba(217,119,6,0.92) 100%)">
+                            <h3>Seller Guides</h3>
+                            <span class="cat-card-link">Explore →</span>
+                        </div>
+                    </a>
+                    <a href="category-news.html" class="cat-card">
+                        <div class="cat-card-bg" style="background-image:url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&h=250&fit=crop')"></div>
+                        <div class="cat-card-overlay" style="background:linear-gradient(180deg, transparent 0%, rgba(59,130,246,0.35) 40%, rgba(99,102,241,0.92) 100%)">
+                            <h3>Nexscope News</h3>
+                            <span class="cat-card-link">Explore →</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- SECTION 3: Latest Posts Grid (12 Items) -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
-        <h2 class="text-2xl font-bold text-white mb-10">Latest Articles</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <div class="cta-banner-inner">
+            <div class="cta-banner-text">
+                <h2>Ecommerce Intelligence. Zero Guesswork.</h2>
+                <p>Join thousands of ecommerce sellers using AI-powered product research to find winning niches faster.</p>
+            </div>
+            <a href="https://www.nexscope.ai" class="cta-banner-btn">Get Started</a>
+        </div>
+    </section>
+    
+    <!-- ARTICLES -->
+    <section class="articles-section">
+        <div class="articles-header">
+            <h2 class="articles-title">Latest Articles</h2>
+        </div>
+        <div class="articles-grid" id="articlesGrid">
             
-            <!-- Loop 12 items -->
-            <!-- Card 1 -->
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:bg-bg-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
-                <a href="/blog/article-template.html" class="block flex-1 flex flex-col">
-                    <div class="relative aspect-video bg-[#0F1219] overflow-hidden border-b border-white/5">
-                        <div class="absolute inset-0 flex items-center justify-center text-slate-700 text-sm font-medium">Image</div>
+            <a href="openclaw-amazon-10-use-cases.html" class="article-card" data-title="OpenClaw for Amazon Sellers: 10 Use Cases That Work in 2026">
+                <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774424200114_cover-openclaw-amazon-sellers.png" alt="AI &amp; Automation">
+                <div class="article-card-content">
+                    <span class="article-tag">AI &amp; Automation</span>
+                    <h3>OpenClaw for Amazon Sellers: 10 Use Cases That Work in 2026</h3>
+                    <div class="article-card-meta">
+                        <span>Updated Mar 26, 2026</span> · <span>15 min read</span>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="mb-3"><span class="text-brand-400 text-xs font-bold uppercase tracking-wider">Strategy</span></div>
-                        <h3 class="text-xl font-bold text-white mb-0 leading-tight group-hover:text-brand-400 transition-colors">Amazon FBA Guide 2026: The Ultimate Profit Strategy</h3>
-                        <div class="mt-auto flex items-center justify-between text-xs text-slate-500 border-t border-white/5 pt-4 mt-6">
-                            <span>15 min read</span>
-                            <span>Updated Mar 9, 2026</span>
-                        </div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            <a href="how-to-find-products-to-sell-on-amazon.html" class="article-card" data-title="How to Find Products to Sell on Amazon: 7 Proven Methods">
+                <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774510009167_amazon-product-research-cover-with-logo.png" alt="Product Research">
+                <div class="article-card-content">
+                    <span class="article-tag">Product Research</span>
+                    <h3>How to Find Products to Sell on Amazon: 7 Proven Methods</h3>
+                    <div class="article-card-meta">
+                        <span>Updated Mar 26, 2026</span> · <span>10 min read</span>
                     </div>
-                </a>
-            </article>
-
-            <!-- Card 2 -->
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:bg-bg-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
-                <a href="#" class="block flex-1 flex flex-col">
-                    <div class="relative aspect-video bg-[#0F1219] border-b border-white/5"></div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="mb-3"><span class="text-green-400 text-xs font-bold uppercase tracking-wider">Data</span></div>
-                        <h3 class="text-xl font-bold text-white mb-0 leading-tight group-hover:text-brand-400 transition-colors">Real Profit Calculation: Hidden FBA Fees You Missed</h3>
-                        <div class="mt-auto flex items-center justify-between text-xs text-slate-500 border-t border-white/5 pt-4 mt-6">
-                            <span>8 min read</span>
-                            <span>Published Mar 5, 2026</span>
-                        </div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+<a href="how-to-start-selling-on-amazon-ai-guide.html" class="article-card" data-title="How to Start Selling on Amazon in 2026: AI-Powered Guide">
+                <img src="https://nexscope-test.oss-us-east-1.aliyuncs.com/uploads/1774522057480_amazon-selling-guide-cover-with-logo.png" alt="Amazon Selling Guide">
+                <div class="article-card-content">
+                    <span class="article-tag">Seller Guides</span>
+                    <h3>How to Start Selling on Amazon in 2026: AI-Powered Guide</h3>
+                    <div class="article-card-meta">
+                        <span>Updated Mar 27, 2026</span> · <span>15 min read</span>
                     </div>
-                </a>
-            </article>
-
-            <!-- Card 3 -->
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden hover:border-brand-500/30 hover:bg-bg-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
-                <a href="#" class="block flex-1 flex flex-col">
-                    <div class="relative aspect-video bg-[#0F1219] border-b border-white/5"></div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="mb-3"><span class="text-purple-400 text-xs font-bold uppercase tracking-wider">AI Tools</span></div>
-                        <h3 class="text-xl font-bold text-white mb-0 leading-tight group-hover:text-brand-400 transition-colors">Nexscope vs. Helium 10: Which Agent Wins?</h3>
-                        <div class="mt-auto flex items-center justify-between text-xs text-slate-500 border-t border-white/5 pt-4 mt-6">
-                            <span>10 min read</span>
-                            <span>Published Mar 1, 2026</span>
-                        </div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            
+            <a href="#" class="article-card" data-title="PPC Campaign Optimization: Maximize ROI on Ad Spend">
+                <img src="https://via.placeholder.com/400x225/F5F3FF/7C3AED?text=PPC+Strategy" alt="PPC">
+                <div class="article-card-content">
+                    <span class="article-tag">PPC & Ads</span>
+                    <h3>PPC Campaign Optimization: Maximize ROI on Ad Spend</h3>
+                    <div class="article-card-meta">
+                        <span>Mar 10, 2026</span> · <span>11 min read</span>
                     </div>
-                </a>
-            </article>
-
-            <!-- Repeats for 4-12 (Simulated) -->
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-60"><div class="aspect-video bg-[#0F1219]"></div><div class="p-6"><h3 class="text-xl font-bold text-white">4. Automating PPC Campaigns</h3></div></article>
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-60"><div class="aspect-video bg-[#0F1219]"></div><div class="p-6"><h3 class="text-xl font-bold text-white">5. 2026 Product Trends</h3></div></article>
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-60"><div class="aspect-video bg-[#0F1219]"></div><div class="p-6"><h3 class="text-xl font-bold text-white">6. Supplier Negotiation Scripts</h3></div></article>
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-60"><div class="aspect-video bg-[#0F1219]"></div><div class="p-6"><h3 class="text-xl font-bold text-white">7. TikTok Shop Integration</h3></div></article>
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-60"><div class="aspect-video bg-[#0F1219]"></div><div class="p-6"><h3 class="text-xl font-bold text-white">8. Inventory Management 101</h3></div></article>
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-60"><div class="aspect-video bg-[#0F1219]"></div><div class="p-6"><h3 class="text-xl font-bold text-white">9. Brand Registry Guide</h3></div></article>
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-60"><div class="aspect-video bg-[#0F1219]"></div><div class="p-6"><h3 class="text-xl font-bold text-white">10. Listing Optimization SEO</h3></div></article>
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-60"><div class="aspect-video bg-[#0F1219]"></div><div class="p-6"><h3 class="text-xl font-bold text-white">11. Competitor Spying Tactics</h3></div></article>
-            <article class="bg-bg-card rounded-2xl border border-white/5 overflow-hidden group flex flex-col h-full opacity-60"><div class="aspect-video bg-[#0F1219]"></div><div class="p-6"><h3 class="text-xl font-bold text-white">12. Q4 Holiday Prep Checklist</h3></div></article>
-
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            
+            <a href="#" class="article-card" data-title="PPC Campaign Optimization: Maximize ROI on Ad Spend">
+                <img src="https://via.placeholder.com/400x225?text=PPC+Strategy" alt="PPC">
+                <div class="article-card-content">
+                    <span class="article-tag">PPC & Ads</span>
+                    <h3>PPC Campaign Optimization: Maximize ROI on Ad Spend</h3>
+                    <div class="article-card-meta">
+                        <span>Mar 10, 2026</span> · <span>11 min read</span>
+                    </div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            
+            <a href="#" class="article-card" data-title="A+ Content Best Practices: Convert Browsers to Buyers">
+                <img src="https://via.placeholder.com/400x225?text=A%2B+Content" alt="A+ Content">
+                <div class="article-card-content">
+                    <span class="article-tag">Listing Optimization</span>
+                    <h3>A+ Content Best Practices: Convert Browsers to Buyers</h3>
+                    <div class="article-card-meta">
+                        <span>Mar 5, 2026</span> · <span>8 min read</span>
+                    </div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            
+            <a href="#" class="article-card" data-title="FBA Fees Breakdown 2026: Calculate Your Margins">
+                <img src="https://via.placeholder.com/400x225?text=FBA+Fees" alt="FBA Fees">
+                <div class="article-card-content">
+                    <span class="article-tag">Profit & FBA</span>
+                    <h3>FBA Fees Breakdown 2026: Calculate Your Margins</h3>
+                    <div class="article-card-meta">
+                        <span>Mar 1, 2026</span> · <span>10 min read</span>
+                    </div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            
+            <a href="#" class="article-card" data-title="Competitor Analysis Tools: Track and Outrank">
+                <img src="https://via.placeholder.com/400x225?text=Competitor+Analysis" alt="Competitor Analysis">
+                <div class="article-card-content">
+                    <span class="article-tag">Market Intelligence</span>
+                    <h3>Competitor Analysis Tools: Track and Outrank</h3>
+                    <div class="article-card-meta">
+                        <span>Feb 25, 2026</span> · <span>9 min read</span>
+                    </div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            
+            <a href="#" class="article-card" data-title="Supplier Negotiation Guide: Get Better Prices">
+                <img src="https://via.placeholder.com/400x225?text=Supplier+Guide" alt="Supplier">
+                <div class="article-card-content">
+                    <span class="article-tag">Sourcing & Supply</span>
+                    <h3>Supplier Negotiation Guide: Get Better Prices</h3>
+                    <div class="article-card-meta">
+                        <span>Feb 20, 2026</span> · <span>11 min read</span>
+                    </div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            
+            <a href="#" class="article-card" data-title="AI Review Analysis & Customer Insights">
+                <img src="https://via.placeholder.com/400x225?text=Review+Analysis" alt="Review Analysis">
+                <div class="article-card-content">
+                    <span class="article-tag">AI & Automation</span>
+                    <h3>AI Review Analysis & Customer Insights</h3>
+                    <div class="article-card-meta">
+                        <span>Feb 15, 2026</span> · <span>8 min read</span>
+                    </div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            
+            <a href="#" class="article-card" data-title="Best Amazon Seller Tools 2026: Feature Comparison">
+                <img src="https://via.placeholder.com/400x225?text=Tool+Comparison" alt="Tools">
+                <div class="article-card-content">
+                    <span class="article-tag">Tool Reviews</span>
+                    <h3>Best Amazon Seller Tools 2026: Feature Comparison</h3>
+                    <div class="article-card-meta">
+                        <span>Feb 10, 2026</span> · <span>12 min read</span>
+                    </div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            
+            <a href="#" class="article-card" data-title="Amazon Seller Fundamentals: Complete Step-by-Step Guide">
+                <img src="https://via.placeholder.com/400x225?text=Seller+Guide" alt="Guide">
+                <div class="article-card-content">
+                    <span class="article-tag">Seller Guides</span>
+                    <h3>Amazon Seller Fundamentals: Complete Step-by-Step Guide</h3>
+                    <div class="article-card-meta">
+                        <span>Feb 5, 2026</span> · <span>15 min read</span>
+                    </div>
+                    <div class="article-card-readmore">Read Now →</div>
+                </div>
+            </a>
+            
         </div>
-
-        <!-- Pagination -->
-        <div class="flex justify-center items-center gap-2">
-            <a href="#" class="px-4 py-2 rounded-lg border border-white/10 text-slate-500 text-sm hover:border-white/30 hover:text-white transition-colors disabled cursor-not-allowed">Previous</a>
-            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-brand-500 text-white font-bold text-sm shadow-[0_0_10px_rgba(14,165,233,0.3)]">1</a>
-            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-slate-400 hover:bg-white/5 hover:text-white transition-colors text-sm">2</a>
-            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-slate-400 hover:bg-white/5 hover:text-white transition-colors text-sm">3</a>
-            <span class="text-slate-600 px-2">...</span>
-            <a href="#" class="px-4 py-2 rounded-lg border border-white/10 text-slate-400 text-sm hover:border-brand-500 hover:text-brand-400 transition-colors">Next</a>
+        
+        <div class="pagination">
+            <span class="active">1</span>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">...</a>
+            <a href="#">Next →</a>
         </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-bg border-t border-white/5 py-12 mt-12 text-center text-slate-500 text-sm">
-        <p>© 2026 Nexscope Inc.</p>
+    </section>
+    
+    <footer>
+        <p>© 2026 Nexscope Inc. All rights reserved. · <a href="https://www.nexscope.ai">nexscope.ai</a></p>
     </footer>
-
+    
+    <script>
+        function scrollCarousel(direction) {
+            const container = document.getElementById('carouselContainer');
+            container.scrollLeft += direction * 320;
+        }
+        
+        function filterArticles() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.article-card');
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                card.style.display = title.includes(query) ? '' : 'none';
+            });
+        }
+    </script>
 </body>
 </html>
