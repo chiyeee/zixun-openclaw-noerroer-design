@@ -143,6 +143,14 @@
         .pagination .active { background: #3B82F6; color: white; border-color: #3B82F6; }
         
         /* FOOTER */
+
+        /* Category Filter Tabs */
+        .category-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+        .category-tab { padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; border: 1.5px solid #E5E7EB; background: white; color: #6B7280; cursor: pointer; transition: all 0.2s; text-decoration: none; white-space: nowrap; }
+        .category-tab:hover { border-color: #3B82F6; color: #3B82F6; }
+        .category-tab.active { background: #3B82F6; color: white; border-color: #3B82F6; }
+        .category-tab .tab-count { font-weight: 400; opacity: 0.8; margin-left: 4px; font-size: 11px; }
+
         footer { background: #111827; padding: 3rem 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; }
         footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
         footer a:hover { color: white; }
@@ -287,6 +295,19 @@
     <section class="articles-section">
         <div class="articles-header">
             <h2 class="articles-title">Latest Articles</h2>
+
+            <div class="category-tabs" id="categoryTabs">
+                <button class="category-tab active" data-category="all">All<span class="tab-count">12</span></button>
+                <button class="category-tab" data-category="AI &amp; Automation">AI & Automation<span class="tab-count">2</span></button>
+                <button class="category-tab" data-category="Seller Guides">Seller Guides<span class="tab-count">2</span></button>
+                <button class="category-tab" data-category="Product Research">Product Research<span class="tab-count">1</span></button>
+                <button class="category-tab" data-category="PPC &amp; Ads">PPC & Ads<span class="tab-count">2</span></button>
+                <button class="category-tab" data-category="Listing Optimization">Listing Optimization<span class="tab-count">1</span></button>
+                <button class="category-tab" data-category="Profit &amp; FBA">Profit & FBA<span class="tab-count">1</span></button>
+                <button class="category-tab" data-category="Market Intelligence">Market Intelligence<span class="tab-count">1</span></button>
+                <button class="category-tab" data-category="Sourcing &amp; Supply">Sourcing & Supply<span class="tab-count">1</span></button>
+                <button class="category-tab" data-category="Tool Reviews">Tool Reviews<span class="tab-count">1</span></button>
+            </div>
         </div>
         <div class="articles-grid" id="articlesGrid">
             
@@ -461,6 +482,36 @@
                 card.style.display = title.includes(query) ? '' : 'none';
             });
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.category-tab');
+            const cards = document.querySelectorAll('#articlesGrid .article-card');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    
+                    cards.forEach(card => {
+                        if (category === 'all') {
+                            card.style.display = '';
+                        } else {
+                            const cardTag = card.querySelector('.article-tag');
+                            if (cardTag && cardTag.textContent.trim() === category.replace(/&amp;/g, '&')) {
+                                card.style.display = '';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>
