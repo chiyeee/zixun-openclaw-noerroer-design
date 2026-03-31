@@ -326,6 +326,8 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
             </a>
             
         </div>
+        <div class="no-results" id="noResults">No articles found</div>
+        <div class="pagination" id="pagination"></div>
     </section>
 <script>
         function scrollCarousel(direction) {
@@ -338,7 +340,6 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('[Nexscope] Blog JS loaded, cards:', document.querySelectorAll('#articlesGrid .article-card').length);
             const ITEMS_PER_PAGE = 12;
             const grid = document.getElementById('articlesGrid');
             const allCards = Array.from(grid.querySelectorAll('.article-card'));
@@ -419,8 +420,7 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
                 currentQuery = searchInput.value.toLowerCase().trim();
                 currentPage = 1;
                 render();
-                console.log('[Nexscope] Search:', currentQuery, 'Found:', getFilteredCards().length);
-                // Always scroll to results area
+                // Scroll to results area
                 document.querySelector('.articles-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
             
