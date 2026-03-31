@@ -9,16 +9,8 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: #1F2937; background: #FFFFFF; }
-        
-        nav { background: rgba(255,255,255,0.95); border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
-        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
-        .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 16px; }
-        .nav-logo-text { font-size: 20px; font-weight: 700; color: #111827; }
-        .nav-link { text-decoration: none; color: #6B7280; font-weight: 500; font-size: 14px; transition: color 0.2s; }
-        .nav-link:hover { color: #3B82F6; }
-        
-        .banner {
+
+.banner {
             background: radial-gradient(ellipse at 30% 50%, rgba(59,130,246,0.08), rgba(139,92,246,0.05)),
                         radial-gradient(ellipse at 70% 80%, rgba(59,130,246,0.08), rgba(139,92,246,0.05));
             padding: 3rem 2rem 2.5rem;
@@ -64,27 +56,12 @@
         }
         .pagination a:hover { background: #F3F4F6; }
         .pagination .active { background: #3B82F6; color: white; border-color: #3B82F6; }
-        
-        footer { background: #111827; padding: 3rem 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 3rem; }
-        footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
         footer a:hover { color: white; }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <div class="nav-logo-icon">N</div>
-                <span class="nav-logo-text">Nexscope</span>
-            </a>
-            <div style="display:flex;gap:2rem;align-items:center;">
-                <a href="index.html" class="nav-link">Blog</a>
-                <a href="https://www.nexscope.ai" class="nav-link" style="background:#3B82F6;color:white;padding:8px 20px;border-radius:6px;">Get Started</a>
-            </div>
-        </div>
-    </nav>
-    
-    <section class="banner">
+<section class="banner">
         <div class="banner-inner">
             <div class="banner-breadcrumb">
                 <a href="index.html">Home</a> &nbsp;/&nbsp; <a href="index.html">Blog</a> &nbsp;/&nbsp; <span style="color:#111827;font-weight:500">Product Research</span>
@@ -211,9 +188,5 @@
             <a href="#">Next →</a>
         </div>
     </section>
-    
-    <footer>
-        <p>&copy; 2026 Nexscope Inc. All rights reserved. &middot; <a href="https://www.nexscope.ai">nexscope.ai</a></p>
-    </footer>
 </body>
 </html>

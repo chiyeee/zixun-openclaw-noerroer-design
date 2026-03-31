@@ -10,15 +10,8 @@
         body { font-family: 'Inter', sans-serif; color: #1F2937; background: #FFFFFF; }
         
         /* NAV */
-        nav { background: rgba(255,255,255,0.95); border-bottom: 1px solid #E5E7EB; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
-        .nav-container { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem;  }
-        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
-        .nav-logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 16px; }
-        .nav-logo-text { font-size: 20px; font-weight: 700; color: #111827; }
-        .nav-link { text-decoration: none; color: #6B7280; font-weight: 500; font-size: 14px; transition: color 0.2s; }
-        .nav-link:hover { color: #3B82F6; }
-        
-        /* HERO */
+
+/* HERO */
         .hero { 
             background: linear-gradient(135deg, #1E3A5F 0%, #1E293B 50%, #312E81 100%);
             padding: 4rem 2rem 3rem; 
@@ -58,8 +51,8 @@
         .categories-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
         .categories-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
         .categories-title { font-size: 1.25rem; font-weight: 600; color: #374151; }
-        .carousel-nav { display: flex; gap: 0.5rem; }
-        .carousel-btn { 
+        .carousel-
+.carousel-btn { 
             width: 36px; height: 36px; border-radius: 50%; border: 1px solid #D1D5DB; 
             background: white; cursor: pointer; display: flex; align-items: center; justify-content: center;
             color: #374151; font-size: 16px; transition: all 0.2s;
@@ -158,27 +151,12 @@
         .pagination button.active { background: #3B82F6; color: white; border-color: #3B82F6; }
         .pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
         .no-results { text-align: center; padding: 3rem; color: #9CA3AF; font-size: 15px; display: none; }
-
-        footer { background: #111827; padding: 3rem 2rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 14px; }
-        footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
         footer a:hover { color: white; }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <div class="nav-logo-icon">N</div>
-                <span class="nav-logo-text">Nexscope</span>
-            </a>
-            <div style="display:flex;gap:2rem;align-items:center;">
-                <a href="index.html" class="nav-link">Blog</a>
-                <a href="https://www.nexscope.ai" class="nav-link" style="background:#3B82F6;color:white;padding:8px 20px;border-radius:6px;">Get Started</a>
-            </div>
-        </div>
-    </nav>
-    
-    <!-- HERO -->
+<!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <h1>The Nexscope Blog</h1>
@@ -349,12 +327,7 @@
             
         </div>
     </section>
-    
-    <footer>
-        <p>© 2026 Nexscope Inc. All rights reserved. · <a href="https://www.nexscope.ai">nexscope.ai</a></p>
-    </footer>
-    
-    <script>
+<script>
         function scrollCarousel(direction) {
             const container = document.getElementById('carouselContainer');
             container.scrollLeft += direction * 320;
