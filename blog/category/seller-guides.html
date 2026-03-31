@@ -69,6 +69,8 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
             <h1>Seller Guides</h1>
             <p>Step-by-step guides for new and experienced ecommerce sellers.</p>
         </div>
+        <div class="no-results" id="noResults">No articles found</div>
+        <div class="pagination" id="pagination"></div>
     </section>
     
     <section class="content">
@@ -97,103 +99,51 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
                     <div class="article-card-meta">Updated Mar 27, 2026 · 15 min read</div>
                 </div>
             </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/FFFBEB/B45309?text=Private+Label" alt="Seller Guides">
-                <div class="article-card-content">
-                    <span class="article-tag">Seller Guides</span>
-                    <h3>Private Label 101: From Idea to First Sale</h3>
-                    <div class="article-card-meta">Jan 18, 2026 · 13 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/FFFBEB/B45309?text=Brand+Registry" alt="Seller Guides">
-                <div class="article-card-content">
-                    <span class="article-tag">Seller Guides</span>
-                    <h3>Amazon Brand Registry: Why You Need It</h3>
-                    <div class="article-card-meta">Jan 5, 2026 · 7 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/FFFBEB/B45309?text=Account+Setup" alt="Seller Guides">
-                <div class="article-card-content">
-                    <span class="article-tag">Seller Guides</span>
-                    <h3>Seller Account Setup: Professional vs Individual</h3>
-                    <div class="article-card-meta">Dec 22, 2025 · 8 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/FFFBEB/B45309?text=First+30+Days" alt="Seller Guides">
-                <div class="article-card-content">
-                    <span class="article-tag">Seller Guides</span>
-                    <h3>Your First 30 Days on Amazon: Action Plan</h3>
-                    <div class="article-card-meta">Dec 10, 2025 · 14 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/FFFBEB/B45309?text=Account+Health" alt="Seller Guides">
-                <div class="article-card-content">
-                    <span class="article-tag">Seller Guides</span>
-                    <h3>Account Health Dashboard: Stay Green Always</h3>
-                    <div class="article-card-meta">Nov 28, 2025 · 9 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/FFFBEB/B45309?text=Launch+Strategy" alt="Seller Guides">
-                <div class="article-card-content">
-                    <span class="article-tag">Seller Guides</span>
-                    <h3>Product Launch Strategy: Week-by-Week Playbook</h3>
-                    <div class="article-card-meta">Nov 15, 2025 · 12 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/FFFBEB/B45309?text=IP+Protection" alt="Seller Guides">
-                <div class="article-card-content">
-                    <span class="article-tag">Seller Guides</span>
-                    <h3>Intellectual Property Protection for Amazon Sellers</h3>
-                    <div class="article-card-meta">Nov 5, 2025 · 10 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/FFFBEB/B45309?text=Scaling" alt="Seller Guides">
-                <div class="article-card-content">
-                    <span class="article-tag">Seller Guides</span>
-                    <h3>Scaling from $10K to $100K/Month: What Changes</h3>
-                    <div class="article-card-meta">Oct 25, 2025 · 13 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/FFFBEB/B45309?text=Wholesale" alt="Seller Guides">
-                <div class="article-card-content">
-                    <span class="article-tag">Seller Guides</span>
-                    <h3>Wholesale on Amazon: Alternative to Private Label</h3>
-                    <div class="article-card-meta">Oct 15, 2025 · 11 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/FFFBEB/B45309?text=Returns" alt="Seller Guides">
-                <div class="article-card-content">
-                    <span class="article-tag">Seller Guides</span>
-                    <h3>Managing Returns & Refunds: Protect Your Margin</h3>
-                    <div class="article-card-meta">Oct 5, 2025 · 8 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/FFFBEB/B45309?text=Exit+Strategy" alt="Seller Guides">
-                <div class="article-card-content">
-                    <span class="article-tag">Seller Guides</span>
-                    <h3>Selling Your Amazon Business: Exit Strategy Guide</h3>
-                    <div class="article-card-meta">Sep 25, 2025 · 15 min read</div>
-                </div>
-            </a>
-        </div>
-        <div class="pagination">
-            <a href="#">← Prev</a>
-            <span class="active">1</span>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">...</a>
-            <a href="#">Next →</a>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ITEMS_PER_PAGE = 12;
+            const grid = document.querySelector('.articles-grid');
+            const allCards = Array.from(grid.querySelectorAll('.article-card'));
+            const pagination = document.getElementById('pagination');
+            const noResults = document.getElementById('noResults');
+            let currentPage = 1;
+            
+            function render() {
+                const totalPages = Math.max(1, Math.ceil(allCards.length / ITEMS_PER_PAGE));
+                if (currentPage > totalPages) currentPage = totalPages;
+                const start = (currentPage - 1) * ITEMS_PER_PAGE;
+                const end = start + ITEMS_PER_PAGE;
+                
+                allCards.forEach(c => c.style.display = 'none');
+                allCards.slice(start, end).forEach(c => c.style.display = '');
+                noResults.style.display = allCards.length === 0 ? 'block' : 'none';
+                
+                pagination.innerHTML = '';
+                if (totalPages > 1) {
+                    const prev = document.createElement('button');
+                    prev.textContent = '\u2190 Prev';
+                    prev.disabled = currentPage === 1;
+                    prev.onclick = () => { currentPage--; render(); window.scrollTo({top: grid.offsetTop - 100, behavior: 'smooth'}); };
+                    pagination.appendChild(prev);
+                    for (let i = 1; i <= totalPages; i++) {
+                        const btn = document.createElement('button');
+                        btn.textContent = i;
+                        btn.className = i === currentPage ? 'active' : '';
+                        btn.onclick = () => { currentPage = i; render(); window.scrollTo({top: grid.offsetTop - 100, behavior: 'smooth'}); };
+                        pagination.appendChild(btn);
+                    }
+                    const next = document.createElement('button');
+                    next.textContent = 'Next \u2192';
+                    next.disabled = currentPage === totalPages;
+                    next.onclick = () => { currentPage++; render(); window.scrollTo({top: grid.offsetTop - 100, behavior: 'smooth'}); };
+                    pagination.appendChild(next);
+                }
+            }
+            render();
+        });
+    </script>
 </body>
 </html>

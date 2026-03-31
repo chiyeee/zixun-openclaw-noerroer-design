@@ -69,6 +69,8 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
             <h1>Market Intelligence</h1>
             <p>Track competitors, analyze market trends, and make data-driven decisions.</p>
         </div>
+        <div class="no-results" id="noResults">No articles found</div>
+        <div class="pagination" id="pagination"></div>
     </section>
     
     <section class="content">
@@ -89,111 +91,51 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
             </select>
         </div>
         <div class="articles-grid">
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Competitor+Analysis" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>Competitor Analysis Tools: Track and Outrank</h3>
-                    <div class="article-card-meta">Feb 25, 2026 · 9 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Market+Trends" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>2026 Ecommerce Trends: What Data Shows Us</h3>
-                    <div class="article-card-meta">Feb 1, 2026 · 10 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Category+Analysis" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>Category Deep Dives: Finding Underserved Markets</h3>
-                    <div class="article-card-meta">Jan 20, 2026 · 8 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Price+Tracking" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>Price Tracking at Scale: Monitor 1000+ ASINs</h3>
-                    <div class="article-card-meta">Jan 8, 2026 · 9 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Market+Share" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>Estimating Market Share Without Access to Sales Data</h3>
-                    <div class="article-card-meta">Dec 25, 2025 · 11 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Trend+Spotting" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>Trend Spotting: Identify Rising Niches Early</h3>
-                    <div class="article-card-meta">Dec 12, 2025 · 10 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Review+Sentiment" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>Review Sentiment Analysis: What Customers Really Want</h3>
-                    <div class="article-card-meta">Dec 1, 2025 · 8 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Amazon+Algorithm" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>Amazon A10 Algorithm: What Sellers Need to Know</h3>
-                    <div class="article-card-meta">Nov 20, 2025 · 12 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Seasonality" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>Seasonality Maps: Plan Your Inventory Calendar</h3>
-                    <div class="article-card-meta">Nov 10, 2025 · 9 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Market+Reports" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>Building Custom Market Reports for Stakeholders</h3>
-                    <div class="article-card-meta">Nov 1, 2025 · 10 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Global+Markets" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>Global Marketplace Expansion: EU, UK, Japan & More</h3>
-                    <div class="article-card-meta">Oct 20, 2025 · 13 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/ECFEFF/0891B2?text=Data+Sources" alt="Market Intelligence">
-                <div class="article-card-content">
-                    <span class="article-tag">Market Intelligence</span>
-                    <h3>Best Data Sources for Ecommerce Market Research</h3>
-                    <div class="article-card-meta">Oct 10, 2025 · 8 min read</div>
-                </div>
-            </a>
-        </div>
-        <div class="pagination">
-            <a href="#">← Prev</a>
-            <span class="active">1</span>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">...</a>
-            <a href="#">Next →</a>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ITEMS_PER_PAGE = 12;
+            const grid = document.querySelector('.articles-grid');
+            const allCards = Array.from(grid.querySelectorAll('.article-card'));
+            const pagination = document.getElementById('pagination');
+            const noResults = document.getElementById('noResults');
+            let currentPage = 1;
+            
+            function render() {
+                const totalPages = Math.max(1, Math.ceil(allCards.length / ITEMS_PER_PAGE));
+                if (currentPage > totalPages) currentPage = totalPages;
+                const start = (currentPage - 1) * ITEMS_PER_PAGE;
+                const end = start + ITEMS_PER_PAGE;
+                
+                allCards.forEach(c => c.style.display = 'none');
+                allCards.slice(start, end).forEach(c => c.style.display = '');
+                noResults.style.display = allCards.length === 0 ? 'block' : 'none';
+                
+                pagination.innerHTML = '';
+                if (totalPages > 1) {
+                    const prev = document.createElement('button');
+                    prev.textContent = '\u2190 Prev';
+                    prev.disabled = currentPage === 1;
+                    prev.onclick = () => { currentPage--; render(); window.scrollTo({top: grid.offsetTop - 100, behavior: 'smooth'}); };
+                    pagination.appendChild(prev);
+                    for (let i = 1; i <= totalPages; i++) {
+                        const btn = document.createElement('button');
+                        btn.textContent = i;
+                        btn.className = i === currentPage ? 'active' : '';
+                        btn.onclick = () => { currentPage = i; render(); window.scrollTo({top: grid.offsetTop - 100, behavior: 'smooth'}); };
+                        pagination.appendChild(btn);
+                    }
+                    const next = document.createElement('button');
+                    next.textContent = 'Next \u2192';
+                    next.disabled = currentPage === totalPages;
+                    next.onclick = () => { currentPage++; render(); window.scrollTo({top: grid.offsetTop - 100, behavior: 'smooth'}); };
+                    pagination.appendChild(next);
+                }
+            }
+            render();
+        });
+    </script>
 </body>
 </html>

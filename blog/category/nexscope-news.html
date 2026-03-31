@@ -69,6 +69,8 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
             <h1>Nexscope News</h1>
             <p>Product updates, new features, and announcements from the Nexscope team.</p>
         </div>
+        <div class="no-results" id="noResults">No articles found</div>
+        <div class="pagination" id="pagination"></div>
     </section>
     
     <section class="content">
@@ -89,111 +91,51 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
             </select>
         </div>
         <div class="articles-grid">
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Nexscope+Launch" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>Introducing Nexscope: AI-Powered Ecommerce Intelligence</h3>
-                    <div class="article-card-meta">Mar 25, 2026 · 5 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=March+Update" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>March 2026 Update: What's New in Nexscope</h3>
-                    <div class="article-card-meta">Mar 15, 2026 · 4 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=AI+Engine+V2" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>Nexscope AI Engine V2: Faster, Smarter, More Accurate</h3>
-                    <div class="article-card-meta">Feb 28, 2026 · 6 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Pricing+Update" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>New Pricing Plans: More Value at Every Tier</h3>
-                    <div class="article-card-meta">Feb 10, 2026 · 3 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Integration" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>Shopify Integration Now Live: Cross-Platform Insights</h3>
-                    <div class="article-card-meta">Jan 28, 2026 · 5 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Beta+Program" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>Join the Nexscope Beta: Early Access to New Features</h3>
-                    <div class="article-card-meta">Jan 15, 2026 · 4 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Year+in+Review" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>2025 Year in Review: Building Nexscope</h3>
-                    <div class="article-card-meta">Jan 1, 2026 · 8 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=API+Launch" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>Nexscope API: Build Custom Integrations</h3>
-                    <div class="article-card-meta">Dec 20, 2025 · 6 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Community" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>Nexscope Community: Discord Launch & Events</h3>
-                    <div class="article-card-meta">Dec 10, 2025 · 3 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Mobile+App" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>Nexscope Mobile App: Check Metrics on the Go</h3>
-                    <div class="article-card-meta">Nov 28, 2025 · 5 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Partner+Program" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>Nexscope Partner Program: Earn While You Refer</h3>
-                    <div class="article-card-meta">Nov 15, 2025 · 4 min read</div>
-                </div>
-            </a>
-            <a href="#" class="article-card">
-                <img src="https://via.placeholder.com/400x225/EFF6FF/3B82F6?text=Roadmap" alt="Nexscope News">
-                <div class="article-card-content">
-                    <span class="article-tag">Nexscope News</span>
-                    <h3>2026 Product Roadmap: What We're Building Next</h3>
-                    <div class="article-card-meta">Nov 1, 2025 · 7 min read</div>
-                </div>
-            </a>
-        </div>
-        <div class="pagination">
-            <a href="#">← Prev</a>
-            <span class="active">1</span>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">...</a>
-            <a href="#">Next →</a>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ITEMS_PER_PAGE = 12;
+            const grid = document.querySelector('.articles-grid');
+            const allCards = Array.from(grid.querySelectorAll('.article-card'));
+            const pagination = document.getElementById('pagination');
+            const noResults = document.getElementById('noResults');
+            let currentPage = 1;
+            
+            function render() {
+                const totalPages = Math.max(1, Math.ceil(allCards.length / ITEMS_PER_PAGE));
+                if (currentPage > totalPages) currentPage = totalPages;
+                const start = (currentPage - 1) * ITEMS_PER_PAGE;
+                const end = start + ITEMS_PER_PAGE;
+                
+                allCards.forEach(c => c.style.display = 'none');
+                allCards.slice(start, end).forEach(c => c.style.display = '');
+                noResults.style.display = allCards.length === 0 ? 'block' : 'none';
+                
+                pagination.innerHTML = '';
+                if (totalPages > 1) {
+                    const prev = document.createElement('button');
+                    prev.textContent = '\u2190 Prev';
+                    prev.disabled = currentPage === 1;
+                    prev.onclick = () => { currentPage--; render(); window.scrollTo({top: grid.offsetTop - 100, behavior: 'smooth'}); };
+                    pagination.appendChild(prev);
+                    for (let i = 1; i <= totalPages; i++) {
+                        const btn = document.createElement('button');
+                        btn.textContent = i;
+                        btn.className = i === currentPage ? 'active' : '';
+                        btn.onclick = () => { currentPage = i; render(); window.scrollTo({top: grid.offsetTop - 100, behavior: 'smooth'}); };
+                        pagination.appendChild(btn);
+                    }
+                    const next = document.createElement('button');
+                    next.textContent = 'Next \u2192';
+                    next.disabled = currentPage === totalPages;
+                    next.onclick = () => { currentPage++; render(); window.scrollTo({top: grid.offsetTop - 100, behavior: 'smooth'}); };
+                    pagination.appendChild(next);
+                }
+            }
+            render();
+        });
+    </script>
 </body>
 </html>
