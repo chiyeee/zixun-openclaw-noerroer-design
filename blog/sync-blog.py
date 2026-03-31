@@ -488,6 +488,78 @@ def sync_article(md_filename):
     }
 
 
+
+
+# ═══════════════════════════════════════════════════════════
+# ARTICLE COUNT UPDATERS
+# ═══════════════════════════════════════════════════════════
+
+def _count_real_cards(page_html):
+    """Count real article cards (not placeholders) on a page."""
+    return len(re.findall(r'class="article-card"', page_html))
+
+
+def update_category_count(cat_page_path):
+    """Update the article count displayed on a category page."""
+    if not os.path.exists(cat_page_path):
+        return
+    with open(cat_page_path) as f:
+        html = f.read()
+    count = _count_real_cards(html)
+    label = f"{count} article" if count == 1 else f"{count} articles"
+    new_html = re.sub(r'<span class="content-count">[^<]*</span>',
+                      f'<span class="content-count">{label}</span>', html)
+    if new_html != html:
+        with open(cat_page_path, 'w') as f:
+            f.write(new_html)
+        print(f"    🔢 Category count → {label}")
+
+
+def update_author_count(author_page_path):
+    """Update the article count displayed on an author page."""
+    if not os.path.exists(author_page_path):
+        return
+    with open(author_page_path) as f:
+        html = f.read()
+    count = _count_real_cards(html)
+    label = f"{count} article" if count == 1 else f"{count} articles"
+    new_html = re.sub(r'<span class="articles-count">[^<]*</span>',
+                      f'<span class="articles-count">{label}</span>', html)
+    if new_html != html:
+        with open(author_page_path, 'w') as f:
+            f.write(new_html)
+        print(f"    🔢 Author count → {label}")
+
+
+def update_homepage_tabs(hp_path):
+    """Update the category tab counts on homepage based on real cards."""
+    if not os.path.exists(hp_path):
+        return
+    with open(hp_path) as f:
+        html = f.read()
+    
+    # Count cards per category
+    cards = re.findall(r'class="article-tag">([^<]+)<', html)
+    from collections import Counter
+    counts = Counter(cards)
+    total = len(cards)
+    
+    # Update "All (N)"
+    html = re.sub(r'data-category="all">All \(\d+\)',
+                  f'data-category="all">All ({total})', html)
+    
+    # Update each category tab
+    for cat, count in counts.items():
+        escaped = re.escape(cat)
+        html = re.sub(f'data-category="{escaped}">{escaped} \(\d+\)',
+                      f'data-category="{cat}">{cat} ({count})', html)
+    
+    # Remove tabs for categories with 0 articles (optional: keep them)
+    
+    with open(hp_path, 'w') as f:
+        f.write(html)
+    print(f"    🔢 Homepage tabs → All ({total}), {dict(counts)}")
+
 # ═══════════════════════════════════════════════════════════
 # MAIN
 # ═══════════════════════════════════════════════════════════
@@ -511,7 +583,19 @@ def main():
             update_homepage(r)
             update_category_page(r)
             update_author_page(r)
+            
+            # Update article counts
+            cat_page = CATEGORY_LINKS.get(r["category"])
+            if cat_page:
+                update_category_count(os.path.join(TARGET_DIR, cat_page))
+            author_info = AUTHORS.get(r["author"])
+            if author_info:
+                update_author_count(os.path.join(TARGET_DIR, author_info["page"]))
             print()
+    
+    # Update homepage tab counts
+    if results:
+        update_homepage_tabs(os.path.join(TARGET_DIR, "index.html"))
     
     print(f"🎉 Synced {len(results)} articles!")
     print(f"   Pages updated: homepage + {len(set(r['category'] for r in results))} category + {len(set(r['author'] for r in results))} author")
