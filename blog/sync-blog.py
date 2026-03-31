@@ -23,32 +23,32 @@ TEMPLATE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_templ
 AUTHORS = {
     "Henk Nie": {
         "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden"><img src="../images/authors/henk-nie.jpg" alt="Henk Nie" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>',
-        "page": "author/author-henk-nie.html",
+        "page": "author/henk-nie.html",
     },
     "Nexscope Team": {
         "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden;background:white"><img src="../images/authors/nexscope-team.png" alt="Nexscope Team" style="width:100%;height:100%;object-fit:contain;border-radius:50%"></div>',
-        "page": "author/author-nexscope-team.html",
+        "page": "author/nexscope-team.html",
     },
     "Zhiyi Wu": {
         "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden"><img src="../images/authors/zhiyi-wu.jpg" alt="Zhiyi Wu" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>',
-        "page": "author/author-zhiyi-wu.html",
+        "page": "author/zhiyi-wu.html",
     },
 }
 
 # ─── Category → Page Link ───
 CATEGORY_LINKS = {
-    "Product Research": "category/category-product-research.html",
-    "PPC & Ads": "category/category-ppc.html",
-    "Listing Optimization": "category/category-listing.html",
-    "Profit & FBA": "category/category-profit.html",
-    "Sourcing & Supply": "category/category-sourcing.html",
-    "Market Intelligence": "category/category-market.html",
-    "AI for Amazon Sellers": "category/category-ai.html",
-    "AI for Ecommerce": "category/category-ai.html",
-    "AI & Automation": "category/category-ai.html",
-    "Tool Reviews": "category/category-tools.html",
-    "Seller Guides": "category/category-guides.html",
-    "Nexscope News": "category/category-news.html",
+    "Product Research": "category/product-research.html",
+    "PPC & Ads": "category/ppc-ads.html",
+    "Listing Optimization": "category/listing-optimization.html",
+    "Profit & FBA": "category/profit-fba.html",
+    "Sourcing & Supply": "category/sourcing-supply.html",
+    "Market Intelligence": "category/market-intelligence.html",
+    "AI for Amazon Sellers": "category/ai-automation.html",
+    "AI for Ecommerce": "category/ai-automation.html",
+    "AI & Automation": "category/ai-automation.html",
+    "Tool Reviews": "category/tool-reviews.html",
+    "Seller Guides": "category/seller-guides.html",
+    "Nexscope News": "category/nexscope-news.html",
 }
 
 # ─── Category Tag Colors (for author/category pages with inline style) ───
