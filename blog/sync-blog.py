@@ -17,38 +17,38 @@ from html import escape
 
 SOURCE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "content")
 TARGET_DIR = os.path.dirname(os.path.abspath(__file__))
-TEMPLATE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "product-research-7-methods.html")
+TEMPLATE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_template.html")
 
 # ─── Author Mapping ───
 AUTHORS = {
     "Henk Nie": {
-        "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden"><img src="images/authors/henk-nie.jpg" alt="Henk Nie" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>',
-        "page": "author-henk-nie.html",
+        "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden"><img src="../images/authors/henk-nie.jpg" alt="Henk Nie" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>',
+        "page": "author/author-henk-nie.html",
     },
     "Nexscope Team": {
-        "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden;background:white"><img src="images/authors/nexscope-team.png" alt="Nexscope Team" style="width:100%;height:100%;object-fit:contain;border-radius:50%"></div>',
-        "page": "author-nexscope-team.html",
+        "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden;background:white"><img src="../images/authors/nexscope-team.png" alt="Nexscope Team" style="width:100%;height:100%;object-fit:contain;border-radius:50%"></div>',
+        "page": "author/author-nexscope-team.html",
     },
     "Zhiyi Wu": {
-        "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden"><img src="images/authors/zhiyi-wu.jpg" alt="Zhiyi Wu" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>',
-        "page": "author-zhiyi-wu.html",
+        "avatar_html": '<div class="author-avatar" style="padding:0;overflow:hidden"><img src="../images/authors/zhiyi-wu.jpg" alt="Zhiyi Wu" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>',
+        "page": "author/author-zhiyi-wu.html",
     },
 }
 
 # ─── Category → Page Link ───
 CATEGORY_LINKS = {
-    "Product Research": "category-product-research.html",
-    "PPC & Ads": "category-ppc.html",
-    "Listing Optimization": "category-listing.html",
-    "Profit & FBA": "category-profit.html",
-    "Sourcing & Supply": "category-sourcing.html",
-    "Market Intelligence": "category-market.html",
-    "AI for Amazon Sellers": "category-ai.html",
-    "AI for Ecommerce": "category-ai.html",
-    "AI & Automation": "category-ai.html",
-    "Tool Reviews": "category-tools.html",
-    "Seller Guides": "category-guides.html",
-    "Nexscope News": "category-news.html",
+    "Product Research": "category/category-product-research.html",
+    "PPC & Ads": "category/category-ppc.html",
+    "Listing Optimization": "category/category-listing.html",
+    "Profit & FBA": "category/category-profit.html",
+    "Sourcing & Supply": "category/category-sourcing.html",
+    "Market Intelligence": "category/category-market.html",
+    "AI for Amazon Sellers": "category/category-ai.html",
+    "AI for Ecommerce": "category/category-ai.html",
+    "AI & Automation": "category/category-ai.html",
+    "Tool Reviews": "category/category-tools.html",
+    "Seller Guides": "category/category-guides.html",
+    "Nexscope News": "category/category-news.html",
 }
 
 # ─── Category Tag Colors (for author/category pages with inline style) ───
@@ -262,7 +262,7 @@ def _insert_card_replacing_placeholder(page_html, new_card_html):
 
 def update_homepage(article):
     """Add article card to homepage, replacing a placeholder."""
-    hp_path = os.path.join(TARGET_DIR, "index.html")
+    hp_path = os.path.join(TARGET_DIR, "articles/" + out_name)
     with open(hp_path) as f:
         html = f.read()
     
@@ -391,7 +391,7 @@ def sync_article(md_filename):
     
     # Category
     category = meta.get("category", "")
-    cat_link = CATEGORY_LINKS.get(category, "index.html")
+    cat_link = CATEGORY_LINKS.get(category, "articles/" + out_name)
     
     # Split at FAQ
     faq_split = re.search(r'(<h2[^>]*>(?:Frequently Asked Questions|FAQ))', body_html)
@@ -413,18 +413,8 @@ def sync_article(md_filename):
     output = f'''{new_head}
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.html'">
-                <div class="nav-logo-icon">N</div>
-                <span class="nav-logo-text">Nexscope</span>
-            </div>
-            <a href="index.html" class="nav-link">Blog</a>
-        </div>
-    </nav>
-    
-    <div class="breadcrumbs">
-        <a href="index.html">Home</a> / <a href="index.html">Blog</a> / <a href="{cat_link}">{category}</a> / <span style="color: #3B82F6;">{meta["title"][:50]}...</span>
+<div class="breadcrumbs">
+        <a href="../index.html">Home</a> / <a href="../index.html">Blog</a> / <a href="../{cat_link}">{category}</a> / <span style="color: #3B82F6;">{meta["title"][:50]}...</span>
     </div>
     
     <div class="main-container">
@@ -436,7 +426,7 @@ def sync_article(md_filename):
             <div class="author-section">
                 {author["avatar_html"]}
                 <div class="author-info">
-                    <p>Written by <a href="{author["page"]}" class="author-link">{author_name}</a></p>
+                    <p>Written by <a href="../{author["page"]}" class="author-link">{author_name}</a></p>
                     <p style="color: #6B7280; font-size: 12px;">{display_date} &bull; {read_time} min read</p>
                 </div>
             </div>
@@ -468,10 +458,7 @@ def sync_article(md_filename):
         </aside>
     </div>
     
-    <footer>
-        <p>© 2026 Nexscope Inc. All rights reserved.</p>
-    </footer>
-    {article_schema}
+{article_schema}
     {faq_schema}
     {toc_js}
 </body>
@@ -484,7 +471,7 @@ def sync_article(md_filename):
     else:
         out_name = os.path.splitext(md_filename)[0] + ".html"
     
-    out_path = os.path.join(TARGET_DIR, out_name)
+    out_path = os.path.join(TARGET_DIR, "articles", out_name)
     with open(out_path, 'w') as f:
         f.write(output)
     
