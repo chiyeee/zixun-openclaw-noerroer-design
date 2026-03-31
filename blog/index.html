@@ -53,9 +53,9 @@
         .categories-title { font-size: 1.25rem; font-weight: 600; color: #374151; }
         .carousel-
 .carousel-btn { 
-            width: 36px; height: 36px; border-radius: 50%; border: 1px solid #D1D5DB; 
+            width: 44px; height: 44px; border-radius: 50%; border: 2px solid #D1D5DB; 
             background: white; cursor: pointer; display: flex; align-items: center; justify-content: center;
-            color: #374151; font-size: 16px; transition: all 0.2s;
+            color: #374151; font-size: 22px; transition: all 0.2s;
         }
         .carousel-btn:hover { background: #3B82F6; color: white; border-color: #3B82F6; }
         .carousel-container { overflow-x: auto; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
@@ -78,6 +78,9 @@
         .cat-card h3 { color: white; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
         .cat-card-link { color: rgba(255,255,255,0.95); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 4px; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
         
+        .carousel-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+        .carousel-progress { width: 120px; height: 4px; background: #E5E7EB; border-radius: 2px; overflow: hidden; }
+        .carousel-progress-bar { height: 100%; background: #1E293B; border-radius: 2px; transition: width 0.3s; width: 30%; }
         /* CTA BANNER */
         .cta-banner { 
             max-width: 1280px; margin: 3rem auto; padding: 0 2rem;
@@ -169,11 +172,8 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
     <section class="categories-section">
         <div class="categories-inner">
             <div class="categories-header">
-                <div class="categories-title">Choose your area of interest</div>
-                <div class="carousel-nav">
-                    <button class="carousel-btn" onclick="scrollCarousel(-1)">←</button>
-                    <button class="carousel-btn" onclick="scrollCarousel(1)">→</button>
-                </div>
+                <div class="categories-title">Choose Your Area of Interest</div>
+                
             </div>
             <div class="carousel-container" id="carouselContainer">
                 <div class="carousel">
@@ -338,7 +338,18 @@ footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
         function scrollCarousel(direction) {
             const container = document.getElementById('carouselContainer');
             container.scrollLeft += direction * 320;
+            setTimeout(updateProgress, 350);
         }
+        function updateProgress() {
+            const c = document.getElementById('carouselContainer');
+            const b = document.getElementById('carouselProgress');
+            if (c && b) {
+                const pct = c.scrollWidth <= c.clientWidth ? 100 :
+                    ((c.scrollLeft + c.clientWidth) / c.scrollWidth) * 100;
+                b.style.width = Math.min(100, Math.max(10, pct)) + '%';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateProgress);
         
         // Search handled by unified DOMContentLoaded script below
     </script>
